@@ -1,0 +1,21 @@
+<aura:component controller="Client_SDR_Mapping_ApexController" implements="flexipage:availableForAllPageTypes,force:appHostable,flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName">
+    <aura:attribute name="reps" type="Rep__c[]"> </aura:attribute>
+    <aura:attribute name="columns" type="List"> </aura:attribute>
+    <aura:attribute name="sortedBy" type="String" default="Region_Name__c"/>
+    <aura:attribute name="sortedDirection" type="String" default="asc"/>
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+
+    <div>
+        <lightning:datatable keyField="Id" 
+                             data="{!v.reps}" 
+                             columns="{!v.columns}" 
+                             hideCheckboxColumn="true" 
+                             onsave="{!c.SaveRepDetail}"
+                             sortedBy="{!v.sortedBy}"
+                         	 sortedDirection="{!v.sortedDirection}"
+                         	 onsort="{!c.handleSort}"
+                             onrowaction="{! c.handleRowAction }"
+                             />
+    </div>
+	
+</aura:component>

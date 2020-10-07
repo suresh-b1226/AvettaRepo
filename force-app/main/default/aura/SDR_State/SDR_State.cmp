@@ -1,0 +1,6 @@
+<aura:component >	
+    <aura:attribute name="state" type="State__c" required="true"></aura:attribute>
+    <div class="box draggable" draggable="true" ondragstart="{!c.onDragStart}">
+        {!v.state.Name}
+    </div>
+</aura:component>

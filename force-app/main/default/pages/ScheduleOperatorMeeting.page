@@ -1,0 +1,115 @@
+<apex:page standardController="Account" sidebar="false" showHeader="false" extensions="ScheduleOperatorMeetingController">
+    <style type="text/css">
+        body{
+            font-family:"Lucida Grande", “Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
+            font-size:12px;
+        }
+        p, h1, form, button{border:0; margin:0; padding:0;}
+        .spacer{clear:both; height:1px;}
+        /* ———– My Form ———– */
+        .myform{
+            margin:0 auto;
+            width:450px;
+            padding:14px;
+        }
+        /* ———– stylized ———– */
+        #stylized{
+            border:solid 2px #b7ddf2;
+            background:#ebf4fb;
+        }
+        #stylized h1 {
+            font-size:14px;
+            font-weight:bold;
+            margin-bottom:8px;
+        }
+        #stylized p{
+            font-size:11px;
+            color:#666666;
+            margin-bottom:20px;
+            border-bottom:solid 1px #b7ddf2;
+            padding-bottom:10px;
+        }
+        #stylized label{
+            padding-right: 8px;
+            display:block;
+            font-weight:bold;
+            text-align:right;
+            width:140px;
+            float:left;
+        }
+        #stylized .small{
+            color:#666666;
+            display:block;
+            font-size:11px;
+            font-weight:normal;
+            text-align:right;
+            width:140px;
+        }
+        #stylized input{
+            font-size:12px;
+            padding:3px 2px;
+            border:solid 1px #aacfe4;
+        }
+        #stylized button{
+            clear:both;
+            margin-left:150px;
+            width:125px;
+            height:31px;
+            background:#666666 url(img/button.png) no-repeat;
+            text-align:center;
+            line-height:31px;
+            color:#FFFFFF;
+            font-size:11px;
+            font-weight:bold;
+        }
+    </style>
+    <script>
+        function closeWindow()
+        {
+            top.window.opener.location.href = '/{!Account.Id}';
+            window.close();
+        }
+    </script>
+    <div id="stylized" class="myform" style="margin-top: 38px;">
+        <apex:form id="form">
+            <apex:pageMessages escape="false" id="message"/>
+            <h1>Prepare for your Account Review</h1>
+            <p></p>
+            <table class="detailList" border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td class="labelCol first  last">
+                            <label><span style="color:red;padding-right: 4px;">*</span>Appointment Date</label>
+                        </td>
+                        <td class="data2Col  first  last">
+                            <div class="requiredInput">
+                                <div class="requiredBlock"></div>
+                                <apex:inputField value="{!EventObject.StartDateTime}"/>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="labelCol first  last">
+                            <label><span style="color:red;padding-right: 4px;">*</span>Meeting Type</label>
+                        </td>
+                        <td class="data2Col  first  last">
+                            <div class="requiredInput">
+                                <div class="requiredBlock"></div>
+                                <apex:selectList value="{!EventType}" size="1" id="MeetingType">
+                                    <apex:selectOption itemLabel="--None--" itemValue=""/>
+                                    <apex:selectOption itemLabel="Account Review" itemValue="Account Review"/>
+                                    <apex:selectOption itemLabel="Training" itemValue="Training"/>
+                                </apex:selectList>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+           <div style="padding-top: 15px;text-align:center;height: 20px;width:400px">
+               <apex:commandButton value="Save" action="{!saveScheduleOperator}"/>
+               <apex:commandButton value="Cancel" onclick="window.close();"/>
+           </div>
+           <div class="spacer"></div>
+        </apex:form>
+    </div>
+</apex:page>

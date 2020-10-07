@@ -1,0 +1,200 @@
+<apex:page > 
+    <style type='text/css'>
+	.embeddedServiceHelpButton .helpButton .uiButton {
+		background-color: #0db14c;
+		font-family: "Arial", sans-serif;
+	}
+	.embeddedServiceHelpButton .helpButton .uiButton:focus {
+		outline: 1px solid #0db14c;
+	}
+</style>
+
+<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+<script type='text/javascript'>
+	var initESW = function(gslbBaseURL) {
+		embedded_svc.settings.displayHelpButton = true; //Or false
+		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
+
+		//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
+		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
+
+		//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
+		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
+
+		// Settings for Chat
+		embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
+               var englishValue = prechatFormData.find(function(item) {
+                return item.label.includes("Preferred Chat Language");
+                }).value;
+
+            if(englishValue.includes("English")) {
+                return "5730g000000Kz9VAAS";
+                }
+
+            var frenchValue = prechatFormData.find(function(item) {
+                return item.label.includes("Preferred Chat Language");
+                }).value;
+
+            if(frenchValue.includes("French")) {
+                return "57370000000blJxAAI";
+                }
+
+            var chinaValue = prechatFormData.find(function(item) {
+                return item.label.includes("Preferred Chat Language");
+                }).value;
+
+            if(chinaValue.includes("Chinese (China)")) {
+                return "57370000000blKvAAI";
+                }
+
+            var taiwanValue = prechatFormData.find(function(item) {
+                return item.label.includes("Preferred Chat Language");
+                }).value;
+
+            if(taiwanValue.includes("Chinese (Taiwan)")) {
+                return "57370000000blL0AAI";
+                }
+
+            var danishValue = prechatFormData.find(function(item) {
+                return item.label.includes("Preferred Chat Language");
+                }).value;
+
+            if(danishValue.includes("Danish")) {
+                return "57370000000blK7AAI";
+                }
+
+            var dutchValue = prechatFormData.find(function(item) {
+                return item.label.includes("Preferred Chat Language");
+                }).value;
+
+            if(dutchValue.includes("Dutch")) {
+                return "57370000000blKHAAY";
+                }
+
+            var finnishValue = prechatFormData.find(function(item) {
+                return item.label.includes("Preferred Chat Language");
+                }).value;
+
+            if(finnishValue.includes("Finnish")) {
+                return "57370000000blKgAAI";
+                }
+
+            var germanValue = prechatFormData.find(function(item) {
+                return item.label.includes("Preferred Chat Language");
+                }).value;
+
+            if(germanValue.includes("German")) {
+                return "57370000000blKCAAY";
+                }
+
+            var italianValue = prechatFormData.find(function(item) {
+                return item.label.includes("Preferred Chat Language");
+                }).value;
+
+            if(italianValue.includes("Italian")) {
+                return "57370000000blKRAAY";
+                }
+
+            var koreanValue = prechatFormData.find(function(item) {
+                return item.label.includes("Preferred Chat Language");
+                }).value;
+
+            if(koreanValue.includes("Korean")) {
+                return "5730g00000000rbAAA";
+                }
+
+            var norwegianValue = prechatFormData.find(function(item) {
+                return item.label.includes("Preferred Chat Language");
+                }).value;
+
+            if(norwegianValue.includes("Norwegian")) {
+                return "57370000000blKMAAY";
+                }
+
+            var polishValue = prechatFormData.find(function(item) {
+                return item.label.includes("Preferred Chat Language");
+                }).value;
+
+            if(polishValue.includes("Polish")) {
+                return "5730g000000TNMtAAO";
+                }
+
+            var portugueseValue = prechatFormData.find(function(item) {
+                return item.label.includes("Preferred Chat Language");
+                }).value;
+
+            if(portugueseValue.includes("Portuguese")) {
+                return "57370000000blKbAAI";
+                }
+
+            var romanianValue = prechatFormData.find(function(item) {
+                return item.label.includes("Preferred Chat Language");
+                }).value;
+
+            if(romanianValue.includes("Romanian")) {
+                return "57370000000blKWAAY";
+                }
+
+            var russianValue = prechatFormData.find(function(item) {
+                return item.label.includes("Preferred Chat Language");
+                }).value;
+
+            if(russianValue.includes("Russian")) {
+                return "57370000000blKqAAI";
+                }
+
+            var spanishValue = prechatFormData.find(function(item) {
+                return item.label.includes("Preferred Chat Language");
+                }).value;
+
+            if(spanishValue.includes("Spanish")) {
+                return "57370000000blK2AAI";
+                }
+
+            var swedishValue = prechatFormData.find(function(item) {
+                return item.label.includes("Preferred Chat Language");
+                }).value;
+
+            if(swedishValue.includes("Swedish")) {
+                return "57370000000blKlAAI";
+                }
+			// Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
+			// Returns a valid button ID.
+            };
+		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
+		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
+		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
+
+		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+		embedded_svc.settings.entryFeature = 'LiveAgent';
+
+		embedded_svc.init(
+			'https://avetta--dev.my.salesforce.com',
+			'https://dev-avettahelp.cs62.force.com',
+			gslbBaseURL,
+			'00D5C0000008uO6',
+			'Connect_Snap_In',
+			{
+				baseLiveAgentContentURL: 'https://c.la2-c1cs-ia4.salesforceliveagent.com/content',
+				deploymentId: '5720g000000blK7',
+				buttonId: '5730g000000Kz9V',
+				baseLiveAgentURL: 'https://d.la2-c1cs-ia4.salesforceliveagent.com/chat',
+				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I5C000000GmdrUAC_17382437271',
+				isOfflineSupportEnabled: false
+			}
+		);
+	};
+
+	if (!window.embedded_svc) {
+		var s = document.createElement('script');
+		s.setAttribute('src', 'https://avetta--dev.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+		s.onload = function() {
+			initESW(null);
+		};
+		document.body.appendChild(s);
+	} else {
+		initESW('https://service.force.com');
+	}
+</script>
+   
+</apex:page>

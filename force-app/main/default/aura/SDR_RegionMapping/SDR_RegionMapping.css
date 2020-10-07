@@ -1,0 +1,94 @@
+.THIS .box {
+    width: 85%;
+    background-color: white;
+    position: relative;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+    padding-left: .5em;
+}
+
+.THIS .held {
+    border: solid 10px black;
+    background-color: black;
+}
+
+.THIS .holder {
+    width: 11%;
+    margin: 1%;
+    background-color: white;
+    display: inline-table;
+    border-radius: 10px;
+    padding-bottom: 2em;
+    height: 30em;
+}
+
+.THIS dragged {
+    border: dotted 1px black;
+}
+
+.THIS .invisible {
+    display: none;
+}
+
+.container.THIS {
+    margin: auto;
+    position: relative;
+    background-color: white;
+    padding: 1em;
+    border-radius: 1em;
+}
+.regionContainer.THIS{
+    margin-top: 3em;
+    display: flex;
+}
+
+.THIS #regionheader {
+    height: 1em;
+    width: 100%;
+    margin: 5px;
+    border-radius: 10px;
+    display: inline-table;
+    font-size: 1.3em;
+    font-weight: bold;
+    padding: .5em;
+}
+
+.THIS div.box:hover{
+    background-color: lightgray;
+    border-radius: 2px;
+}
+
+.THIS .regionTitle{
+    height: 2em;
+    width: 85%;
+    background-color: white;
+    position: relative;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+    font-size: 120%;
+}
+
+.THIS hr{
+    display: block;
+    margin: 1em;
+    border-top: 1px solid rgb(221, 219, 218);
+    height: 1px;
+    clear: both;
+}
+
+.THIS #addbuttons{
+    display: inline-table;
+    margin: .5em;
+    color: rgb(0%, 100%, 100%);
+}
+
+.THIS h1{
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1.25;
+}
+.THIS .SDRIcon{
+    margin-right: .5em;
+}

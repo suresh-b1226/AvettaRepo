@@ -1,0 +1,6 @@
+<apex:page >
+  <apex:form >      
+        Account Manager: "{!$User.FirstName}"
+        Customer Success Manager: <apex:outputText value="{!$User.Name"/>
+    </apex:form>
+</apex:page>

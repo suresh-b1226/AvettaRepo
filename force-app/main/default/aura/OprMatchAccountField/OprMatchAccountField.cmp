@@ -1,0 +1,14 @@
+<aura:component description="OprMatchAccountField">
+    <aura:attribute type="String" name="label" />
+    <aura:attribute type="String" name="matchValue" />
+    <aura:attribute type="String" name="accountValue" />
+
+
+    <div class="slds-col slds-size_1-of-1 slds-text-heading_small">{! v.label }:</div>
+    <div class="slds-col slds-size_6-of-12">
+        <span>{! v.matchValue }</span>
+    </div>
+    <div class="slds-col slds-size_6-of-12">
+        <span>{! v.accountValue }</span>
+    </div>
+</aura:component>

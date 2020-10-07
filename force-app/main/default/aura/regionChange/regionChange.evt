@@ -1,0 +1,5 @@
+<aura:event type="COMPONENT" description="Event fired whenever a state is dropped in a region">
+    <aura:attribute type="Region__c" name="region"/> 
+    <aura:attribute type="State__c" name="state"/>
+    <aura:attribute type="Rep__c" name="rep"/>
+</aura:event>

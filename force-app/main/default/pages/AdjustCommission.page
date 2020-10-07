@@ -1,0 +1,68 @@
+<apex:page standardStylesheets="true" showHeader="false" sidebar="false" controller="AdjustCommissionController">
+    <style>
+      td.right{
+        text-align:right;
+      }
+    </style>
+    <apex:sectionHeader title="Create Adjustment Record"/>
+    <apex:pageMessages />
+    <apex:form rendered="{!IsSalesManager}">
+      <apex:pageBlock >
+          <apex:pageBlockSection columns="1">
+            <apex:pageBlockSectionItem >
+                <apex:outputPanel >
+                    <table class="list" cellspacing="0" cellpadding="0" border="0">
+                        <tbody>
+                            <tr>
+                                <td class="right" style="vertical-align:middle;">
+                                    User
+                                </td>
+                                <td>
+                                    <apex:selectList value="{!Commission.User__c}" size="1">
+                                        <apex:selectOptions value="{!SalesRepOptions}"/>
+                                    </apex:selectList>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="right" style="vertical-align:middle;">
+                                    Adjustment Description
+                                </td>
+                                <td>
+                                    <apex:inputField value="{!Commission.AdjustmentDescription__c}"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="right" style="vertical-align:middle;">
+                                    Quota Attributable Amount
+                                </td>
+                                <td>
+                                    <apex:inputField value="{!Commission.Quota_Attributable_Amount__c}"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="right" style="vertical-align:middle;">
+                                    Commission Amount
+                                </td>
+                                <td>
+                                    <apex:inputField value="{!Commission.Commission_Amount__c}"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table> 
+                </apex:outputPanel>
+            </apex:pageBlockSectionItem>
+          </apex:pageBlockSection>
+          <apex:pageBlockButtons location="bottom">
+              <input type="button" value="Cancel" class="btn" onclick="closePopup();"/>
+              <apex:commandButton action="{!save}" value="Save" onComplete="closePopup();"/>
+          </apex:pageBlockButtons>
+      </apex:pageBlock>
+      <script type="text/javascript">
+          function closePopup()
+          {
+              window.opener.location="{!$CurrentPage.Parameters.openerUrl}"; 
+              setTimeout("window.close()", 0);
+          }
+      </script>
+  </apex:form>
+</apex:page>

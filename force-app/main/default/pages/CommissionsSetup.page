@@ -1,0 +1,171 @@
+<apex:page sidebar="false" controller="CommissionsSetupController">
+    <script src="{!URLFOR($Resource.JSLibrary, 'jquery-1.8.3.js')}"></script>
+    <script src="{!URLFOR($Resource.JSLibrary, 'jquery.blockUI.js')}"></script>
+    <style type="text/css">
+            .datePicker
+        {
+            z-index:10001;
+            position:fixed;
+        }
+        .pbTitle
+        {
+                text-align:left;
+        }
+    </style>
+    <apex:form styleClass="infoForm" id="form">
+        <apex:pageMessages />        
+        <apex:actionFunction name="saveMassUpdate" action="{!saveMassUpdate}" reRender="form" status="" oncomplete="$.unblockUI();"/>   
+        <apex:sectionHeader title="Individual Commission Setup"/>
+        <apex:pageblock title="Sales Manager : {!$User.FirstName} {!$User.LastName}">
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!save}" value="Save"/>
+                <input type="button" class="btn MassUpdate" value="Mass Update" id="MassUpdate"/>
+            </apex:pageBlockButtons>
+            <apex:pageblockSection showHeader="false" collapsible="false" columns="1">
+                <apex:pageblockSectionItem >                
+                    <apex:outputpanel >                   
+                        <table class="list" cellspacing="0" cellpadding="0" border="0">
+                            <tr>                              
+                                <th class="headerRow "><input type="checkbox" class="all-checkbox"/>User</th>
+                                <th class="headerRow ">Yearly Quota</th>
+                                <th class="headerRow ">Standard Commission(%)</th>
+                                <th class="headerRow ">Renewal Commission(%)</th>
+                                <th class="headerRow ">Quota Reached Multiplier(%)</th>
+                                <th class="headerRow ">Effective Date</th>
+                            </tr>
+                            <tbody>
+                                <apex:variable var="employeeIndex" value="{!0}"/>
+                                <apex:repeat value="{!SalesRepList}" var="item">
+                                    <tr class="{!If(MOD((CEILING(employeeIndex) + 1), 2)== 0, 'dataRow even', 'dataRow odd')}">
+                                        <td>
+                                            <apex:inputCheckbox value="{!item.isChecked}" styleClass="single-checkbox"/>
+                                            <apex:inputField value="{!item.SalesRep.Name}"/>
+                                        </td>
+                                        <td>
+                                            <apex:inputField value="{!item.SalesRep.YearlyQuota__c}" styleClass="yearlyQuota"/>
+                                        </td>
+                                        <td>
+                                            <apex:inputField value="{!item.SalesRep.StandardCommission__c}" styleClass="standardCommission"/>
+                                        </td>
+                                        <td>
+                                            <apex:inputField value="{!item.SalesRep.RenewalCommission__c}" styleClass="renewalCommission"/>
+                                        </td>
+                                        <td>
+                                            <apex:inputField value="{!item.SalesRep.QuotaReachedMultiplier__c}" styleClass="quotaReachedMultiplier"/>
+                                        </td>
+                                        <td>
+                                            <apex:inputField value="{!item.SalesRep.EffectiveDate__c}" styleClass="effectiveDate"/>
+                                        </td>
+                                    </tr>
+                                </apex:repeat>
+                            </tbody>
+                        </table>                      
+                    </apex:outputpanel>                  
+                </apex:pageblockSectionItem>
+            </apex:pageblockSection> 
+        </apex:pageblock>
+        <div id="popDiv" style="display:none; cursor: default">
+        		<div style="width:100%; margin-bottom:5px; height:30px; line-height:30px; font-size:14px; font-weight:bold;text-align:left;">
+        			&nbsp;&nbsp;Mass Edit User Commissions
+        		</div>
+             <div id="" style="background-color:#FFF;border-width:1px; border-style:solid;border-color: #D4DADC;color: red;text-align:left;padding:10px">
+	         	Please note, if you don't want to update a value, just leave it to blank or set "0".
+	         </div>       
+             <table class="list" cellspacing="0" cellpadding="0" border="0">
+                 <tr class="headerRow ">                                                             
+                     <th class="headerRow ">Yearly Quota</th>
+                     <th class="headerRow ">Standard Commission(%)</th>
+                     <th class="headerRow ">Renewal Commission(%)</th>
+                     <th class="headerRow ">Quota Reached Multiplier(%)</th>
+                     <th class="headerRow ">Effective Date</th>
+                 </tr>
+                 <tbody>                                                       
+                     <tr class="dataRow even">                                
+                         <td>
+                             <apex:inputText value="{!YearlyQuota}"/>
+                         </td>
+                         <td>
+                             <apex:inputText value="{!StandardCommissionPercent}"/>
+                         </td>
+                         <td>
+                             <apex:inputText value="{!RenewalCommissionPercent}"/>
+                         </td>
+                         <td>
+                             <apex:inputText value="{!MultiplierCommissionPercent}"/>
+                         </td>                                        
+                         <td>
+                             <apex:inputField value="{!TempContact.BirthDate}"/>
+                         </td>                                      
+                     </tr>                            
+                 </tbody>
+                 <tfoot>
+                 	<tr class="dataRow even">
+	                 	<td colspan="5" style="text-align:center">
+	                 		<input type="button" class="btn" value="Cancel" id="cancelMassUpdateBtn"/>
+	                    		<input type="button" class="btn" value="Save" id="saveMassUpdateBtn"/>
+	                 	</td>
+	                 </tr>
+                 </tfoot>
+             </table>
+        </div>
+            <script>
+            $('.MassUpdate').click(function() {
+                var checkedLength = $(".single-checkbox:checked").length;
+                if(checkedLength == 0)
+                {
+                    alert("No Commission User is selected.");
+                }
+                else
+                {
+                    var leftPosition = (screen.width-900)/2 + 'px';
+                    $.blockUI({ 
+                        message: $('#popDiv'),
+                        css: { 
+                                top:'160px',
+                                width:'900px',
+                                left: leftPosition,
+                    }});
+                }
+            });
+            $('#cancelMassUpdateBtn').click(function() {
+                $.unblockUI(); 
+                return false; 
+            });
+            $('#saveMassUpdateBtn').click(function(){
+            		$.blockUI({ message: "<h1>In Progress...</h1>",
+                                    css: { 
+                                border: 'none',                                 
+                                padding: '15px', 
+                                backgroundColor: '#000', 
+                                '-webkit-border-radius': '10px', 
+                                '-moz-border-radius': '10px', 
+                                opacity: .5, 
+                                color: '#fff' 
+                            } });
+                saveMassUpdate();
+            });
+            $(".all-checkbox").click(function(){
+                if($(".all-checkbox:checked").length == 0)
+                {
+                    $(".single-checkbox").removeAttr("checked");
+                }
+                else
+                {
+                    $(".single-checkbox").attr("checked",'true');
+                }
+            });
+            $(".single-checkbox").click(function(){
+                var checkedLength = $(".single-checkbox:checked").length;
+                var length = $(".single-checkbox").length;
+                if(checkedLength == length)
+                {
+                    $(".all-checkbox").attr("checked",'true');
+                }
+                else
+                {
+                    $(".all-checkbox").removeAttr("checked");
+                } 
+            });
+        </script> 
+    </apex:form>     
+</apex:page>

@@ -1,0 +1,21 @@
+<apex:page standardController="Contact" tabStyle="Contact">
+   <apex:iframe src="" scrolling="true" height="650px" id="NPXContactInvChartFrame" />
+   <!--if you embed mutiple chart add some index to id-->
+   <script>
+   
+    var embeddedLink = '{!$Setup.SFDC_URL__c.NPX_Survey_Invitations_Embed_Code__c}';
+    var embedChartUrl = '/main/embed?'+embeddedLink;//this need to change as per chart/view embed link
+    var enterpriseIdfier = 'AVETTA';//this need to change as per enterprise
+    var smxServer = '{!$Setup.SMX_URL__c.SMX_URL__c}'; 
+    var varSessionID = '{!$Api.Session_ID}';
+    var saleforceServer = '{!$Setup.SFDC_URL__c.SFDC_URL__c}';
+    var varOwner = '{!$User.Id}';
+    var varUsername = '{!$User.Username}';
+    
+    embedChartUrl = embedChartUrl + '&urlParams={"INTEGRATION_CONTACT_CODE":"{!Contact.Id}"}';
+    var url = smxServer  + '/app/core/j_satmetrix_security_check?session='+ varSessionID + '&server="'+saleforceServer+'"&owner='+varOwner+'&username='+varUsername+'&version=3&enterpriseIdfier='+enterpriseIdfier+'&requestTokenType=SALES_FORCE&requestToken=NONE&targetUrl='+embedChartUrl;
+    
+    document.getElementById('NPXContactInvChartFrame').src = url;
+   </script>
+   <!--if you embed mutiple chart add some index to id-->       
+</apex:page>

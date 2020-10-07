@@ -1,0 +1,10 @@
+<!--
+ - Created by JasonMcGrew on 1/30/2020. This is to add the 'Add Rep' button to the SDR Mapping Lightning App
+ -->
+
+<aura:component >
+    <div id = "addbuttons">
+        <lightning:button variant="brand" label="Add Rep" title="Add Rep" onclick="{!c.createRep}"></lightning:button>
+    </div>
+
+</aura:component>

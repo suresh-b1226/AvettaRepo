@@ -1,0 +1,7 @@
+<apex:page showHeader="False">
+  <!-- Begin Default Content REMOVE THIS -->
+    <apex:pageBlock >
+        <apex:iframe src="https://events-na1.adobeconnect.com/content/connect/c1/2461758024/en/events/catalog.html?folder-id=2461758032&OWASP_CSRFTOKEN=95b55ad310321c54904a31b258f404603b119bd0cb586af1254846d2588dd04b" scrolling="true" id="theIframe" height="2400"/>
+    </apex:pageBlock>
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>

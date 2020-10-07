@@ -1,0 +1,200 @@
+<aura:component access = "GLOBAL" implements="force:appHostable,flexipage:availableForAllPageTypes" controller = "Client_SDR_Mapping_ApexController">
+    <aura:handler name = "init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name = "regionChange" event = "c:SDR_regionChange" action = "{!c.onRegionChanged}" />
+    <aura:attribute name = "regions" type="Region__c[]" />
+
+    <aura:attribute name = "NORAMregions" type="Region__c[]" />
+    <aura:attribute name = "EMEAregions"  type="Region__c[]" />
+    <aura:attribute name = "APACregions"  type="Region__c[]" />
+    <aura:attribute name = "LATAMregions" type="Region__c[]" />
+
+    <aura:attribute name = "states"     type="State__c[]" />
+    <aura:attribute name = "reps"       type="Rep__c[]" />
+    <aura:attribute name = "EMEA_Reps"  type="Rep__c[]" />
+    <aura:attribute name = "APAC_Reps"  type="Rep__c[]" />
+    <aura:attribute name = "LATAM_Reps" type="Rep__c[]" />
+
+    <div class="container" >
+        <h1><lightning:icon iconName="standard:queue" class="SDRIcon"/> SDR Mapping</h1>
+        <br> </br>
+        <div>
+            <p>
+            <h3>REGION/STATE ASSIGNMENTS</h3> Click and drag a state to assign it to a different region.
+            </p>
+        </div>
+        <c:CreateButtons />
+        <lightning:button variant="brand" onclick="{! c.handleSetActiveSectionA }" label="Open NORAM Region"/>
+        <lightning:button variant="brand" onclick="{! c.handleSetActiveSectionB }" label="Open EMEA Region"/>
+        <lightning:button variant="brand" onclick="{! c.handleSetActiveSectionC }" label="Open APAC Region"/>
+        <lightning:button variant="brand" onclick="{! c.handleSetActiveSectionD }" label="Open LATAM Region"/>
+    </div>
+
+    <lightning:accordion aura:id="accordion" activeSectionName="A">
+        <lightning:accordionSection name="A" label="NORAM REGION">
+            <div class="regionContainer" style="margin-top: 3em; display: flex">
+                <aura:iteration items="{!v.NORAMregions}" var="region" >
+                    <c:SDR_Region region="{!region}" states="{!v.states}" reps="{!v.reps}" stateBool="true"> </c:SDR_Region>
+                </aura:iteration>
+            </div>
+
+            <hr/>
+
+            <div class="container" style="margin:auto; position: relative; background-color: white; padding: 1em; border-radius: 1em " >
+                <div><p><strong><h3>REGION/REP ASSIGNMENTS</h3> Click and drag a rep to assign them to a different region</strong> </p> </div>
+            </div>
+
+            <div class="regionContainer" style="margin-top: 3em; display: flex">
+                <aura:iteration items="{!v.NORAMregions}" var="region" >
+                    <c:SDR_Region region="{!region}" states="{!v.states}" reps="{!v.reps}" stateBool="false"> </c:SDR_Region>
+                </aura:iteration>
+            </div>
+
+            <hr/>
+
+            <div class="container" style="margin:auto; position: relative; background-color: white; padding: 1em; border-radius: 1em ">
+                <div><p><strong>REP DETAIL</strong></p></div>
+                <c:CreateRepButtons />
+            </div>
+
+            <div class="regionContainer" style="padding-top: 3em">
+                <c:SDR_Reps_OutOfOffice reps="{!v.reps}"/>
+            </div>
+
+        </lightning:accordionSection>
+        <lightning:accordionSection name="B" label="EMEA REGION">
+            <div class="regionContainer" style="margin-top: 3em; display: flex">
+                <aura:iteration items="{!v.EMEAregions}" var="region" >
+                    <c:SDR_Region region="{!region}" states="{!v.states}" reps="{!v.EMEA_Reps}" stateBool="true"> </c:SDR_Region>
+                </aura:iteration>
+            </div>
+
+            <hr/>
+
+            <div class="container" style="margin:auto; position: relative; background-color: white; padding: 1em; border-radius: 1em " >
+                <div><p><h3>REGION/REP ASSIGNMENTS</h3> Click and drag a rep to assign them to a different region</p> </div>
+            </div>
+
+            <div class="regionContainer" style="margin-top: 3em; display: flex">
+                <aura:iteration items="{!v.EMEAregions}" var="region" >
+                    <c:SDR_Region region="{!region}" states="{!v.states}" reps="{!v.EMEA_Reps}" stateBool="false"> </c:SDR_Region>
+                </aura:iteration>
+            </div>
+
+            <hr/>
+
+            <div class="container" style="margin:auto; position: relative; background-color: white; padding: 1em; border-radius: 1em ">
+                <div><p>REP DETAIL</p></div>
+                <c:CreateRepButtons />
+            </div>
+
+            <div class="regionContainer" style="padding-top: 3em">
+                <c:SDR_Reps_OutOfOffice reps="{!v.EMEA_Reps}"/>
+            </div>
+        </lightning:accordionSection>
+        <lightning:accordionSection name="C" label="APAC REGION">
+            <div class="regionContainer" style="margin-top: 3em; display: flex">
+                <aura:iteration items="{!v.APACregions}" var="region" >
+                    <c:SDR_Region region="{!region}" states="{!v.states}" reps="{!v.APAC_Reps}" stateBool="true"> </c:SDR_Region>
+                </aura:iteration>
+            </div>
+
+            <hr/>
+
+            <div class="container" style="margin:auto; position: relative; background-color: white; padding: 1em; border-radius: 1em " >
+                <div><p><h3>REGION/REP ASSIGNMENTS</h3> Click and drag a rep to assign them to a different region</p> </div>
+            </div>
+
+            <div class="regionContainer" style="margin-top: 3em; display: flex">
+                <aura:iteration items="{!v.APACregions}" var="region" >
+                    <c:SDR_Region region="{!region}" states="{!v.states}" reps="{!v.APAC_Reps}" stateBool="false"> </c:SDR_Region>
+                </aura:iteration>
+            </div>
+
+            <hr/>
+
+            <div class="container" style="margin:auto; position: relative; background-color: white; padding: 1em; border-radius: 1em ">
+                <div><p>REP DETAIL</p></div>
+                <c:CreateRepButtons />
+            </div>
+
+            <div class="regionContainer" style="padding-top: 3em">
+                <c:SDR_Reps_OutOfOffice reps="{!v.APAC_Reps}"/>
+            </div>
+        </lightning:accordionSection>
+        <lightning:accordionSection name="D" label="LATAM REGION">
+            <div class="regionContainer" style="margin-top: 3em; display: flex">
+                <aura:iteration items="{!v.LATAMregions}" var="region" >
+                    <c:SDR_Region region="{!region}" states="{!v.states}" reps="{!v.LATAM_Reps}" stateBool="true"> </c:SDR_Region>
+                </aura:iteration>
+            </div>
+
+            <hr/>
+
+            <div class="container" style="margin:auto; position: relative; background-color: white; padding: 1em; border-radius: 1em " >
+                <div><p><h3>REGION/REP ASSIGNMENTS</h3> Click and drag a rep to assign them to a different region</p> </div>
+            </div>
+
+            <div class="regionContainer" style="margin-top: 3em; display: flex">
+                <aura:iteration items="{!v.LATAMregions}" var="region" >
+                    <c:SDR_Region region="{!region}" states="{!v.states}" reps="{!v.LATAM_Reps}" stateBool="false"> </c:SDR_Region>
+                </aura:iteration>
+            </div>
+
+            <hr/>
+
+            <div class="container" style="margin:auto; position: relative; background-color: white; padding: 1em; border-radius: 1em ">
+                <div><p>REP DETAIL</p> </div>
+                <c:CreateRepButtons />
+            </div>
+
+            <div class="regionContainer" style="padding-top: 3em">
+                <c:SDR_Reps_OutOfOffice reps="{!v.LATAM_Reps}"/>
+            </div>
+        </lightning:accordionSection>
+    </lightning:accordion>
+
+</aura:component>
+
+
+<!--
+<aura:component access = "GLOBAL" implements="force:appHostable" controller = "Client_SDR_Mapping_ApexController">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name = "regionChange" event = "c:SDR_regionChange" action = "{!c.onRegionChanged}" />
+    <aura:attribute name = "regions" type="Region__c[]" />
+	<aura:attribute name = "states" type="State__c[]" />
+    <aura:attribute name = "reps" type="Rep__c[]" />	
+
+
+    <div id='container'>
+        <h1><lightning:icon iconName="standard:queue" class="SDRIcon"/>SDR Mapping</h1>
+    	<br></br>
+        <div><p><h3>REGION/STATE ASSIGNMENTS</h3> Click and drag a state to assign it to a different region.</p></div>
+        <c:CreateButtons />
+    </div>
+
+   <div class="regionContainer">
+        <aura:iteration items="{!v.regions}" var="region" >
+            <c:SDR_Region region="{!region}" states="{!v.states}" reps="{!v.reps}" stateBool="true"></c:SDR_Region>
+        </aura:iteration> 
+   </div>
+   <hr/> 
+   <div id='container'>
+       <div><p><h3>REGION/REP ASSIGNMENTS</h3> Click and drag a rep to assign them to a different region</p></div> 
+   </div> 
+    
+   <div class="regionContainer" style="margin-top: 3em">
+        <aura:iteration items="{!v.regions}" var="region" >
+            <c:SDR_Region region="{!region}" states="{!v.states}" reps="{!v.reps}" stateBool="false"></c:SDR_Region>
+        </aura:iteration>
+   </div>
+   <hr/>
+    <div id='container'>
+        <div><p>REP DETAIL</p></div>
+        <c:CreateRepButtons />
+   </div>
+   <div class='regionContainer'>
+            <c:SDR_Reps_OutOfOffice reps="{!v.reps}"/>
+   </div>
+   <hr/>
+
+</aura:component>-->

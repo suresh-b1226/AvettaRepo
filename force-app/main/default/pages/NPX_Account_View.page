@@ -1,0 +1,22 @@
+<apex:page standardController="Account" tabStyle="Account">
+   <apex:iframe src="" scrolling="true" height="650px" id="NPXAccountChartFrame" />
+   <!--if you embed mutiple chart add some index to id-->
+   <script>
+   
+    var embeddedLink = '{!$Setup.SFDC_URL__c.NPX_Account_View_Embed__c}';
+    var embedChartUrl = '/main/embed?'+embeddedLink;//this need to change as per chart/view embed link
+    var enterpriseIdfier = 'AVETTA';//this need to change as per enterprise
+    console.log('Account.Id = {!Account.Id}');
+    var smxServer = '{!$Setup.SMX_URL__c.SMX_URL__c}'; 
+    var varSessionID = '{!$Api.Session_ID}';
+    var saleforceServer = '{!$Setup.SFDC_URL__c.SFDC_URL__c}';
+    var varOwner = '{!$User.Id}';
+    var varUsername = '{!$User.Username}';
+    embedChartUrl = embedChartUrl + '&urlParams={"INTEGRATION_COMPANY_CODE":"{!Account.Id}"}';
+    var url = smxServer + '/app/core/j_satmetrix_security_check?session='+ varSessionID + '&server="'+saleforceServer+'"&owner='+varOwner+'&username='+varUsername+'&version=3&enterpriseIdfier='+enterpriseIdfier+'&requestTokenType=SALES_FORCE&requestToken=NONE&targetUrl='+embedChartUrl;
+    
+    document.getElementById('NPXAccountChartFrame').src = url;
+    <!--if you embed mutiple chart add some index to id-->
+   </script>
+       
+</apex:page>

@@ -1,0 +1,43 @@
+<apex:page sidebar="false" controller="DefineISRQuoteController" tabstyle="ISR_Define_Quota__tab">
+	<apex:form id="form" styleClass="infoForm">
+		<apex:pageMessages />
+		<apex:sectionHeader title="ISR Define Quota"/>
+		<apex:pageBlock id="block" title="Sales Manager : {!$User.FirstName} {!$User.LastName}">
+			<apex:pageBlockButtons >
+				<apex:commandButton action="{!defineQuotes}" value="Submit"/>
+			</apex:pageBlockButtons>
+			<apex:pageBlockSection showHeader="false" collapsible="false" columns="1">
+				<apex:pageBlockSectionItem >
+					<apex:outputPanel >
+						<table class="list" cellspacing="0" cellpadding="0" border="0">
+							<tr class="headerRow ">
+								<th class="headerRow ">ISR</th>
+								<apex:repeat value="{!AllQuotesMonths}" var="month">
+									<th class="headerRow ">{!month}</th>
+								</apex:repeat>
+							</tr>
+							<tbody>
+								<apex:variable var="employeeIndex" value="{!0}"/>
+								<apex:repeat value="{!CurrentSalesManagerISRQuotes}" var="employeeQuotes">
+									<tr class="{!If(MOD((CEILING(employeeIndex) + 1), 2)== 0, 'dataRow even', 'dataRow odd')}">
+										<td>
+											<apex:selectList value="{!employeeQuotes.EmployeeId}" size="1">
+												<apex:selectOptions value="{!AllSalesOptions}"/>
+											</apex:selectList>
+										</td>
+										<apex:repeat value="{!employeeQuotes.CurrentQuotes}" var="currentQuote">
+											<td>
+												<apex:inputText value="{!currentQuote.ISRQuote.Quota__c}" style="width:60px"/>	
+											</td>
+										</apex:repeat>
+									</tr>
+									<apex:variable value="{!employeeIndex+1}" var="employeeIndex"/>
+								</apex:repeat>
+							</tbody>
+						</table>
+					</apex:outputPanel>
+				</apex:pageBlockSectionItem>
+			</apex:pageBlockSection>
+		</apex:pageBlock>
+	</apex:form>        
+</apex:page>

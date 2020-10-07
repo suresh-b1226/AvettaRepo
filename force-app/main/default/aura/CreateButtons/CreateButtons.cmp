@@ -1,0 +1,7 @@
+<aura:component >
+	<div id = "addbuttons">
+    	<lightning:button variant="brand" label="Add Region" title="Add Region" onclick="{!c.createRegion}"></lightning:button>
+        <lightning:button variant="brand" label="Add State/Country" title="Add State/Country" onclick="{!c.createState}"></lightning:button>
+    </div>
+    
+</aura:component>

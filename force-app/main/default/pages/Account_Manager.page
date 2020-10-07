@@ -1,0 +1,32 @@
+<apex:page controller="AccountManager" showheader="False">
+<apex:stylesheet value="https://fonts.googleapis.com/css?family=Source+Sans+Pro"/>
+    <style>
+        #col1,#col2{width:49%;display:inline-block; color: rgb(13, 34, 66); font-size: 16px;font-family: "Source Sans Pro"!important; line-height: 1.5;}
+       body 
+        { background-color: rgb(245, 247, 250);
+  
+        }
+    </style>
+    <apex:form >
+    
+        <div id="col1">
+                <b>Account Manager</b>
+                <br/>    
+                {! salesRepName }
+                <br/>
+                {! salesRepPhone }
+                <br/>
+                {! salesRepEmail }
+            </div>
+            <div id="col2">
+                <b>Client Success Manager</b>
+                <br/>    
+                {! successManagerName }
+                <br/>
+                {! successManagerPhone }
+                <br/>
+                {! successManagerEmail }
+            </div>
+            
+    </apex:form>
+</apex:page>

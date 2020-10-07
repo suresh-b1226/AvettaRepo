@@ -1,0 +1,8 @@
+<apex:page showHeader="False">
+  <!-- Begin Default Content REMOVE THIS -->
+    <apex:pageBlock >
+        <apex:iframe src="https://avettahelp.force.com/s/avetta-connect/index.html" scrolling="true" id="theIframe" height="2400"/>
+    </apex:pageBlock>
+    <apex:outputLink value="https://avettahelp.force.com/s/Training-Docs/ConnectClientAdminTrainingGuide_June19-ES-MX.pdf" target="_new" id="theLink">Training Guide</apex:outputLink>
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>

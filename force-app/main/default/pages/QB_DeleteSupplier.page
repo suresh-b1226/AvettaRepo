@@ -1,0 +1,12 @@
+<apex:page id="QB_DeleteSupplier" standardController="Supplier_Staging__c" extensions="QB_SupplierDeleteExt" recordSetVar="supplierStagingList">
+    <apex:form >
+        <apex:pagemessages />
+        <apex:pageBlock >
+            <apex:pageBlockSection columns="3">
+                <apex:inputText required="true" value="{!campaignId}" label="Campaign ID"/>
+                <apex:commandButton value="Delete Suppliers" action="{!deleteSupplier}"
+                                    id="theButton" style="width:100px;"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,11 @@
+.THIS .deleteRepButton  {
+    background-color: white;
+    border: white;
+}
+.THIS button {
+	outline: none;
+}
+.THIS button.deleteRepButton:hover {
+    background-color: lightgray;
+    border-radius: 2px;
+}

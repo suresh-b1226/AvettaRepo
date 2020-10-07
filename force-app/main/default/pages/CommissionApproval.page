@@ -1,0 +1,648 @@
+<apex:page controller="CommissionApprovalController" id="page">
+    <style type="text/css">
+        .overlayBackground {
+            width: 3289px;
+            height: 1293px;
+            display: block;
+            position: fixed;
+            background-color: #000;
+            border: none;
+            opacity: .6;
+            top: 0;
+            left: 0;
+        }
+        .displayBG {
+            border: none;
+            width: 100%;
+            height: 100%;
+            display: block;
+            position: fixed;
+            text-align: center;
+        }
+        .loadingImg {
+            height: 20px;
+            width: 20px;
+            margin-top: 250px;
+        }
+        .datePicker
+        {
+            z-index:10001;
+            position:fixed;
+        }
+        .pbTitle
+        {
+                text-align:left;
+        }
+        td{
+            text-align: left;
+        }
+        td.adjustLabel{
+            text-align: right;
+            color: #7d7d84;
+        }
+        .multiforce .navLinks span 
+        {
+            color: #000000;
+            padding: 0 2px;
+            font-size: 12px;
+            vertical-align: top;
+            font-weight: bold;
+            text-align: right;
+            white-space: nowrap;
+            text-decoration:underline;
+            cursor:pointer;
+        } 
+        .bottomNav
+        {
+            margin-top:6px;
+            margin-bottom:3px;
+            padding:10px 10px;
+            border:1px solid #000;
+        } 
+        .prevNextLinks
+        {
+            font-weight:bold;
+        }
+        .spanActiveLink
+        {
+            cursor:pointer;
+            color:#000;
+        }
+        .spanInActiveLink
+        {
+            color:#A8A8A8;
+        } 
+        .paginator .firstoff 
+        {
+            background-image: url("/img/paginationArrows.gif");
+            background-position: 0 -10px;
+            background-repeat: no-repeat;
+            height: 10px;
+            width: 9px;
+            border:0 none;
+        }
+        .paginator .firston 
+        {
+            background-image: url("/img/paginationArrows.gif");
+            background-position: 0 1px;
+            background-repeat: no-repeat;
+            height: 10px;
+            width: 9px;
+            border:0 none;
+        }
+        .paginator .prevoff 
+        {
+            background-image: url("/img/paginationArrows.gif");
+            background-position: -10px -10px;
+            background-repeat: no-repeat;
+            height: 10px;
+            width: 9px;
+            border:0 none;
+        }
+        .paginator .prevon 
+        {
+            background-image: url("/img/paginationArrows.gif");
+            background-position: -10px 1px;
+            background-repeat: no-repeat;
+            height: 10px;
+            width: 9px;
+            border:0 none;
+        }
+        .paginator .nextoff 
+        {
+            background-image: url("/img/paginationArrows.gif");
+            background-position: -17px -10px;
+            background-repeat: no-repeat;
+            height: 10px;
+            width: 9px;
+            border:0 none;
+        }
+        .paginator .nexton 
+        {
+            background-image: url("/img/paginationArrows.gif");
+            background-position: -17px 1px;
+            background-repeat: no-repeat;
+            height: 10px;
+            width: 9px;
+            border:0 none;
+        }
+        .paginator .lasttoff
+        {
+            background-image: url("/img/paginationArrows.gif");
+            background-position: -27px -10px;
+            background-repeat: no-repeat;
+            height: 10px;
+            width: 9px;
+            border:0 none;
+        }
+        .paginator .laston 
+        {
+            background-image: url("/img/paginationArrows.gif");
+            background-position: -27px 1px;
+            background-repeat: no-repeat;
+            height: 10px;
+            width: 9px;
+            border:0 none;
+        }
+        .paginator .prevNextLinks .prevNext 
+        {
+            margin: 0 3px;
+        }
+        .approvalbtn{
+            width: 58px;
+            height: 19px;
+            font-size: 11px;
+        }
+    </style>
+    <script src="{!URLFOR($Resource.JSLibrary, 'jquery-1.8.3.js')}"></script>
+    <script src="{!URLFOR($Resource.JSLibrary, 'jquery.blockUI.js')}"></script>
+    <apex:form id="form">
+        <apex:inputHidden value="{!mp_iCurrentPage}" id="currentPage"></apex:inputHidden>
+        <apex:actionFunction name="searchResults" action="{!getResults}" rerender="form" status="loading"></apex:actionFunction>
+        <apex:inputHidden value="{!CommissionAmount}" id="commissionAmount"/>
+        <apex:inputHidden value="{!AdjustmentDescription}" id="adjustmentDescription"/>
+        <apex:sectionHeader title="Commission Approval"/>
+        <apex:actionStatus id="loading" layout="block">
+            <apex:facet name="start">
+                <div class="overlayBackground displayBG">
+                    <img src="/img/loading.gif" id="loading" class="loadingImg"/>
+                </div>
+            </apex:facet>
+        </apex:actionStatus>
+        <apex:actionFunction name="diplayCommissionsForCertainUserFun" action="{!diplayCommissionForCertainUser}" rerender="form" status="loading">
+            <apex:param assignTo="{!selectUser}" value="" name="firstParam"/>
+            <apex:param assignTo="{!selectUserName}"  value="" name="secondParam"/>
+        </apex:actionFunction>
+        <apex:actionFunction name="selectCommissionFun" action="{!adjust}" rerender="form" status="loading" onComplete="popup();">
+            <apex:param assignTo="{!commissionId}" value="" name="firstParam"/>
+        </apex:actionFunction>
+        <apex:actionFunction name="saveAdjustCommissionFun" action="{!createAdjustCommission}" rerender="form" status="loading" onComplete="$.unblockUI();"/>
+        <apex:actionFunction name="approvalFun" action="{!approval}" rerender="form" status="loading">
+            <apex:param value="" name="approvedUserId"/>
+        </apex:actionFunction>
+        <apex:pageBlock >
+            <apex:pageBlockSection columns="1">
+                <apex:pageBlockSectionItem >
+                    <apex:outputPanel >
+                        <div>
+                            <apex:outputPanel >
+                                <strong style="margin-right:5px">Manager</strong>{!currentUser.Name}&nbsp;&nbsp;&nbsp;
+                                <strong>
+                                    Month&nbsp;
+                                    <apex:selectList value="{!Month}" size="1">
+                                        <apex:selectOptions value="{!MonthOptions}"/>
+                                        <apex:actionSupport event="onchange" action="{!monthSelectChange}" rerender="form" status="loading"/>
+                                    </apex:selectList>
+                                </strong>
+                            </apex:outputPanel>
+                        </div>
+                        <br/>
+                        <table class="list" cellspacing="0" cellpadding="0" border="1">
+                            <tr>
+                                <th></th>
+                                <th class="headerRow ">Quota</th>
+                                <th class="headerRow ">Quota Eligible</th>
+                                <th class="headerRow ">Quota Attained</th>
+                                <th class="headerRow ">Commission Eligible</th>
+                                <th class="headerRow ">Commission</th>
+                                <th class="headerRow ">Approve</th>
+                            </tr>
+                            <tbody>
+                                <apex:variable var="employeeIndex" value="{!0}"/>
+                                <tr>
+                                    <td>
+                                        Total: <strong>{!selectYear}<apex:outputText value=" - "/>{!selectMonth}</strong>
+                                    </td>
+                                    <td>
+                                        <apex:outputText value="USD {0, number, ,###.##}">
+                                            <apex:param value="{!QuotaTotal}"/>
+                                        </apex:outputText>
+                                    </td>
+                                    <td>
+                                        <apex:outputText value="USD {0, number, ,###.##}">
+                                            <apex:param value="{!InvoiceQuotaEligibleTotal}"/>
+                                        </apex:outputText>
+                                    </td>
+                                    <td>
+                                        <apex:outputPanel rendered="{!CommissionStatisticsList.size > 0}">
+                                            <apex:outputText value="{0, number, ,###.##}">
+                                                <apex:param value="{!QuotaAttainedTotal/CommissionStatisticsList.size}"/>
+                                            </apex:outputText>%
+                                        </apex:outputPanel>
+                                        <apex:outputPanel rendered="{!CommissionStatisticsList.size == 0}">
+                                            0.00%
+                                        </apex:outputPanel>
+                                    </td>
+                                    <td>
+                                        <apex:outputText value="USD {0, number, ,###.##}">
+                                            <apex:param value="{!InvoiceCommissionEligibleTotal}"/>
+                                        </apex:outputText>
+                                    </td>
+                                    <td>
+                                        <apex:outputText value="USD {0, number, ,###.##}">
+                                            <apex:param value="{!CommissionTotal}"/>
+                                        </apex:outputText>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <apex:repeat value="{!CommissionStatisticsList}" var="item">
+                                    <tr class="{!If(MOD((CEILING(employeeIndex) + 1), 2)== 0, 'dataRow even', 'dataRow odd')}" onmouseover="javascript:this.bgColor='#cfeef8';" onmouseout="javascript:this.bgColor='#FFFFFF'">
+                                        <td class="userTd" onmouseover="javascript:this.style.cursor='pointer'" style="text-decoration: underline;">
+                                            <apex:outputText value="{!item.User.Name}"/><input type="hidden" value="{!item.User.Id}"/>
+                                        </td>
+                                        <td>
+                                            <apex:outputText value="USD {0, number, ,###.##}">
+                                                <apex:param value="{!item.Quota}"/>
+                                            </apex:outputText>
+                                        </td>
+                                        <td>
+                                            <apex:outputText value="USD {0, number, ,###.##}">
+                                                <apex:param value="{!item.QuotaAttributableAmount}"/>
+                                            </apex:outputText>
+                                        </td>
+                                        <td>
+                                            <apex:outputText value="{0, number, ,###.##}">
+                                                <apex:param value="{!item.QuotaAttributablePercent}"/>
+                                            </apex:outputText>%
+                                        </td>
+                                        <td>
+                                            <apex:outputText value="USD {0, number, ,###.##}">
+                                                <apex:param value="{!item.CommissionableAmount}"/>
+                                            </apex:outputText>
+                                        </td>
+                                        <td>
+                                            <apex:outputText value="USD {0, number, ,###.##}">
+                                                <apex:param value="{!item.Commission}"/>
+                                            </apex:outputText>
+                                        </td>
+                                        <td>
+                                            <apex:outputPanel rendered="{!!item.Hidden}">
+                                                <input type="button" onclick='if(confirm("Are you sure?")){approvalFun("{!item.User.Id}")};' value="Approve" class="approvalbtn" />
+                                            </apex:outputPanel>
+                                            <apex:outputPanel rendered="{!item.Hidden}">
+                                                <apex:commandButton value="Approved" disabled="true" styleClass="approvalbtn"/>
+                                            </apex:outputPanel>
+                                        </td>
+                                    </tr>
+                                </apex:repeat>
+                            </tbody>
+                        </table>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection columns="1">
+                <apex:pageBlockSectionItem >
+                    <apex:outputPanel rendered="{!DiplayCommissions}" id="commissionsPanel">
+                        <div style="font-weight:bold;">
+                            {!selectUserName}&nbsp;&nbsp;·&nbsp;&nbsp;{!selectYear}-{!selectMonth}<input type="button" class="btn" value="View All" id="viewAllBtn" onclick='window.open("/00On0000000F9IK?pv0="+"{!selectUserName}"+"&pv1="+"{!selectYear}"+"&pv2="+"{!selectMonth}", "_blank");' style="margin-left:50px;" />
+                        </div>
+                        <br/>
+                        <table class="list" cellspacing="0" cellpadding="0" border="0">
+                            <tr>                              
+                                <th class="headerRow ">Payment Date</th>
+                                <th class="headerRow ">Payment ID</th>
+                                <th class="headerRow ">Operator</th>
+                                <th class="headerRow ">Contractor</th>
+                                <th class="headerRow ">Total Payment</th>
+                                <th class="headerRow ">Commissionable</th>
+                                <th class="headerRow ">Cmsn %</th>
+                                <th class="headerRow ">Commission</th>
+                                <th class="headerRow ">Type</th>
+                                <th class="headerRow "></th>
+                            </tr>
+                            <tbody>
+                                <apex:variable var="employeeIndex" value="{!0}"/>
+                                <apex:repeat value="{!CommissinsInOneMonth}" var="item">
+                                    <tr class="{!If(MOD((CEILING(employeeIndex) + 1), 2)== 0, 'dataRow even', 'dataRow odd')}" onmouseover="javascript:this.bgColor='#cfeef8'" onmouseout="javascript:this.bgColor='#FFFFFF'">
+                                        <td>
+                                            <apex:outputField value="{!item.Payment_Date__c}"/>
+                                        </td>
+                                        <td>
+                                            <apex:outputField value="{!item.Payment_ID__c}"/>
+                                        </td>
+                                        <td style="width: 25%;">
+                                            <apex:outputField value="{!item.Operator__c}" />
+                                        </td>
+                                        <td style="width: 25%;">
+                                            <apex:outputField value="{!item.Contractor__c}" />
+                                        </td>
+                                        <td>
+                                            <apex:outputField value="{!item.Total_Payment_Amount__c}"/>
+                                        </td>
+                                        <td>
+                                            <apex:outputField value="{!item.Commissionable_Amount__c}"/>
+                                        </td>
+                                        <td>
+                                            <apex:outputField value="{!item.Commission_Percent__c}"/>
+                                        </td>
+                                        <td>
+                                            <apex:outputField value="{!item.Commission_Amount__c}"/>
+                                        </td>
+                                        <td>
+                                            <apex:outputField value="{!item.Invoice_Type__c}"/>
+                                        </td>
+                                        <td>
+                                            <apex:outputPanel rendered="{!item.Invoice_Type__c != 'Adjustment' && CanAdjustOrNot}">
+                                                <a href="#" class="adjustClass">Adjust</a>
+                                                <input type="hidden" value="{!item.Id}"/>
+                                            </apex:outputPanel>
+                                        </td>
+                                    </tr>
+                                </apex:repeat>
+                            </tbody>
+                        </table>
+                        <div class="bottomNav">
+                        <div class="paginator">
+                         <span class="left">Displaying records {!MIN(((mp_iCurrentPage - 1) * mp_iPageRecords) + 1, mp_iTotalRecordCounts)}-{!MIN(mp_iCurrentPage * mp_iPageRecords, mp_iTotalRecordCounts)} of {!mp_iTotalRecordCounts}&nbsp;&nbsp;
+                             <apex:actionStatus id="status">
+                            <apex:facet name="start">
+                                <apex:image value="/img/loading.gif"/>
+                            </apex:facet>
+                        </apex:actionStatus>  
+                         </span>
+                         <span class="prevNextLinks">
+                             <span id="firstpage" title="First Page"><img id="first" class="firstoff" src="/s.gif" /></span>
+                             <span id="prevpage" title="Previous Page"> <img id="prev" class="prevoff" src="/s.gif" />Previous</span>
+                             <span id="nextpage" title="Next Page">Next<img id="next" class="nextoff" alt="Next" title="Next" src="/s.gif" /></span>
+                             <span id="lastpage" title="Last Page"><img id="last" class="lastoff" alt="Last Page" title="Last Page" src="/s.gif" /></span>
+                         </span>
+                         <span class="right">Page: <input type="text" value="{!mp_iCurrentPage}" id="currentpage" onkeypress="return checkDigit(event.keyCode?event.keyCode:event.which)" style="width:20px;margin-right:5px;" onkeydown="OnText1Key(event, false);"/>of {!MAX(mp_iTotalPages, 1)}</span>
+                        </div>
+                        <div class="clearingBox"></div>
+                        </div>
+                        <script>
+                            var firstPageInput = document.getElementById("firstpage");
+                            var prePageInput = document.getElementById("prevpage");
+                            var nextPageInput = document.getElementById("nextpage");
+                            var lastPageInput = document.getElementById("lastpage");
+                            //btns
+                            var firstBtn = document.getElementById("first");
+                            var prevBtn = document.getElementById("prev");
+                            var nextBtn = document.getElementById("next");
+                            var lastBtn = document.getElementById("last");
+                            
+                            var totalPages = {!mp_iTotalPages};
+                            var currentpage = {!mp_iCurrentPage};
+                            if(totalPages > 1)
+                            {
+                                if(currentpage == 1)
+                            {
+                                firstPageInput.setAttribute("class", "spanInActiveLink");
+                                firstPageInput.removeAttribute("onclick");
+                                prePageInput.setAttribute("class", "spanInActiveLink");
+                                prePageInput.removeAttribute("onclick");
+                                nextPageInput.setAttribute("class", "spanActiveLink");
+                                nextPageInput.setAttribute("onclick", "nextPage()");
+                                lastPageInput.setAttribute("class", "spanActiveLink");
+                                lastPageInput.setAttribute("onclick", "lastPage()");
+                                
+                                //set Btns class
+                                nextBtn.setAttribute("class","nexton");
+                                lastBtn.setAttribute("class", "laston");
+                                
+                            }
+                            else
+                            {
+                                firstPageInput.setAttribute("class", "spanActiveLink");
+                                firstPageInput.setAttribute("onclick", "firstPage()");
+                                prePageInput.setAttribute("class", "spanActiveLink");
+                                prePageInput.setAttribute("onclick", "prePage()");
+                                firstBtn.setAttribute("class", "firston");
+                                prevBtn.setAttribute("class", "prevon");
+                                if(currentpage < totalPages)
+                                {
+                                    nextPageInput.setAttribute("class", "spanActiveLink");
+                                    nextPageInput.setAttribute("onclick", "nextPage()");
+                                    lastPageInput.setAttribute("class", "spanActiveLink");
+                                    lastPageInput.setAttribute("onclick", "lastPage()");
+                                    //set buttons class
+                                    nextBtn.setAttribute("class", "nexton");
+                                    lastBtn.setAttribute("class", "laston");
+
+                                    } 
+                                    else
+                                    {
+                                        nextPageInput.setAttribute("class", "spanInActiveLink");
+                                    nextPageInput.removeAttribute("onclick");
+                                    lastPageInput.setAttribute("class", "spanInActiveLink");
+                                    lastPageInput.removeAttribute("onclick");
+                                    nextBtn.setAttribute("class", "nextoff");
+                                    lastBtn.setAttribute("class", "lastoff");
+                                } 
+                            }
+                            }       
+                        </script>
+                        <script>
+                            function OnText1Key(e, isTop)
+                            { 
+                                e = e || event;
+                                if(e.keyCode==13)
+                                {
+                                    redirectToNewPage(isTop);
+                                }
+                            }
+                            
+                            function checkDigit(key)
+                            {
+                                if(key < 48 || key > 57)
+                                {
+                                    return false;
+                                }
+                                return true;
+                            }
+                            
+                            function redirectToNewPage(isTop)
+                            {
+                               var currentPage = document.getElementById("page:form:currentPage");
+                               var currentPageInput = document.getElementById("currentpage");
+                               if(isTop)
+                               {
+                                    currentPageInput = document.getElementById("currentpage2");
+                               }
+                               if(currentPageInput.value == null || currentPageInput.value == "")
+                               {
+                                   currentPageInput.value = currentPage.value;
+                               }
+                               else
+                               {
+                                   var currentPageNumber = currentPageInput.value;
+                                   try
+                                   {
+                                       currentPageNumber = parseInt(currentPageNumber);
+                                       if(currentPageNumber == 0 || currentPageNumber > {!mp_iTotalPages})
+                                       {
+                                           currentPageInput.value = currentPage.value;
+                                       }
+                                       else
+                                       {
+                                           currentPage.value = currentPageNumber;
+                                           searchResults();
+                                       }
+                                   }
+                                   catch(e)
+                                   {
+                                       currentPageNumber = parseInt(currentPage.value);
+                                   }
+                               }
+                            }
+                             
+                             function prePage()
+                             {
+                                var currentPage = document.getElementById("page:form:currentPage");
+                                var currentPageNumber = parseInt(currentPage.value);
+                                currentPageNumber -= 1;
+                                currentPage.value = currentPageNumber;
+                                searchResults();
+                             }
+                             
+                             function nextPage()
+                             {
+                                var currentPage = document.getElementById("page:form:currentPage");
+                                var currentPageNumber = parseInt(currentPage.value);
+                                currentPageNumber += 1;
+                                currentPage.value = currentPageNumber;
+                                searchResults();
+                             }
+                             
+                             function firstPage()
+                             {
+                                var currentPage = document.getElementById("page:form:currentPage");
+                                currentPage.value = 1;
+                                searchResults();
+                             }
+                             
+                             function lastPage()
+                             {
+                                var currentPage = document.getElementById("page:form:currentPage");
+                                currentPage.value = {!mp_iTotalPages};
+                                searchResults();
+                             }
+                        </script>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <div id="popDiv" style="display:none; cursor: default">
+            <div style="width:100%; margin:auto; height:30px; line-height:30px; font-size:14px; font-weight:bold;">
+                New Commission Adjustment
+            </div>
+               
+             <table class="list" cellspacing="0" cellpadding="0" border="0" style="margin: auto;" width="80%">
+                 <tr>
+                    <td class="adjustLabel">
+                        <apex:outputLabel value="Operator" for="page:form:theOperator"/>
+                    </td>
+                    <td>
+                        <apex:outputField value="{!CommissionAdjustTemp.Operator__r.Name}" id="theOperator"/>
+                    </td>
+                    <td class="adjustLabel">
+                        <apex:outputLabel value="Type" for="page:form:theType"/>
+                    </td>
+                    <td>
+                        <apex:outputField value="{!AdjustCommission.Invoice_Type__c}" id="theType"/>
+                    </td>
+                 </tr>
+                 <tr>
+                    <td class="adjustLabel">
+                        <apex:outputLabel value="Contrator" for="page:form:theContrator"/>
+                    </td>
+                    <td>
+                        <apex:outputField value="{!CommissionAdjustTemp.Contractor__r.Name}" id="theContrator"/>
+                     </td>
+                     <td class="adjustLabel">
+                        <apex:outputLabel value="Commission Amount" for="commissionAmount"/>
+                     </td>
+                     <td>
+                        <input id="commissionAmount" type="text"/>
+                     </td>
+                 </tr>
+                 <tr>
+                     <td class="adjustLabel">
+                        <apex:outputLabel value="Sales Rep" for="page:form:theSalesRep"/>
+                     </td>
+                     <td>
+                        <apex:outputField value="{!CommissionAdjustTemp.User__r.Name}" id="theSalesRep"/>
+                     </td>
+                     <td class="adjustLabel">
+                        <apex:outputLabel value="Description" for="adjustmentDescription"/>
+                     </td>
+                     <td>
+                        <textarea id="adjustmentDescription" rows="3"/>
+                     </td>
+                </tr>
+                <tr>
+                    <td class="adjustLabel">
+                        <apex:outputLabel value="Payment Date" for="page:form:thepaymentDate"/>
+                    </td>
+                    <td>
+                        <apex:outputField value="{!AdjustCommission.Payment_Date__c}" id="thepaymentDate"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="adjustLabel">
+                        <apex:outputLabel value="Creator" for="page:form:theCreator"/>
+                    </td>
+                    <td>
+                        <apex:outputField value="{!currentUser.Name}" id="theCreator"/>
+                    </td>
+                </tr>
+                 <tfoot>
+                    <tr class="dataRow even">
+                        <td colspan="4" style="text-align:center">
+                            <input type="button" class="btn" value="Cancel" id="cancelBtn"/>
+                            <input type="button" class="btn" value="Save" id="saveBtn" onclick="adjustCommsion();"/>
+                        </td>
+                     </tr>
+                 </tfoot>                     
+             </table>
+        </div>
+        <script>
+            jQuery('td.userTd').click(function(){
+                var userTdObject = jQuery(this);
+                var username = userTdObject.text();
+                var userId = userTdObject.children('input').eq(0).val()
+                //alert(userId);
+                diplayCommissionsForCertainUserFun(userId, username);
+            });
+
+            jQuery('.adjustClass').click(function(){
+                var adjustObject = jQuery(this);
+                var commissionId = adjustObject.siblings('input').eq(0).val();
+                selectCommissionFun(commissionId);
+            });
+            function popup(){
+                var leftPosition = (screen.width-800)/2 + 'px';
+                $.blockUI({ 
+                        message: $('#popDiv'),
+                        css:{ 
+                                top:'160px',
+                                width:'800px',
+                                left: leftPosition,
+                        }
+                });
+            }
+
+            function adjustCommsion()
+            {
+                var commissionAMountServer = document.getElementById("page:form:commissionAmount");
+                var commissionInput = document.getElementById("commissionAmount");
+                var adjustCommsionServer = document.getElementById("page:form:adjustmentDescription");
+                var adjustCommsionInput = document.getElementById("adjustmentDescription");
+                commissionAMountServer.value = commissionInput.value;
+                adjustCommsionServer.value = adjustCommsionInput.value;
+                if(commissionInput.value == null || commissionInput.value == '')
+                {
+                    alert('Please input Commission Amount.');
+                }
+                else{
+                    saveAdjustCommissionFun();
+                }
+            }
+
+            $('#cancelBtn').click(function() {
+                $.unblockUI(); 
+                return false; 
+            });
+        </script>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,37 @@
+<aura:component controller = "Client_SDR_Mapping_ApexController">	
+    <aura:attribute name="region" type="Region__c" required="true"></aura:attribute>
+    <aura:attribute name="states" type="State__c[]"></aura:attribute>
+    <aura:attribute name="reps" type="Rep__c[]"></aura:attribute>
+    <aura:attribute name="stateBool" type="Boolean"></aura:attribute>
+
+    <aura:registerEvent name="regionChange" type="c:SDR_regionChange"/>
+    
+    <div class="holder" ondrop="{!c.onDrop}" ondragover="{!c.allowDrop}">
+            <div id="regionheader">
+                {! v.region.Name }  
+                <button onclick="{!c.removeRegion}" class="deleteRepButton">
+                    <lightning:icon iconName="utility:delete" size="xx-small" alternativeText="{!'Delete ' + v.region.Name}" />
+                </button>
+                <button onclick="{!c.editRegion}" class="deleteRepButton">
+                    <lightning:icon iconName="utility:edit" size="xx-small" alternativeText="{!'Edit ' + v.region.Name}" />
+				</button>
+            </div>
+        	
+        <hr></hr>
+        <aura:if isTrue="{!v.stateBool}">
+                <aura:iteration items="{!v.states}" var="state">
+                    <aura:if isTrue="{!v.region.Id == state.Region__c}">
+                        <c:SDR_State state="{!state}"></c:SDR_State>
+                    </aura:if>    
+                </aura:iteration>
+        </aura:if>
+        <aura:if isTrue="{!v.stateBool == false}">
+        		<aura:iteration items="{!v.reps}" var="rep">
+                    <aura:if isTrue="{!v.region.Id == rep.Region__c}">
+                     	<c:Reps rep="{!rep}"></c:Reps>
+                    </aura:if>    
+                </aura:iteration>
+        </aura:if>
+    </div>
+
+</aura:component>

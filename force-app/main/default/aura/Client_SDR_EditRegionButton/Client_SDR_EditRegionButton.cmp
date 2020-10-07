@@ -1,0 +1,3 @@
+<aura:component >
+	<lightning:button variant="base" label="Edit" title="Edit region" onclick="{!c.editRegion}"/>
+</aura:component>

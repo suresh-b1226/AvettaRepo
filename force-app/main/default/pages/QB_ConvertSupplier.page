@@ -1,0 +1,12 @@
+<apex:page id="ConvertSupplier" standardController="Supplier_Staging__c" extensions="QB_SupplierConvertExt" recordSetVar="supplierStagingList">
+    <apex:form >
+        <apex:pagemessages />
+        <apex:pageBlock >
+            <apex:pageBlockSection columns="3">
+                <apex:inputText required="true" value="{!campaignId}" label="Campaign ID"/>
+                <apex:commandButton value="Convert Suppliers" action="{!convertSuppliers}"
+                                    id="theButton" style="width:100px;"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

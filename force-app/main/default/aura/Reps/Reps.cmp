@@ -1,0 +1,6 @@
+<aura:component >
+	<aura:attribute name="rep" type="Rep__c" required="true"></aura:attribute>
+    <div class="box draggable" draggable="true" ondragstart="{!c.onDragStart}">
+        {!v.rep.Rep_Name__c}
+    </div>
+</aura:component>

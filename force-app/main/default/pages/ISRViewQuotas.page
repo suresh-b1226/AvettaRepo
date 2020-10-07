@@ -1,0 +1,89 @@
+<apex:page sidebar="false" controller="ISRViewQuotasController" tabstyle="ISRViewQuota__tab">
+	<apex:form id="form" styleClass="infoForm">
+		<apex:pageMessages />
+		<apex:sectionHeader title="ISR View Quota"/> 
+		<apex:pageBlock id="block">
+			<apex:PageBlockSection collapsible="false" columns="2"> 
+	            <apex:pageBlockSectionItem id="keywordItem">
+	                <apex:outputLabel value="Sales Manager"></apex:outputLabel>
+	                <apex:outputPanel >
+		                <apex:selectList value="{!SelectUserId}" size="1">
+							<apex:selectOptions value="{!AllSalesManagerOptions}"/>
+							<apex:actionSupport event="onchange" action="{!populateQuotas}" rerender="form" status="status1"/>
+						</apex:selectList>
+						<apex:actionStatus id="status1">
+                           <apex:facet name="start">
+                                   <img src="/img/loading.gif" alt="loading..." />
+                           </apex:facet>
+                        </apex:actionStatus>
+					</apex:outputPanel>    
+	            </apex:pageBlockSectionItem>
+	            <apex:pageBlockSectionItem >
+	                 <apex:outputLabel value="Year"></apex:outputLabel>
+	                 <apex:outputPanel >
+	                 <apex:selectList value="{!Year}" size="1">
+						<apex:selectOptions value="{!AllYearsOptions}"/>
+						<apex:actionSupport event="onchange" action="{!populateQuotas}" rerender="form" status="status2"/>
+					</apex:selectList> 
+					<apex:actionStatus id="status2">
+                           <apex:facet name="start">
+                                   <img src="/img/loading.gif" alt="loading..." />
+                           </apex:facet>
+                        </apex:actionStatus>
+                    </apex:outputPanel>  
+	            </apex:pageBlockSectionItem>
+            </apex:PageBlockSection>
+			<apex:pageBlockSection showHeader="false" collapsible="false" columns="1">
+				<apex:pageBlockSectionItem >
+					<apex:outputPanel >
+						<apex:outputPanel id="resultPanel2" rendered="{!CurrentSalesManagerISRQuotes.size = 0}" layout="block" style="background-color:#FFF;border-width:1px; border-style:solid;border-color: #D4DADC;color: #000;text-align:center;padding:10px">
+			                No records to display.
+			            </apex:outputPanel>
+						<apex:outputPanel rendered="{!CurrentSalesManagerISRQuotes.size > 0}">
+							<table class="list" cellspacing="0" cellpadding="0" border="0">
+								<tr class="headerRow ">
+									<th class="headerRow ">ISR Name</th>
+									<th class="headerRow ">&nbsp;</th>
+									<apex:repeat value="{!AllQuotesMonths}" var="month">
+										<th class="headerRow ">{!month}</th>
+									</apex:repeat>
+								</tr>
+								<tbody>
+									<apex:variable var="employeeIndex" value="{!0}"/>
+									<apex:repeat value="{!CurrentSalesManagerISRQuotes}" var="employeeQuotes">
+										<tr class="{!If(MOD((CEILING(employeeIndex) + 1), 2)== 0, 'dataRow even', 'dataRow odd')}">
+											<td>
+												<apex:selectList value="{!employeeQuotes.EmployeeId}" size="1" disabled="true">
+													<apex:selectOptions value="{!AllSalesOptions}"/>
+												</apex:selectList>
+											</td>
+											<td>
+												<p><b>Quota</b></p>
+												<p><b>Actual</b></p>
+												<p><b>Pct</b></p>
+											</td>
+											<apex:repeat value="{!employeeQuotes.CurrentQuotes}" var="currentQuote">
+												<td>
+													<p>
+														<apex:outputField value="{!currentQuote.ISRQuote.Quota__c}" />	
+													</p>
+													<p>
+														<apex:outputField value="{!currentQuote.ISRQuote.Actual__c}"/>
+													</p>
+													<p>
+														<apex:outputField value="{!currentQuote.ISRQuote.Percent__c}" />
+													</p>
+												</td>
+											</apex:repeat>
+										</tr>
+										<apex:variable value="{!employeeIndex+1}" var="employeeIndex"/>
+									</apex:repeat>
+								</tbody>
+							</table>
+						</apex:outputPanel>
+					</apex:outputPanel>
+				</apex:pageBlockSectionItem>
+			</apex:pageBlockSection>
+		</apex:pageBlock>
+	</apex:form>        
+</apex:page>

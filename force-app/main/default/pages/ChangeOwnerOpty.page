@@ -1,0 +1,15 @@
+<apex:page standardController="Opportunity" recordSetVar="Opps">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockSection >
+                <apex:inputField value="{!Opportunity.OwnerId}" />
+            </apex:pageBlockSection>
+            <apex:pageBlockTable value="{!selected}" var="opp">
+                <apex:column value="{!Opp.Name}" />
+            </apex:pageBlockTable>
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!save}" value="Save" />
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

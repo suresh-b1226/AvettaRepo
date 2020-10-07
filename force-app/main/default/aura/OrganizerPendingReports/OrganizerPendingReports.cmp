@@ -1,0 +1,196 @@
+<aura:component access="GLOBAL" controller="API_CONNECT_ContractorMatchController"
+                implements="force:appHostable,forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes,force:lightningQuickAction">
+
+    <aura:attribute name="store" type="Map"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+
+    <aura:if isTrue="{!v.store.matchData}">
+
+        <div class="slds-grid slds-wrap slds-gutters">
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+
+                <article class="slds-card" style="height: 300px;">
+                    <!--<div style="height: 400px;">-->
+                    <lightning:datatable data="{! v.store.matchData }"
+                                         columns="{! v.store.matchColumns }"
+                                         keyField="id"
+                                         onrowaction="{! c.handleMatchRowAction }"
+                                         enableInfiniteLoading="{! v.store.enableInfiniteLoading }"
+                                         onloadmore="{! c.loadMoreMatches }"
+                                         hideCheckboxColumn="true"/>
+                    <!--</div>-->
+                    {! v.store.loadMoreStatus }
+                </article>
+
+            </div>
+
+            <!--<c:OprMatches matchData="{! v.store.matchData }"></c:OprMatches>-->
+
+
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                <article class="slds-card">
+                    <div class="slds-card__header slds-grid">
+                        <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                            <div class="slds-media__body">
+                                <h2>
+                                    <span class="slds-text-heading_large">Review - {! v.store.reviewMatch.Match_Type__c }</span>
+                                </h2>
+                            </div>
+                        </header>
+                    </div>
+                    <div class="slds-card__body slds-card__body_inner">
+
+                        <div class="slds-grid slds-gutters slds-wrap">
+                            <div class="slds-col slds-size_6-of-12">
+                                <h4 class="slds-text-heading_medium">Connect</h4>
+                            </div>
+                            <div class="slds-col slds-size_6-of-12">
+                                <h4 class="slds-text-heading_medium">Salesforce</h4>
+                            </div>
+
+                            <!--Name-->
+                            <div class="slds-col slds-size_1-of-1 slds-text-heading_small">Name:</div>
+                            <div class="slds-col slds-size_6-of-12">
+                                <a href="#" onclick="{! c.viewMatch }">{! v.store.reviewMatch.Name }</a>
+                            </div>
+                            <div class="slds-col slds-size_6-of-12">
+                                <a href="#" onclick="{! c.viewCompareAccount }">{! v.store.compareAccount.Name }</a>
+                            </div>
+
+                            <!--Website-->
+                            <c:OprMatchAccountField
+                                    label="Website"
+                                    matchValue="{! v.store.reviewMatch.webUrl__c }"
+                                    accountValue="{! v.store.compareAccount.Website }"
+                            />
+
+                            <!--Phone-->
+                            <c:OprMatchAccountField
+                                    label="Phone"
+                                    matchValue="{! v.store.reviewMatch.Phone_Number__c }"
+                                    accountValue="{! v.store.compareAccount.Phone }"
+                            />
+
+                            <!--Address-->
+                            <c:OprMatchAccountField
+                                    label="Street"
+                                    matchValue="{! v.store.reviewMatch.street__c }"
+                                    accountValue="{! v.store.compareAccount.BillingAddress.street }"
+                            />
+
+                            <!--City-->
+                            <c:OprMatchAccountField
+                                    label="City"
+                                    matchValue="{! v.store.reviewMatch.City__c }"
+                                    accountValue="{! v.store.compareAccount.BillingAddress.city }"
+                            />
+
+                            <!--Email-->
+                            <c:OprMatchAccountField
+                                    label="Email"
+                                    matchValue="{! v.store.reviewMatch.email__c }"
+                                    accountValue="{! v.store.compareAccount.Primary_Contact_Email__c }"
+                            />
+
+                            <!--Account Type-->
+                            <c:OprMatchAccountField
+                                    label="Account Type"
+                                    matchValue="{! v.store.reviewMatch.accountType }"
+                                    accountValue="{! v.store.compareAccount.sfAccountType }"
+                            />
+                        </div>
+                    </div>
+                    <footer class="slds-card__footer">
+                        <!--<aura:if isTrue="{! and(v.store.reviewMatch, v.store.compareAccount) }">-->
+                        <div class="slds-align_absolute-center">
+                            <lightning:button variant="destructive" label="Clear"
+                                              onclick="{! c.handleClearClick }"
+                                              disabled="{! !and(v.store.reviewMatch, v.store.compareAccount) }"/>
+                            <lightning:button variant="success" label="Save" onclick="{! c.handleSaveClick }"
+                                              disabled="{! !and(v.store.reviewMatch, v.store.compareAccount) }"/>
+                            <lightning:button variant="brand" label="Approve"
+                                              onclick="{! c.handleApproveClick }"
+                                              disabled="{! !and(v.store.reviewMatch, v.store.compareAccount) }"/>
+                            <lightning:button variant="neutral" label="No Match"
+                                              onclick="{! c.handleNoMatchClick }"
+                                              disabled="{! or(!v.store.reviewMatch, v.store.compareAccount) }"/>
+                        </div>
+                        <!--</aura:if>-->
+
+                    </footer>
+                </article>
+                <article class="slds-card">
+                    <div class="slds-card__header slds-grid">
+                        <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                            <div class="slds-media__body">
+                                <h2>
+                                    <span class="slds-text-heading_large">Search</span>
+                                </h2>
+                            </div>
+                        </header>
+                    </div>
+                    <div class="slds-card__body slds-card__body_inner">
+                        <lightning:input label="Account Search" name="accountSearch" value="{!v.store.searchText}"
+                                         onchange="{!c.searchUpdate}"
+                                         placeholder="Name/Connect Id/Email Address Domain"/>
+
+
+                        <aura:if isTrue="{! v.store.searchResults }">
+
+
+                            <lightning:datatable data="{! v.store.searchResults }" columns="{!v.store.searchColumns}"
+                                                 keyField="id"
+                                                 onrowaction="{! c.handleSearchRowAction }"
+                                                 hideCheckboxColumn="true"/>
+
+                        </aura:if>
+
+                    </div>
+                    <!--<footer class="slds-card__footer">Card Footer</footer>-->
+                </article>
+
+            </div>
+        </div>
+
+    </aura:if>
+
+
+    <aura:if isTrue="{!v.store.showConfirmModal}">
+
+        <!--###### MODAL BOX Start From Here ######-->
+        <div role="dialog" tabindex="-1" aria-labelledby="header99" class="slds-modal slds-fade-in-open ">
+            <div class="slds-modal__container">
+                <!-- ###### MODAL BOX HEADER Part Start From Here ######-->
+                <div class="slds-modal__header">
+                    <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close"
+                            onclick="{!c.handleConfirmModalCancelClick}">
+                        X
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="header99" class="slds-text-heading--medium">{!v.store.confirmModalHeader}</h2>
+                </div>
+                <!--###### MODAL BOX BODY Part Start From Here ######-->
+                <div class="slds-modal__content slds-p-around--medium">
+                    <p>
+                        <b>
+                            {!v.store.confirmModalBody}
+                        </b>
+                    </p>
+                </div>
+                <!--###### MODAL BOX FOOTER Part Start From Here ######-->
+                <div class="slds-modal__footer">
+                    <button class="slds-button slds-button--neutral"
+                            onclick="{!c.handleConfirmModalCancelClick}">{!v.store.confirmModalCancelText}</button>
+                    <button class="slds-button slds-button--brand"
+                            onclick="{!c.handleConfirmModalApproveClick}">{!v.store.confirmModalConfirmText}</button>
+                </div>
+            </div>
+        </div>
+        <div class="slds-backdrop slds-backdrop--open"></div>
+        <!--###### MODAL BOX Part END Here ######-->
+
+    </aura:if>
+
+
+</aura:component>

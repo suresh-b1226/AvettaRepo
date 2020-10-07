@@ -1,0 +1,23 @@
+<apex:page >
+<apex:includeLightning />
+<apex:slds />
+
+<div class="slds-scope">
+<div id="lightning"></div>
+
+</div>
+
+<script>
+
+    console.log('start');
+    $Lightning.use("c:OrganizerPendingReportsApp", function() {
+      $Lightning.createComponent("c:OrganizerPendingReports",
+      { },
+      "lightning",
+      function(cmp) {
+        // do some stuff
+          console.log('end start');
+      });
+    });
+</script>
+</apex:page>

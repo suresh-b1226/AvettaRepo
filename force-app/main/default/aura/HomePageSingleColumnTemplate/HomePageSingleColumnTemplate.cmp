@@ -1,0 +1,4 @@
+<aura:component implements="lightning:homeTemplate">
+    <aura:attribute name="main" type="Aura.Component[]" /> 
+    {!v.main}    
+</aura:component>

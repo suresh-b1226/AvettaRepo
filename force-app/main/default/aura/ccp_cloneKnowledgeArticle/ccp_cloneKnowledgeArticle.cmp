@@ -1,0 +1,39 @@
+<aura:component controller="ccp_cloneKnowledgeArticleController" implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="readyToDisplay" type="Boolean" default="false"/>
+    <aura:attribute name="showSpinner" type="Boolean" default="false"/>
+    <aura:attribute name="isCompatible" type="Boolean" default="false"/>
+    <aura:attribute name="articleInfo" type="Object"/>
+    <aura:attribute name="newTitle" type="String"/>
+    <aura:attribute name="newUrlName" type="String"/>
+    
+    <aura:dependency resource="force:showToast" type="EVENT" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    
+    <div class="slds slds-card">
+        <div class="slds-align_absolute-center spinnerContainer">
+            <lightning:spinner aura:id="spinner" variant="brand" size="medium" class="{!if(and(v.readyToDisplay,!v.showSpinner),'slds-hide','')}" alternativeText="Loading..."/>
+        </div>
+        <aura:if isTrue="{!v.readyToDisplay}">
+            <aura:if isTrue="{!v.isCompatible}">
+                <div class="slds-m-around--medium">
+                    Please change the Title and UrlName below to clone this article:<br />
+                    <lightning:input aura:id="newTitle" name="Title" label="Title" value="{!v.newTitle}" required="true" onblur="{!c.handleTitleOnBlur}"/>
+                    <lightning:input aura:id="newUrlName" name="UrlName" label="UrlName" value="{!v.newUrlName}" required="true"/>
+                </div>
+                <span class="slds-align_absolute-center">
+                    <lightning:button variant="brand" label="Clone" title="Base action" onclick="{! c.handleCloneClick }"
+                                      class="slds-m-vertical--small"/> 
+                </span>
+                <aura:set attribute="else">
+                    <div class="slds-m-around--medium">
+                        This record is not compatible with this component. 
+                        Please use this component only with knowledge article record pages.
+                    </div>
+                </aura:set>
+                
+            </aura:if>
+        </aura:if>
+    </div>
+    
+</aura:component>
