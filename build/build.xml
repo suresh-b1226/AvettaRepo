@@ -4,7 +4,7 @@
     <property environment="env"/>
 	<taskdef resource="com/salesforce/antlib.xml" uri="antlib:com.salesforce">
         <classpath>
-            <pathelement location="./lib/ant-salesforce.jar" />        	
+            <pathelement location="lib/ant-salesforce.jar" />        	
         </classpath>
     </taskdef>
 	<!-- Sequence 1 - Get All information from Source, Retrieve the contents into Src directory -->
