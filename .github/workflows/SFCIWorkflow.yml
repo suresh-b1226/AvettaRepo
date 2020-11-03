@@ -3,7 +3,7 @@
 name: SalesforceCI
 
 # Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the AvettaDevProject branch
+# events but only for the 03288716-DevTeamCI branch
 on:
   push:
     branches: [ 03288716-DevTeamCI ]
