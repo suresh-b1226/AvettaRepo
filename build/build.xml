@@ -19,7 +19,7 @@
       </sf:deploy>
     </target> 
 
-	<!-- Sequence 2 - If you want to remove some components, destructiveChanges.xml and Package.xml present in Delete Folder -->
+	<!-- Sequence 2   - If you want to remove some components, destructiveChanges.xml and Package.xml present in Delete Folder -->
 	<target name="unDeploy">
       <sf:deploy username="${sf1.username}" password="${sf1.password}" serverurl="${sf.serverurl}" deployroot="Delete">
       </sf:deploy>
