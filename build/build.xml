@@ -1,0 +1,27 @@
+<project name="SalesforceDeployment" default="deploy" basedir="." xmlns:sf="antlib:com.salesforce">
+	<!-- Get all settings like Server Path, username and passwords from "build.properties" file -->
+    <property file="build.properties"/>
+    <property environment="env"/>
+	<taskdef resource="com/salesforce/antlib.xml" uri="antlib:com.salesforce">
+        <classpath>
+            <pathelement location="./lib/ant-salesforce.jar" />        	
+        </classpath>
+    </taskdef>
+	<!-- Sequence 1 - Get All information from Source, Retrieve the contents into Src directory -->
+	<target name="SFDCFetch">
+	  <!-- -->
+	  <sf:retrieve username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" retrieveTarget="src" unpackaged="package.xml"/>
+	</target>
+
+	<!-- Sequence 3 - Deploy to Target System, Package.xml is present in Src folder -->
+	<target name="deploy">
+      <sf:deploy username="${sf1.username}" password="${sf1.password}" serverurl="${sf.serverurl}" deployroot="../force-app/main/default/classes">
+      </sf:deploy>
+    </target> 
+
+	<!-- Sequence 2 - If you want to remove some components, destructiveChanges.xml and Package.xml present in Delete Folder -->
+	<target name="unDeploy">
+      <sf:deploy username="${sf1.username}" password="${sf1.password}" serverurl="${sf.serverurl}" deployroot="Delete">
+      </sf:deploy>
+    </target>
+</project>
