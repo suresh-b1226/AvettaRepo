@@ -29,4 +29,4 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Build with Ant
-        run: ant -noinput -buildfile ../../build/build.xml
+        run: ant -noinput -buildfile build/build.xml
