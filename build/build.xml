@@ -15,7 +15,7 @@
 
 	<!-- Sequence 3 - Deploy to Target System, Package.xml is present in Src folder -->
 	<target name="deploy">
-      <sf:deploy username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" deployroot="force-app\main\default">
+      <sf:deploy username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" deployroot="../force-app/main/default">
       </sf:deploy>
     </target> 
 
