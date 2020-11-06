@@ -1,5 +1,5 @@
 <project name="SalesforceDeployment" default="deploy" basedir="." xmlns:sf="antlib:com.salesforce">
-	<!-- Get all settings like   Server Path, username and passwords from "build.properties" file -->
+	<!-- Get all settings like Server Path, username and passwords from "build.properties" file -->
     <property file="build.properties"/>
     <property environment="env"/>
 	<taskdef resource="com/salesforce/antlib.xml" uri="antlib:com.salesforce">
