@@ -186,7 +186,7 @@ public class updateContactRole {
                         }
                     }
                     if (thisOpportunityContactList.isEmpty() == true) {
-                        if (opp.Priority__c == 'Registration Request') {
+                        if (opp.Priority__c != null) {
                             for (Contact newestCon : mostRecentCon ) {
                                 if (newestCon.AccountId == opp.AccountId) {
                                     accountContactList.add(new OpportunityContactRole(ContactId = newestCon.Id, OpportunityId = opp.Id, IsPrimary = true));

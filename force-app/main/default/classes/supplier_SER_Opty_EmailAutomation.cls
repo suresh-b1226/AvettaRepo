@@ -10,37 +10,60 @@
 *   - ESTIMATED 19,000 emails sent automatically a month rather than manually
 *   - 200hrs saved a month by Automating this process
 *
-* Salesforce Case #00945199 - 'Automate emails sent for supplier record type opportunites'
+* Salesforce Case #00945199 - 'Automate emails sent for supplier record type opportunities'
 *
+* Updated Code for SF Case #03282940. Changed the trigger paramater from task to SObject to account for talk desk activities
+ * 
 */
 public class supplier_SER_Opty_EmailAutomation {
     public static Boolean firstRun = true;
     public static Integer runCount = 0;
     
-    public Boolean ser_EmailAutomationHandler(List<Task> newTrigger) {
+    public Boolean ser_EmailAutomationHandler(List<SObject> newTrigger) {
+        System.debug('****************************************ENTER ser_EmailAutomationHandler TRIGGER');
         
         Boolean success = true;
         
         if ((supplier_SER_Opty_EmailAutomation.runCount == 0 && newTrigger != null) ||
             (Test.isRunningTest() == TRUE && supplier_SER_Opty_EmailAutomation.runCount < 1)) {
                 
-                List<Profile> currentProfile = [Select Id, Name from Profile where Id=: userInfo.getProfileId()];
+                List<Profile> currentProfile = [SELECT Id, Name FROM Profile WHERE Id=: UserInfo.getProfileId()];
         		String profileName = currentProfile.size() > 0 ? currentProfile[0].Name : NULL;
                 
                 if(profileName != 'Bizable User') {
                     
                     //Instantiate Id list for the task whatId and the accountID for each Opportunity
                     List<Id> OptyIds = new List<Id>();
-                    for (Task t : newTrigger) {
-                        
-                        if (String.valueOf(t.getSObjectType()) == 'Task' &&
+                    for (SObject o : newTrigger) {
+
+                        if(String.valueOf(o.getSObjectType()) == 'Task') {
+                            Task t = new Task();
+                            t = (Task) o ;
+
+                            if (t.WhatId != null &&
+                                    String.valueOf(t.WhatId.getSobjectType()) == 'Opportunity' &&
+                                    t.Type == 'Call') {
+                                OptyIds.add(t.WhatId);
+                            }
+                        } else {
+                            talkdesk__Talkdesk_Activity__c td = new talkdesk__Talkdesk_Activity__c();
+                            td = (talkdesk__Talkdesk_Activity__c) o ;
+                            if (td.talkdesk__Opportunity__c	 != null &&
+                                    String.valueOf(td.talkdesk__Opportunity__c	.getSobjectType()) == 'Opportunity') {
+
+                                OptyIds.add( td.talkdesk__Opportunity__c );
+                            }
+                        }
+
+/*                        if (String.valueOf(t.getSObjectType()) == 'Task' &&
                             t.WhatId != NULL &&
                             String.valueOf(t.WhatId.getSobjectType()) == 'Opportunity' &&
                             t.Type == 'Call') {
                                 
                                 OptyIds.add(t.WhatId);
-                            }
+                            }*/
                     }
+                    System.debug('OptyIds = ' + OptyIds);
                     
                     
                     //SOQL query automation switch
@@ -65,6 +88,7 @@ public class supplier_SER_Opty_EmailAutomation {
                         StageName,
                         Type,
                         Calls_Made__c,
+                        Current_Calls_Made__c,
                         Result__c,
                         Rep_E_Mail_Opt_Out__c,
                         CampaignId,
@@ -73,8 +97,8 @@ public class supplier_SER_Opty_EmailAutomation {
                         WHERE Id = :OptyIds
                         AND Type IN ('Reactivation', 'Registration')
                         AND StageName IN ('Prospect', 'In Progress', 'Closed Lost', 'Commit')
-                        AND Result__c Not IN ('Aged', 'Duplicate', 'Client Exempt')
-                        AND rep_E_Mail_Opt_Out__c = FALSE
+                        AND Result__c NOT IN ('Aged', 'Duplicate', 'Client Exempt')
+                        AND Rep_E_Mail_Opt_Out__c = FALSE
                     ];
                     System.debug('optyList = ' + optyList);
                     if(optyList.size() == 0) {
@@ -202,12 +226,12 @@ public class supplier_SER_Opty_EmailAutomation {
                             //to enhance readablity and to allow code to be more dynamic and flexible for when new features are
                             //added at a later date
 
-                            Supplier_SER_Opty_LanguageEmailTemplate buildEmailTemplate = new Supplier_SER_Opty_LanguageEmailTemplate();
+                            supplier_SER_Opty_LanguageEmailTemplate buildEmailTemplate = new supplier_SER_Opty_LanguageEmailTemplate();
                             
                             //Calling the new method created in the language email template class to begin the construction and
                             //placement of the data generated here for the email template. In order to do this, the opp,
                             //optycontact and ids must be sent over to leave this process intact. The class logic ends here.
-                            success = buildEmailTemplate.DetermineLanguageTemplate(opp, OptyContact, fromID, accountIds, attachment);
+                            success = buildEmailTemplate.DetermineLanguageTemplate(opp, OptyContact, fromId, accountIds, attachment);
                             runCount++;
                         }
                     }

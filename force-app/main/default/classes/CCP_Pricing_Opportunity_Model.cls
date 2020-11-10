@@ -40,7 +40,8 @@ public with sharing class CCP_Pricing_Opportunity_Model {
     private Double newSupplierAmount { get; set; }
     private Decimal existingSupplierUpgrades { get; set; }
     private Double existingSupplierAmount { get; set; }
-    //
+    
+    //private Double browzPriceIncreaseAmount {get; set; }
     
     private List<Opportunity> opportunities;
     
@@ -92,6 +93,12 @@ public with sharing class CCP_Pricing_Opportunity_Model {
         this.existingSupplierAmount = existingSupplierAmount;
     }
     
+    /*
+    public void setBrowzPriceIncreaseAmount(double browzPriceIncreaseAmount) {
+        this.browzPriceIncreaseAmount = browzPriceIncreaseAmount;
+    }
+*/    
+
     public void calculateTotalCCPAllOpps () {
         if(isFirstRun()) {
             setFirstRunFalse();
@@ -107,7 +114,9 @@ public with sharing class CCP_Pricing_Opportunity_Model {
                     opp.Forecasted_New_Supplier_Amount__c = newSupplierAmount;
                     opp.Forecasted_Existing_Supplier_Upgrades__c = existingSupplierUpgrades;
                     opp.Forecasted_Existing_Supplier_Amount__c = existingSupplierAmount;
+                    //opp.BROWZ_Price_Increase_Amount__c = browzPriceIncreaseAmount;
                     opp.Total_Opportunity_Value__c = calculateTotalOpportunityValue(opp);
+                    //Mark Comment Total Opp value hered
                 }
                 else {
                     opp.CCP_Amount__c = 0;
@@ -115,7 +124,9 @@ public with sharing class CCP_Pricing_Opportunity_Model {
                     opp.Forecasted_New_Supplier_Amount__c = 0;
                     opp.Forecasted_Existing_Supplier_Upgrades__c = 0;
                     opp.Forecasted_Existing_Supplier_Amount__c = 0;
+                    //opp.BROWZ_Price_Increase_Amount__c = 0;
                     opp.Total_Opportunity_Value__c = calculateTotalOpportunityValue(opp);
+                    //Mark Comment Total Opp Value here
                 }
                 System.debug('Setting opp.CCP_Amount__c amount to ' + amount);
                 System.debug('opp.Forecasted_New_Supplier_Conversions__c = ' + opp.Forecasted_New_Supplier_Conversions__c);
@@ -602,7 +613,11 @@ public with sharing class CCP_Pricing_Opportunity_Model {
             totalOpportunityValue = opp.ImplementationFees__c == NULL ? totalOpportunityValue : totalOpportunityValue + opp.ImplementationFees__c;
             totalOpportunityValue = opp.Worker_Management_Amount__c == NULL ? totalOpportunityValue : totalOpportunityValue + opp.Worker_Management_Amount__c;
             totalOpportunityValue = opp.Experian_Amount__c == NULL ? totalOpportunityValue : totalOpportunityValue + opp.Experian_Amount__c;
-
+            totalOpportunityValue = opp.BROWZ_Price_Increase_Amount__c == NULL ? totalOpportunityValue : totalOpportunityValue + opp.BROWZ_Price_Increase_Amount__c;
+            
+            //Mark Comment 10/29/2020 total opp value exists here
+            System.debug('Browz Price Increase ' + opp.BROWZ_Price_Increase_Amount__c);
+            System.debug('Right Here ' +  totalOpportunityValue);
             return totalOpportunityValue;
         }
     }

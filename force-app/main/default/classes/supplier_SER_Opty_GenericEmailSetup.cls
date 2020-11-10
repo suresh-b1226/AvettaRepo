@@ -37,7 +37,9 @@ public with sharing class supplier_SER_Opty_GenericEmailSetup {
     // If this method is called, an email template list is generated. The email templates are instatiated and then
     // set depending on whichever email template name has been used in salesforce. This method will only be executed 
     // in the case of the country language set to English
+    
     public Boolean ConfigureGenericEmailTemplate(Opportunity opp, List<Contact> optyContact, ID fromId, List<Id> accountId, String language, ContentVersion attachment) {
+
 
         List<EmailTemplate> templateList = [
                 SELECT Id, DeveloperName
@@ -193,27 +195,27 @@ public with sharing class supplier_SER_Opty_GenericEmailSetup {
 
                 if (opp.StageName == 'Prospect') {
 
-                    if (opp.Calls_Made__c == 1) {
+                    if (opp.Current_Calls_Made__c == 1) {
                         serEmailTemp = regProspect1;
-                        opp.Contact__c = OptyContact[0].Id;
+                        opp.Contact__c = optyContact[0].Id;
                     }
 
-                    else if (opp.Calls_Made__c == 2) {
+                    else if (opp.Current_Calls_Made__c == 2) {
                         serEmailTemp = regProspect2;
                         opp.Contact__c = OptyContact[0].Id;
                     }
 
-                    else if (opp.Calls_Made__c == 3) {
+                    else if (opp.Current_Calls_Made__c == 3) {
                         serEmailTemp = regProspect3;
                         opp.Contact__c = OptyContact[0].Id;
                     }
 
-                    else if (opp.Calls_Made__c == 4) {
+                    else if (opp.Current_Calls_Made__c == 4) {
                         serEmailTemp = regProspect4;
                         opp.Contact__c = OptyContact[0].Id;
                     }
 
-                    else if (opp.Calls_Made__c >= 5) {
+                    else if (opp.Current_Calls_Made__c >= 5) {
                         serEmailTemp = regProspect5Plus;
                         opp.Contact__c = OptyContact[0].Id;
                     }
@@ -221,27 +223,27 @@ public with sharing class supplier_SER_Opty_GenericEmailSetup {
 
                 else if (opp.StageName == 'In Progress') {
 
-                    if (opp.Calls_Made__c == 1) {
+                    if (opp.Current_Calls_Made__c == 1) {
                         serEmailTemp = regInProgress1;
                         opp.Contact__c = OptyContact[0].Id;
                     }
 
-                    else if (opp.Calls_Made__c == 2) {
+                    else if (opp.Current_Calls_Made__c == 2) {
                         serEmailTemp = regInProgress2;
                         opp.Contact__c = OptyContact[0].Id;
                     }
 
-                    else if (opp.Calls_Made__c == 3) {
+                    else if (opp.Current_Calls_Made__c == 3) {
                         serEmailTemp = regInProgress3;
                         opp.Contact__c = OptyContact[0].Id;
                     }
 
-                    else if (opp.Calls_Made__c == 4) {
+                    else if (opp.Current_Calls_Made__c == 4) {
                         serEmailTemp = regInProgress4;
                         opp.Contact__c = OptyContact[0].Id;
                     }
 
-                    else if (opp.Calls_Made__c >= 5) {
+                    else if (opp.Current_Calls_Made__c >= 5) {
                         serEmailTemp = regInProgress5Plus;
                         opp.Contact__c = OptyContact[0].Id;
                     }
@@ -251,7 +253,7 @@ public with sharing class supplier_SER_Opty_GenericEmailSetup {
 
                     if (opp.Result__c == 'Bad Data') {
 
-                        if (opp.Calls_Made__c >= 1) {
+                        if (opp.Current_Calls_Made__c >= 1) {
                             serEmailTemp = closedLostBadData;
                             opp.Contact__c = OptyContact[0].Id;
                         }
@@ -259,7 +261,7 @@ public with sharing class supplier_SER_Opty_GenericEmailSetup {
 
                     else if (opp.Result__c == 'No Response') {
 
-                        if (opp.Calls_Made__c >= 1) {
+                        if (opp.Current_Calls_Made__c >= 1) {
                             serEmailTemp = closedLostNoResponse;
                             opp.Contact__c = OptyContact[0].Id;
                         }
@@ -267,7 +269,7 @@ public with sharing class supplier_SER_Opty_GenericEmailSetup {
 
                     else if (opp.Result__c == 'Declined') {
 
-                        if (opp.Calls_Made__c >= 1) {
+                        if (opp.Current_Calls_Made__c >= 1) {
                             serEmailTemp = closedLostDeclined;
                             opp.Contact__c = OptyContact[0].Id;
                         }
@@ -275,7 +277,7 @@ public with sharing class supplier_SER_Opty_GenericEmailSetup {
 
                     else if (opp.Result__c == 'Not Working For Client') {
 
-                        if (opp.Calls_Made__c >= 1) {
+                        if (opp.Current_Calls_Made__c >= 1) {
                             serEmailTemp = closedLostNotWorkingForClient;
                             opp.Contact__c = OptyContact[0].Id;
                         }
@@ -283,7 +285,7 @@ public with sharing class supplier_SER_Opty_GenericEmailSetup {
 
                     else if (opp.Result__c == 'Escalate To Client') {
 
-                        if (opp.Calls_Made__c >= 1) {
+                        if (opp.Current_Calls_Made__c >= 1) {
                             serEmailTemp = closedLostEscalateToClient;
                             opp.Contact__c = OptyContact[0].Id;
                         }
@@ -292,7 +294,7 @@ public with sharing class supplier_SER_Opty_GenericEmailSetup {
 
                 else if (opp.StageName == 'Commit') {
 
-                    if (opp.Calls_Made__c >= 1) {
+                    if (opp.Current_Calls_Made__c >= 1) {
                         serEmailTemp = stageCommit;
                         opp.Contact__c = OptyContact[0].Id;
                     }
@@ -303,27 +305,27 @@ public with sharing class supplier_SER_Opty_GenericEmailSetup {
 
                 if (opp.StageName == 'Prospect') {
 
-                    if (opp.Calls_Made__c == 1) {
+                    if (opp.Current_Calls_Made__c == 1) {
                         serEmailTemp = reactProspect1;
                         opp.Contact__c = OptyContact[0].Id;
                     }
 
-                    else if (opp.Calls_Made__c == 2) {
+                    else if (opp.Current_Calls_Made__c == 2) {
                         serEmailTemp = reactProspect2;
                         opp.Contact__c = OptyContact[0].Id;
                     }
 
-                    else if (opp.Calls_Made__c == 3) {
+                    else if (opp.Current_Calls_Made__c == 3) {
                         serEmailTemp = reactProspect3;
                         opp.Contact__c = OptyContact[0].Id;
                     }
 
-                    else if (opp.Calls_Made__c == 4) {
+                    else if (opp.Current_Calls_Made__c == 4) {
                         serEmailTemp = reactProspect4;
                         opp.Contact__c = OptyContact[0].Id;
                     }
 
-                    else if (opp.Calls_Made__c >= 5) {
+                    else if (opp.Current_Calls_Made__c >= 5) {
                         serEmailTemp = reactProspect5Plus;
                         opp.Contact__c = OptyContact[0].Id;
                     }
@@ -331,27 +333,27 @@ public with sharing class supplier_SER_Opty_GenericEmailSetup {
 
                 else if (opp.StageName == 'In Progress') {
 
-                    if (opp.Calls_Made__c == 1) {
+                    if (opp.Current_Calls_Made__c == 1) {
                         serEmailTemp = reactInProgress1;
                         opp.Contact__c = OptyContact[0].Id;
                     }
 
-                    else if (opp.Calls_Made__c == 2) {
+                    else if (opp.Current_Calls_Made__c == 2) {
                         serEmailTemp = reactInProgress2;
                         opp.Contact__c = OptyContact[0].Id;
                     }
 
-                    else if (opp.Calls_Made__c == 3) {
+                    else if (opp.Current_Calls_Made__c == 3) {
                         serEmailTemp = reactInProgress3;
                         opp.Contact__c = OptyContact[0].Id;
                     }
 
-                    else if (opp.Calls_Made__c == 4) {
+                    else if (opp.Current_Calls_Made__c == 4) {
                         serEmailTemp = reactInProgress4;
                         opp.Contact__c = OptyContact[0].Id;
                     }
 
-                    else if (opp.Calls_Made__c >= 5) {
+                    else if (opp.Current_Calls_Made__c >= 5) {
                         serEmailTemp = reactInProgress5Plus;
                         opp.Contact__c = OptyContact[0].Id;
                     }
@@ -361,7 +363,7 @@ public with sharing class supplier_SER_Opty_GenericEmailSetup {
 
                     if (opp.Result__c == 'Bad Data') {
 
-                        if (opp.Calls_Made__c >= 1) {
+                        if (opp.Current_Calls_Made__c >= 1) {
                             serEmailTemp = closedLostBadData;
                             opp.Contact__c = OptyContact[0].Id;
                         }
@@ -369,7 +371,7 @@ public with sharing class supplier_SER_Opty_GenericEmailSetup {
 
                     else if (opp.Result__c == 'No Response') {
 
-                        if (opp.Calls_Made__c >= 1) {
+                        if (opp.Current_Calls_Made__c >= 1) {
                             serEmailTemp = closedLostNoResponse;
                             opp.Contact__c = OptyContact[0].Id;
                         }
@@ -377,7 +379,7 @@ public with sharing class supplier_SER_Opty_GenericEmailSetup {
 
                     if (opp.Result__c == 'Declined') {
 
-                        if (opp.Calls_Made__c >= 1) {
+                        if (opp.Current_Calls_Made__c >= 1) {
                             serEmailTemp = closedLostDeclined;
                             opp.Contact__c = OptyContact[0].Id;
                         }
@@ -385,7 +387,7 @@ public with sharing class supplier_SER_Opty_GenericEmailSetup {
 
                     if (opp.Result__c == 'Not Working For Client') {
 
-                        if (opp.Calls_Made__c >= 1) {
+                        if (opp.Current_Calls_Made__c >= 1) {
                             serEmailTemp = closedLostNotWorkingForClient;
                             opp.Contact__c = OptyContact[0].Id;
                         }
@@ -393,7 +395,7 @@ public with sharing class supplier_SER_Opty_GenericEmailSetup {
 
                     if (opp.Result__c == 'Escalate To Client') {
 
-                        if (opp.Calls_Made__c >= 1) {
+                        if (opp.Current_Calls_Made__c >= 1) {
                             serEmailTemp = closedLostEscalateToClient;
                             opp.Contact__c = OptyContact[0].Id;
                         }
@@ -402,7 +404,7 @@ public with sharing class supplier_SER_Opty_GenericEmailSetup {
 
                 else if (opp.StageName == 'Commit') {
 
-                    if (opp.Calls_Made__c >= 1) {
+                    if (opp.Current_Calls_Made__c >= 1) {
                         serEmailTemp = stageCommit;
                         opp.Contact__c = OptyContact[0].Id;
                     }
