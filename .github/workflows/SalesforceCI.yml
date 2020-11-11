@@ -1,0 +1,59 @@
+# This is a basic workflow to help you get started with Actions
+
+name: SalesforceCI
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the 03288716-DevTeamCI branch
+on:
+  push:
+    branches: [ 03288716-DevTeamCI ]
+  pull_request:
+    branches: [ 03288716-DevTeamCI ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+
+      # Runs a set of commands using the runners shell
+      - name: Build with Ant
+        run: ant -noinput -buildfile build/build.xml
+        
+      - name: Send email
+        # You may pin to the exact commit or the version.
+        # uses: dawidd6/action-send-mail@a80d851dc950256421f1d1d735a2dc1ef314ac8f
+        uses: dawidd6/action-send-mail@v2.2.2
+        with:
+          # SMTP server address
+          server_address: smtp.gmail.com
+          # SMTP server port
+          server_port: 465
+          # Authenticate as this user to SMTP server
+          username: suresh.b@streamforcesolutions.com
+          # Authenticate with this password to SMTP server
+          password: information2$
+          # Subject of mail message
+          subject: Testing Mail from GITHUB 
+          # Body of mail message (might be a filename prefixed with file:// to read from)
+          body: Testing Mail from GITHUB
+          # Recipients mail addresses (separated with comma)
+          to: sohit.vignesh@gmail.com
+          # Full name of mail sender (might be with an email address specified in <>)
+          from: suresh.b@streamforcesolutions.com
+          # Content-Type HTTP header (text/html or text/plain)
+          content_type: text/html
+          # optional, default is text/plain
+          # Files that will be added to mail message attachments (separated with comma)
+          # attachments: # optional  

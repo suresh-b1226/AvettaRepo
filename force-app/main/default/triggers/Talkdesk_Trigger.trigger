@@ -11,17 +11,20 @@ trigger Talkdesk_Trigger on talkdesk__Talkdesk_Activity__c (before insert, befor
     UpdateLeadEmailCallCount talkdeskLeadEmailCallHandler = new UpdateLeadEmailCallCount();
     API_CS_Callminer_Audio callMinerAPI = new API_CS_Callminer_Audio();
     updateEmailCallCount emailCallCountHandler = new updateEmailCallCount();
+    supplier_SER_Opty_EmailAutomation  ser_EmailAutomation = new supplier_SER_Opty_EmailAutomation();
 
     //After insert and After Update.
     if(Trigger.isInsert  && Trigger.isAfter){
         //talkdeskLeadEmailCallHandler.updateTalkdesk_LeadEmailCallCountHandler(Trigger.new);
         callMinerAPI.generateTalkDeskJSON(Trigger.new);
         emailCallCountHandler.updateEmailCallCountHandler(Trigger.new, Trigger.old, FALSE);
+        ser_EmailAutomation.ser_EmailAutomationHandler(Trigger.new);
     }
 
     if(Trigger.isUpdate  && Trigger.isAfter){
         //talkdeskLeadEmailCallHandler.updateTalkdesk_LeadEmailCallCountHandler(Trigger.new);
         callMinerAPI.generateTalkDeskJSON(Trigger.new);
         emailCallCountHandler.updateEmailCallCountHandler(Trigger.new, Trigger.old, FALSE);
+        ser_EmailAutomation.ser_EmailAutomationHandler(Trigger.new);
     }
 }

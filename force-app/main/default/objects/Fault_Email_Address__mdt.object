@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This is referenced in visual workflows to be pulled into the Send Fault Email element.</description>
+    <fields>
+        <fullName>Email__c</fullName>
+        <description>This holds the email recipients, comma separated.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Email</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Org_Region_Name__c</fullName>
+        <description>This displays the org region&apos;s name, to be referenced in fault email.</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Org-Region Name</label>
+        <length>25</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Fault Email Address</label>
+    <pluralLabel>Fault Email Addresses</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

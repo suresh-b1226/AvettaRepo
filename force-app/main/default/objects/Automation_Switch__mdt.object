@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This Custom Metadata type is designed to track and turn off specific programmatic automation.  We will also investigate its use in declarative automation as well.</description>
+    <fields>
+        <fullName>On_Off__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Field to turn automation on (checked) or off (unchecked).</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Check this box to turn the automation on uncheck it to turn it off.</inlineHelpText>
+        <label>On/Off</label>
+        <type>Checkbox</type>
+    </fields>
+    <label>Automation Switch</label>
+    <pluralLabel>Automation Switches</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

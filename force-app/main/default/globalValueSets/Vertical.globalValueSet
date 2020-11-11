@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Building Materials</fullName>
+        <default>false</default>
+        <label>Building Materials</label>
+    </customValue>
+    <customValue>
+        <fullName>Chemicals</fullName>
+        <default>false</default>
+        <label>Chemicals</label>
+    </customValue>
+    <customValue>
+        <fullName>Consulting, Engineering, Construction</fullName>
+        <default>false</default>
+        <label>Consulting, Engineering, Construction</label>
+    </customValue>
+    <customValue>
+        <fullName>Downstream Oil &amp; Gas</fullName>
+        <default>false</default>
+        <label>Downstream Oil &amp; Gas</label>
+    </customValue>
+    <customValue>
+        <fullName>Energy, Power, Utilities</fullName>
+        <default>false</default>
+        <label>Energy, Power, Utilities</label>
+    </customValue>
+    <customValue>
+        <fullName>Facilities Management</fullName>
+        <default>false</default>
+        <label>Facilities Management</label>
+    </customValue>
+    <customValue>
+        <fullName>Manufacturing</fullName>
+        <default>false</default>
+        <label>Manufacturing</label>
+    </customValue>
+    <customValue>
+        <fullName>Telecommunications</fullName>
+        <default>false</default>
+        <label>Telecommunications</label>
+    </customValue>
+    <customValue>
+        <fullName>Transportation, Logistics, &amp; Retail</fullName>
+        <default>false</default>
+        <label>Transportation, Logistics, &amp; Retail</label>
+    </customValue>
+    <customValue>
+        <fullName>Upstream Oil, Gas, &amp; Mining</fullName>
+        <default>false</default>
+        <label>Upstream Oil, Gas, &amp; Mining</label>
+    </customValue>
+    <customValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </customValue>
+    <masterLabel>Vertical</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

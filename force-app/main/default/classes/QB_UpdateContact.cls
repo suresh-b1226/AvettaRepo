@@ -50,7 +50,6 @@ global class QB_UpdateContact {
         global String state { get; set; }
         global String country { get; set; }
         global String postalCode { get; set; }
-        global Boolean connectDisconnected { get; set; }
 
         // additional fields are fields which can be configured to update any defined field for the given type
         global String additionalText1 { get; set; }
@@ -105,7 +104,6 @@ global class QB_UpdateContact {
         if (cl.state != NULL) c.MailingState = cl.state;
         if (cl.country != NULL) c.MailingCountry = cl.country;
         if (cl.postalCode != NULL) c.MailingPostalCode = cl.postalCode;
-        if (cl.connectDisconnected != NULL) c.Connect_Disconnected__c = cl.connectDisconnected;
 
         if (cl.additionalText1 != Null) c.put(APISettings.additionalText1__c, cl.additionalText1);
         if (cl.additionalText2 != Null) c.put(APISettings.additionalText2__c, cl.additionalText2);
@@ -131,10 +129,6 @@ global class QB_UpdateContact {
                 c.Email = '';
             }
         }
-        
-        // for all other fields, only update if the incoming value is not null
-        if (cl.connectId != NULL) c.MongoDB_ID__C = cl.connectId;
-        
         //
         c.FirstName = cl.firstName;
         c.LastName = cl.lastName;
@@ -150,7 +144,6 @@ global class QB_UpdateContact {
         c.MailingState = cl.state;
         c.MailingCountry = cl.country;
         c.MailingPostalCode = cl.postalCode;
-        if (cl.connectDisconnected != NULL) c.Connect_Disconnected__c = cl.connectDisconnected;
 
         // the check for null for boolean has to be there even for insert
         if (cl.isPrimary != Null) c.Primary_PICS_Organizer_User__c = cl.isPrimary;
@@ -166,7 +159,12 @@ global class QB_UpdateContact {
     }
 
     @HttpPut
-    global static void SFDC_UpdateContact(ContactLight contactInfo) {
+    global static void SFDC_UpdateContact() {
+        String contactJSON = RestContext.request.requestBody.toString();
+        contactJSON = contactJSON.replace('{"contactInfo":', '');
+        contactJSON = contactJSON.removeEnd('}');
+        System.debug('***** contactJSON ***** = ' + contactJSON);
+
         foundTheContact = false;
         matchUpdated = false;
         RestRequest request = RestContext.request;
@@ -175,6 +173,9 @@ global class QB_UpdateContact {
         List<Account> acts = new List<Account> ();
         APISettings = API_Settings__c.getInstance('UpdateContact API');
         response.statusCode = 200;
+
+        ContactLight contactInfo = (ContactLight) JSON.deserialize(contactJSON, ContactLight.class);
+        System.debug('***** ContactInfo ***** = ' + contactInfo);
 
         if (contactInfo.accountId == null) {
             response.statusCode = 400;

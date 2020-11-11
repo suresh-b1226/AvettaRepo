@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>50.0</apiVersion>
+    <decisions>
+        <name>Opportunity_Closed_Won</name>
+        <label>Opportunity Closed Won?</label>
+        <locationX>405</locationX>
+        <locationY>79</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Opportunity_IPM_Criteria</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>TriggeringOpportunity.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Won - Mailed</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>TriggeringOpportunity.Implementation_Stage__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Go-Live</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>TriggeringOpportunity.Strategic_Solutions_Manager__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Opp_Implementation_Stage</targetReference>
+            </connector>
+            <label>Opportunity IPM Criteria</label>
+        </rules>
+        <rules>
+            <name>Doest_Not_Qualify</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>TriggeringOpportunity.StageName</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Won - Mailed</stringValue>
+                </rightValue>
+            </conditions>
+            <label>Doesnt Not Qualify</label>
+        </rules>
+    </decisions>
+    <description>Automation that will automatically update when an opportunity with an IPM assigned is set to &apos;Closed Won mailed&apos;.</description>
+    <interviewLabel>Implementation Stage Update {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Implementation Stage Update</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Opp_Implementation_Stage</name>
+        <label>Update Opp Implementation Stage</label>
+        <locationX>580</locationX>
+        <locationY>77</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>TriggeringOpportunity.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Implementation_Stage__c</field>
+            <value>
+                <stringValue>Go-Live</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Opportunity</object>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Opportunity_Closed_Won</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>TriggeringOpportunity</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Opportunity</objectType>
+    </variables>
+</Flow>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>settings to be used by the SFDC APIs</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Admin_Id__c</fullName>
+        <description>the id of the admin who will get the &quot;tasks&quot; in case an anomoly happens.</description>
+        <externalId>false</externalId>
+        <label>Admin Id</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Insert_Account_When_Not_Found__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Tells UpdateAccount API if it needs to insert an account if it didn&apos;t find any matches.</description>
+        <externalId>false</externalId>
+        <label>Insert Account When Not Found</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>additionalBoolean1__c</fullName>
+        <description>a custom boolean field to be used in the UpdateAccount API</description>
+        <externalId>false</externalId>
+        <label>additionalBoolean1</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>additionalDate1__c</fullName>
+        <description>a custom date field to be used in the UpdateAccount API</description>
+        <externalId>false</externalId>
+        <label>additionalDate1</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>additionalText1__c</fullName>
+        <description>the name of the field that would be dynamically mapped to - used for UpdateAccount</description>
+        <externalId>false</externalId>
+        <label>additionalText1</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>additionalText2__c</fullName>
+        <description>the name of the 2nd custom field on the account - used for UpdateAccount API.</description>
+        <externalId>false</externalId>
+        <label>additionalText2</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>API Settings</label>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -85,6 +85,10 @@ global class QB_UpdateAccount {
         global String additionalDate1 { get; set; }
         global boolean additionalBoolean1 { get; set; }
     }
+    
+    global class accountInfo {
+        global AccountLight accountInfo;
+    }
 
 
     static Account act;
@@ -361,7 +365,10 @@ global class QB_UpdateAccount {
     }
 
     @HttpPut
-    global static void SFDC_UpdateAccount(AccountLight accountInfo) {
+    global static void SFDC_UpdateAccount() {
+		String accountJSON = RestContext.request.requestBody.toString();        
+        accountJSON = accountJSON.replace('{"accountInfo":', '');
+        accountJSON = accountJSON.removeEnd('}');
         
         foundTheAccount = false;
         RestRequest request = RestContext.request;
@@ -372,12 +379,15 @@ global class QB_UpdateAccount {
         System.debug(APISettings.Insert_Account_When_Not_Found__c);
         String ids;
 
+        AccountLight accountInfo = (AccountLight) JSON.deserialize(accountJSON, AccountLight.Class);
+		System.debug(accountInfo);
+
         response.statusCode = 200;
 
         if (response.statusCode == 200) {
-            if (accountInfo.AccountRecordType == 'Supplier') {
+            if (accountInfo.accountRecordType != NULL && accountInfo.accountRecordType == 'Supplier') {
                 recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Contractor').getRecordTypeId();
-            } else if (accountInfo.AccountRecordType == 'Client') {
+            } else if (accountInfo.accountRecordType != NULL && accountInfo.AccountRecordType == 'Client') {
                 recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Operator').getRecordTypeId();
             } else {
                 response.statusCode = 400;

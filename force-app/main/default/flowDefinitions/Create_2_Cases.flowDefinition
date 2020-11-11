@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionNumber>6</activeVersionNumber>
+    <description>Creates 2 cases new cases, one for billing and one for auto upgrade team.</description>
+    <masterLabel>Create 2 Cases</masterLabel>
+</FlowDefinition>

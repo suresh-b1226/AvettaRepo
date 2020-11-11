@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Object to be used to track stakeholder ideas that are not ready to be cases that require actions from the Saleforce time.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>BA_Effort_Hours__c</fullName>
+        <description>Field to allow Salesforce business analyst to track their effort on an idea.</description>
+        <externalId>false</externalId>
+        <label>BA Effort (Hours)</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BAd__c</fullName>
+        <defaultValue>&apos;No&apos;</defaultValue>
+        <description>Created for case 02907848</description>
+        <externalId>false</externalId>
+        <label>BA&apos;d</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>Ready for BA</fullName>
+                    <default>false</default>
+                    <label>Ready for BA</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Business_Requirements__c</fullName>
+        <description>Created for case 02907848</description>
+        <externalId>false</externalId>
+        <label>Business Requirements</label>
+        <length>131072</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Case__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Case</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipLabel>Ideas</relationshipLabel>
+        <relationshipName>Ideas</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Effort_Type__c</fullName>
+        <description>Picklist to determine the effort type required to complete an Idea.</description>
+        <externalId>false</externalId>
+        <label>Effort Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Grooming Required</fullName>
+                    <default>false</default>
+                    <label>Grooming Required</label>
+                </value>
+                <value>
+                    <fullName>Administrative</fullName>
+                    <default>false</default>
+                    <label>Administrative</label>
+                </value>
+                <value>
+                    <fullName>Enhancement</fullName>
+                    <default>false</default>
+                    <label>Enhancement</label>
+                </value>
+                <value>
+                    <fullName>Bug</fullName>
+                    <default>false</default>
+                    <label>Bug</label>
+                </value>
+                <value>
+                    <fullName>Tech Debt</fullName>
+                    <default>false</default>
+                    <label>Tech Debt</label>
+                </value>
+                <value>
+                    <fullName>Non Deployment</fullName>
+                    <default>false</default>
+                    <label>Non Deployment</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Submitting_Team__c</fullName>
+        <externalId>false</externalId>
+        <label>Submitting Team</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Account Management</fullName>
+                    <default>false</default>
+                    <label>Account Management</label>
+                </value>
+                <value>
+                    <fullName>Billing</fullName>
+                    <default>false</default>
+                    <label>Billing</label>
+                </value>
+                <value>
+                    <fullName>Client Help Desk</fullName>
+                    <default>false</default>
+                    <label>Client Help Desk</label>
+                </value>
+                <value>
+                    <fullName>Client Mailings</fullName>
+                    <default>false</default>
+                    <label>Client Mailings</label>
+                </value>
+                <value>
+                    <fullName>CSM</fullName>
+                    <default>false</default>
+                    <label>CSM</label>
+                </value>
+                <value>
+                    <fullName>Data Quality</fullName>
+                    <default>false</default>
+                    <label>Data Quality</label>
+                </value>
+                <value>
+                    <fullName>EwebOQ</fullName>
+                    <default>false</default>
+                    <label>EwebOQ</label>
+                </value>
+                <value>
+                    <fullName>Executives</fullName>
+                    <default>false</default>
+                    <label>Executives</label>
+                </value>
+                <value>
+                    <fullName>Field Sales</fullName>
+                    <default>false</default>
+                    <label>Field Sales</label>
+                </value>
+                <value>
+                    <fullName>Finance</fullName>
+                    <default>false</default>
+                    <label>Finance</label>
+                </value>
+                <value>
+                    <fullName>HSE/Auditing</fullName>
+                    <default>false</default>
+                    <label>HSE/Auditing</label>
+                </value>
+                <value>
+                    <fullName>IPM</fullName>
+                    <default>false</default>
+                    <label>IPM</label>
+                </value>
+                <value>
+                    <fullName>Marketing</fullName>
+                    <default>false</default>
+                    <label>Marketing</label>
+                </value>
+                <value>
+                    <fullName>Premium Support</fullName>
+                    <default>false</default>
+                    <label>Premium Support</label>
+                </value>
+                <value>
+                    <fullName>Product</fullName>
+                    <default>false</default>
+                    <label>Product</label>
+                </value>
+                <value>
+                    <fullName>Registrations</fullName>
+                    <default>false</default>
+                    <label>Registrations</label>
+                </value>
+                <value>
+                    <fullName>Retention</fullName>
+                    <default>false</default>
+                    <label>Retention</label>
+                </value>
+                <value>
+                    <fullName>Salesforce Team</fullName>
+                    <default>false</default>
+                    <label>Salesforce Team</label>
+                </value>
+                <value>
+                    <fullName>Sales Operations</fullName>
+                    <default>false</default>
+                    <label>Sales Operations</label>
+                </value>
+                <value>
+                    <fullName>SDR</fullName>
+                    <default>false</default>
+                    <label>SDR</label>
+                </value>
+                <value>
+                    <fullName>SSP</fullName>
+                    <default>false</default>
+                    <label>SSP</label>
+                </value>
+                <value>
+                    <fullName>Supplier Leadership</fullName>
+                    <default>false</default>
+                    <label>Supplier Leadership</label>
+                </value>
+                <value>
+                    <fullName>Supplier Operations</fullName>
+                    <default>false</default>
+                    <label>Supplier Operations</label>
+                </value>
+                <value>
+                    <fullName>Training</fullName>
+                    <default>false</default>
+                    <label>Training</label>
+                </value>
+                <value>
+                    <fullName>Vetify</fullName>
+                    <default>false</default>
+                    <label>Vetify</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>User_Story__c</fullName>
+        <description>Created for 02907848</description>
+        <externalId>false</externalId>
+        <label>User Story</label>
+        <length>131072</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <label>Ideas</label>
+    <nameField>
+        <label>Idea Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Ideas</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>Private</sharingModel>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <fullName>BA_Field_Restrictions</fullName>
+        <active>true</active>
+        <description>Created to restrict changes to the idea once the field &apos;BA&apos;d&apos; has been set to yes.  This restriction will prevent additional items from being added to the idea after it has already been BA&apos;d.</description>
+        <errorConditionFormula>AND(
+				OR(	
+				ISNEW(),
+				ISCHANGED(BAd__c)),
+				$Profile.Id &lt;&gt; &quot;00e70000000tKSw&quot;/*System Administrator*/,
+				$Profile.Id &lt;&gt; &quot;00e0g000001WNfo&quot;/*Development*/,
+				OR(
+								ISPICKVAL(BAd__c, &apos;Yes&apos;),
+								 ISPICKVAL(PRIORVALUE(BAd__c),&apos;Yes&apos;)
+								))</errorConditionFormula>
+        <errorDisplayField>BAd__c</errorDisplayField>
+        <errorMessage>Only the Salesforce team can BA an Idea.</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>
