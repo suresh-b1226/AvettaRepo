@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>I18n_RecordingControls_DisabledText</fullName>
+        <categories>RecordingControls</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>I18n_RecordingControls_DisabledText</shortDescription>
+        <value>disabled</value>
+    </labels>
+    <labels>
+        <fullName>I18n_RecordingControls_RecordingControls</fullName>
+        <categories>RecordingControls</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>I18n_RecordingControls_RecordingControls</shortDescription>
+        <value>b+s Recording Controls for Calabrio</value>
+    </labels>
+    <labels>
+        <fullName>I18n_RecordingControls_RecordingDeleteText</fullName>
+        <categories>RecordingControls</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>I18n_RecordingControls_RecordingDeleteText</shortDescription>
+        <value>Delete Recording</value>
+    </labels>
+    <labels>
+        <fullName>I18n_RecordingControls_RecordingDeleteTitle</fullName>
+        <categories>RecordingControls</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>I18n_RecordingControls_RecordingDeleteTitle</shortDescription>
+        <value>Delete</value>
+    </labels>
+    <labels>
+        <fullName>I18n_RecordingControls_RecordingMetadataText</fullName>
+        <categories>RecordingControls</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>I18n_RecordingControls_RecordingMetadataText</shortDescription>
+        <value>Write Metadata</value>
+    </labels>
+    <labels>
+        <fullName>I18n_RecordingControls_RecordingMetadataTitle</fullName>
+        <categories>RecordingControls</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>I18n_RecordingControls_RecordingMetadataTitle</shortDescription>
+        <value>Metadata</value>
+    </labels>
+    <labels>
+        <fullName>I18n_RecordingControls_RecordingPauseText</fullName>
+        <categories>RecordingControls</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>I18n_RecordingControls_RecordingPauseText</shortDescription>
+        <value>Pause Recording</value>
+    </labels>
+    <labels>
+        <fullName>I18n_RecordingControls_RecordingPauseTitle</fullName>
+        <categories>RecordingControls</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>I18n_RecordingControls_RecordingPauseTitle</shortDescription>
+        <value>Pause</value>
+    </labels>
+    <labels>
+        <fullName>I18n_RecordingControls_RecordingRecordLinkTitle</fullName>
+        <categories>RecordingControls</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>I18n_RecordingControls_RecordingRecordLinkTitle</shortDescription>
+        <value>Link to Recording</value>
+    </labels>
+    <labels>
+        <fullName>I18n_RecordingControls_RecordingRecordText</fullName>
+        <categories>RecordingControls</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>I18n_RecordingControls_RecordingRecordText</shortDescription>
+        <value>Enable Recording</value>
+    </labels>
+    <labels>
+        <fullName>I18n_RecordingControls_RecordingRecordTitle</fullName>
+        <categories>RecordingControls</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>I18n_RecordingControls_RecordingRecordTitle</shortDescription>
+        <value>Record</value>
+    </labels>
+    <labels>
+        <fullName>I18n_RecordingControls_RecordingRestartText</fullName>
+        <categories>RecordingControls</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>I18n_RecordingControls_RecordingRestartText</shortDescription>
+        <value>Restart Recording</value>
+    </labels>
+    <labels>
+        <fullName>I18n_RecordingControls_RecordingRestartTitle</fullName>
+        <categories>RecordingControls</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>I18n_RecordingControls_RecordingRestartTitle</shortDescription>
+        <value>Restart</value>
+    </labels>
+    <labels>
+        <fullName>I18n_RecordingControls_RecordingResumeText</fullName>
+        <categories>RecordingControls</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>I18n_RecordingControls_RecordingResumeText</shortDescription>
+        <value>Resume Recording</value>
+    </labels>
+    <labels>
+        <fullName>I18n_RecordingControls_RecordingResumeTitle</fullName>
+        <categories>RecordingControls</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>I18n_RecordingControls_RecordingResumeTitle</shortDescription>
+        <value>Resume</value>
+    </labels>
+    <labels>
+        <fullName>I18n_RecordingControls_RecordingStartText</fullName>
+        <categories>RecordingControls</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>I18n_RecordingControls_RecordingStartText</shortDescription>
+        <value>Start Segment on Recording</value>
+    </labels>
+    <labels>
+        <fullName>I18n_RecordingControls_RecordingStartTitle</fullName>
+        <categories>RecordingControls</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>I18n_RecordingControls_RecordingStartTitle</shortDescription>
+        <value>Start Segment</value>
+    </labels>
+    <labels>
+        <fullName>I18n_RecordingControls_RecordingStopText</fullName>
+        <categories>RecordingControls</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>I18n_RecordingControls_RecordingStopText</shortDescription>
+        <value>Stop Segment on Recording</value>
+    </labels>
+    <labels>
+        <fullName>I18n_RecordingControls_RecordingStopTitle</fullName>
+        <categories>RecordingControls</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>I18n_RecordingControls_RecordingStopTitle</shortDescription>
+        <value>Stop Segment</value>
+    </labels>
+    <labels>
+        <fullName>LA_Container_Base_Close_04I0g000000Gma9_5004168</fullName>
+        <categories>Snap-ins</categories>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>LA_Container_Base_Close_04I0g000000Gma9_5004168</shortDescription>
+        <value>Fim do diálogo</value>
+    </labels>
+    <labels>
+        <fullName>LA_Container_Base_EndOfDialog_04I0g000000Gma9_9203437</fullName>
+        <categories>Snap-ins</categories>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>LA_Container_Base_EndOfDialog_04I0g000000Gma9_9203437</shortDescription>
+        <value>Tome cuidado...</value>
+    </labels>
+    <labels>
+        <fullName>LA_Container_Base_Minimize_04I0g000000Gma9_1554491</fullName>
+        <categories>Snap-ins</categories>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>LA_Container_Base_Minimize_04I0g000000Gma9_1554491</shortDescription>
+        <value>Minimizar bate-papo</value>
+    </labels>
+    <labels>
+        <fullName>LA_General_CloseSessionWarningBody_04I0g000000Gma9_3227381</fullName>
+        <categories>Snap-ins</categories>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>LA_General_CloseSessionWarningBody_04I0g000000Gma9_3227381</shortDescription>
+        <value>Se você fechar, sair ou atualizar essa guia, perderá o seu chat.</value>
+    </labels>
+    <labels>
+        <fullName>LA_General_CloseSessionWarningButton_04I0g000000Gma9_6053278</fullName>
+        <categories>Snap-ins</categories>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>LA_General_CloseSessionWarningButton_04I0g000000Gma9_6053278</shortDescription>
+        <value>Voltar</value>
+    </labels>
+    <labels>
+        <fullName>LA_General_CloseSessionWarningTitle_04I0g000000Gma9_2064569</fullName>
+        <categories>Snap-ins</categories>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>LA_General_CloseSessionWarningTitle_04I0g000000Gma9_2064569</shortDescription>
+        <value>Tenha cuidado…</value>
+    </labels>
+    <labels>
+        <fullName>LA_PreChat_Base_LiveChat_04I0g000000Gma9_5322733</fullName>
+        <categories>Snap-ins</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LA_PreChat_Base_LiveChat_04I0g000000Gma9_5322733</shortDescription>
+        <value>Avetta Chat</value>
+    </labels>
+    <labels>
+        <fullName>LA_PreChat_Base_LiveChat_04I0g000000KykJ_3348102</fullName>
+        <categories>Snap-ins</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LA_PreChat_Base_LiveChat_04I0g000000KykJ_3348102</shortDescription>
+        <value>Avetta Chat</value>
+    </labels>
+    <labels>
+        <fullName>LA_Waiting_Error_ErrorNoAgentBodyApology_04I0g000000Gma9_2882570</fullName>
+        <categories>Snap-ins</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LA_Waiting_Error_ErrorNoAgentBodyApology_04I0g000000Gma9_2882570</shortDescription>
+        <value>Visit us at https://www.avetta.com/contact for more ways to contact us</value>
+    </labels>
+    <labels>
+        <fullName>LA_Waiting_Error_ErrorNoAgentBodyApology_04I0g000000KykJ_6215228</fullName>
+        <categories>Snap-ins</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LA_Waiting_Error_ErrorNoAgentBodyApology_04I0g000000KykJ_6215228</shortDescription>
+        <value>Visit us at https://www.avetta.com/contact for more ways to contact us</value>
+    </labels>
+    <labels>
+        <fullName>LA_Waiting_Error_ErrorNoAgentBodyRequest_04I0g000000Gma9_2041903</fullName>
+        <categories>Snap-ins</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LA_Waiting_Error_ErrorNoAgentBodyRequest_04I0g000000Gma9_2041903</shortDescription>
+        <value>Thank you</value>
+    </labels>
+    <labels>
+        <fullName>LA_Waiting_Error_ErrorNoAgentBodyRequest_04I0g000000KykJ_2226700</fullName>
+        <categories>Snap-ins</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LA_Waiting_Error_ErrorNoAgentBodyRequest_04I0g000000KykJ_2226700</shortDescription>
+        <value>Thank you</value>
+    </labels>
+    <labels>
+        <fullName>LA_Waiting_Error_ErrorNoAgentHeader_04I0g000000Gma9_3763012</fullName>
+        <categories>Snap-ins</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LA_Waiting_Error_ErrorNoAgentHeader_04I0g000000Gma9_3763012</shortDescription>
+        <value>All of our agents are currently busy</value>
+    </labels>
+    <labels>
+        <fullName>LA_Waiting_Error_ErrorNoAgentHeader_04I0g000000KykJ_8460948</fullName>
+        <categories>Snap-ins</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LA_Waiting_Error_ErrorNoAgentHeader_04I0g000000KykJ_8460948</shortDescription>
+        <value>All of our agents are currently busy</value>
+    </labels>
+</CustomLabels>

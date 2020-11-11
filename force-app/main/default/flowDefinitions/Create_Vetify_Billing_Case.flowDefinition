@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionNumber>6</activeVersionNumber>
+    <description>Creates a Supplier Payments case for the billing team to notify them to bill the supplier for Vetify. Also updates the Vetify Opty to Closed Won when Payment Status = Payment Processed.</description>
+    <masterLabel>Create Vetify Billing Case</masterLabel>
+</FlowDefinition>

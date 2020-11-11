@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <content>Salesforce_Support_Priorities</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Salesforce_Support_Priorities</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>Teams__c</fullName>
+        <externalId>false</externalId>
+        <label>Teams</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>AM</fullName>
+                    <default>false</default>
+                    <label>AM</label>
+                </value>
+                <value>
+                    <fullName>Audit/HSE</fullName>
+                    <default>false</default>
+                    <label>Audit/HSE</label>
+                </value>
+                <value>
+                    <fullName>Billing</fullName>
+                    <default>false</default>
+                    <label>Billing</label>
+                </value>
+                <value>
+                    <fullName>Client Help Desk</fullName>
+                    <default>false</default>
+                    <label>Client Help Desk</label>
+                </value>
+                <value>
+                    <fullName>CSM</fullName>
+                    <default>false</default>
+                    <label>CSM</label>
+                </value>
+                <value>
+                    <fullName>Data Quality</fullName>
+                    <default>false</default>
+                    <label>Data Quality</label>
+                </value>
+                <value>
+                    <fullName>Executives</fullName>
+                    <default>false</default>
+                    <label>Executives</label>
+                </value>
+                <value>
+                    <fullName>Fields Sales</fullName>
+                    <default>false</default>
+                    <label>Fields Sales</label>
+                </value>
+                <value>
+                    <fullName>High Value Supplier</fullName>
+                    <default>false</default>
+                    <label>High Value Supplier</label>
+                </value>
+                <value>
+                    <fullName>Insurance</fullName>
+                    <default>false</default>
+                    <label>Insurance</label>
+                </value>
+                <value>
+                    <fullName>IPM</fullName>
+                    <default>false</default>
+                    <label>IPM</label>
+                </value>
+                <value>
+                    <fullName>Marketing</fullName>
+                    <default>false</default>
+                    <label>Marketing</label>
+                </value>
+                <value>
+                    <fullName>Product</fullName>
+                    <default>false</default>
+                    <label>Product</label>
+                </value>
+                <value>
+                    <fullName>Registration</fullName>
+                    <default>false</default>
+                    <label>Registration</label>
+                </value>
+                <value>
+                    <fullName>Sales Ops</fullName>
+                    <default>false</default>
+                    <label>Sales Ops</label>
+                </value>
+                <value>
+                    <fullName>SDR</fullName>
+                    <default>false</default>
+                    <label>SDR</label>
+                </value>
+                <value>
+                    <fullName>SSP</fullName>
+                    <default>false</default>
+                    <label>SSP</label>
+                </value>
+                <value>
+                    <fullName>Supplier Ops</fullName>
+                    <default>false</default>
+                    <label>Supplier Ops</label>
+                </value>
+                <value>
+                    <fullName>Supplier Retention</fullName>
+                    <default>false</default>
+                    <label>Supplier Retention</label>
+                </value>
+                <value>
+                    <fullName>Training</fullName>
+                    <default>false</default>
+                    <label>Training</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>X1st_Priority_Case_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>X1st_Priority__r.Subject</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>(1) Case Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>X1st_Priority_Deploy_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>if( X1st_Priority__c != Null,
+    if(text(X1st_Priority__r.Sprint__r.Deployment_Date__c) != Null, text(X1st_Priority__r.Sprint__r.Deployment_Date__c), &quot;Not Yet on Sprint&quot;),
+			 &quot;&quot;
+)</formula>
+        <label>(1) Deploy Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>X1st_Priority_Status__c</fullName>
+        <externalId>false</externalId>
+        <formula>text(X1st_Priority__r.Status)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>(1) Case Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>X1st_Priority__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>1st Priority</label>
+        <lookupFilter>
+            <active>true</active>
+            <booleanFilter>1 OR 2</booleanFilter>
+            <errorMessage>The case must be an Avetta Salesforce Support case.</errorMessage>
+            <filterItems>
+                <field>Case.Id</field>
+                <operation>notEqual</operation>
+                <valueField>$Source.X2nd_Priority__c</valueField>
+            </filterItems>
+            <filterItems>
+                <field>Case.Id</field>
+                <operation>notEqual</operation>
+                <valueField>$Source.X3rd_Priority__c</valueField>
+            </filterItems>
+            <infoMessage>Enter the case number of your first priority.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Case</referenceTo>
+        <relationshipLabel>Salesforce Support Priorities</relationshipLabel>
+        <relationshipName>Salesforce_Support_Priorities</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>X2nd_Priority_Case_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>X2nd_Priority__r.Subject</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>(2) Case Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>X2nd_Priority_Case_Status__c</fullName>
+        <externalId>false</externalId>
+        <formula>text(X2nd_Priority__r.Status)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>(2) Case Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>X2nd_Priority_Deploy_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>if( X2nd_Priority__c != Null,
+    if(text( X2nd_Priority__r.Sprint__r.Deployment_Date__c ) != Null, text( X2nd_Priority__r.Sprint__r.Deployment_Date__c ), &quot;Not Yet on Sprint&quot;),
+			 &quot;&quot;
+)</formula>
+        <label>(2) Deploy Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>X2nd_Priority__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>2nd Priority</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipLabel>Salesforce Support Priorities (2nd Priority)</relationshipLabel>
+        <relationshipName>Salesforce_Support_Priorities1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>X3rd_Priority_Case_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>X3rd_Priority__r.Subject</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>(3) Case Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>X3rd_Priority_Case_Status__c</fullName>
+        <externalId>false</externalId>
+        <formula>text( X3rd_Priority__r.Status )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>(3) Case Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>X3rd_Priority_Deploy_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>if( X3rd_Priority__c != Null,
+    if(text(X3rd_Priority__r.Sprint__r.Deployment_Date__c ) != Null, text(X3rd_Priority__r.Sprint__r.Deployment_Date__c), &quot;Not Yet on Sprint&quot;),
+    &quot;&quot;
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>(3) Deploy Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>X3rd_Priority__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>3rd Priority</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Avetta Salesforce Support</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Case</referenceTo>
+        <relationshipLabel>Salesforce Support Priorities (3rd Priority)</relationshipLabel>
+        <relationshipName>Salesforce_Support_Priorities2</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Salesforce Support Priorities</label>
+    <listViews>
+        <fullName>Client_Priorities</fullName>
+        <columns>NAME</columns>
+        <columns>X1st_Priority__c</columns>
+        <columns>X1st_Priority_Case_Name__c</columns>
+        <columns>X1st_Priority_Deploy_Date__c</columns>
+        <columns>X2nd_Priority__c</columns>
+        <columns>X2nd_Priority_Case_Name__c</columns>
+        <columns>X2nd_Priority_Deploy_Date__c</columns>
+        <columns>X3rd_Priority__c</columns>
+        <columns>X3rd_Priority_Case_Name__c</columns>
+        <columns>X3rd_Priority_Deploy_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>NAME</field>
+            <operation>equals</operation>
+            <value>Sales Ops,Field Sales,AM,SDR</value>
+        </filters>
+        <label>Client Priorities</label>
+        <sharedTo>
+            <role>SalesManagement</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>My_Priorities</fullName>
+        <columns>NAME</columns>
+        <columns>X1st_Priority__c</columns>
+        <columns>X1st_Priority_Case_Name__c</columns>
+        <columns>X1st_Priority_Deploy_Date__c</columns>
+        <columns>X1st_Priority_Status__c</columns>
+        <columns>X2nd_Priority__c</columns>
+        <columns>X2nd_Priority_Case_Name__c</columns>
+        <columns>X2nd_Priority_Deploy_Date__c</columns>
+        <columns>X2nd_Priority_Case_Status__c</columns>
+        <columns>X3rd_Priority__c</columns>
+        <columns>X3rd_Priority_Case_Name__c</columns>
+        <columns>X3rd_Priority_Deploy_Date__c</columns>
+        <columns>X3rd_Priority_Case_Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>NAME</field>
+            <operation>equals</operation>
+            <value>supplier Retention,Registration,Client Mailings</value>
+        </filters>
+        <label>My Priorities</label>
+    </listViews>
+    <listViews>
+        <fullName>Priority_Summary_View</fullName>
+        <columns>NAME</columns>
+        <columns>X1st_Priority__c</columns>
+        <columns>X1st_Priority_Case_Name__c</columns>
+        <columns>X1st_Priority_Deploy_Date__c</columns>
+        <columns>X2nd_Priority__c</columns>
+        <columns>X2nd_Priority_Case_Name__c</columns>
+        <columns>X2nd_Priority_Deploy_Date__c</columns>
+        <columns>X3rd_Priority__c</columns>
+        <columns>X3rd_Priority_Case_Name__c</columns>
+        <columns>X3rd_Priority_Deploy_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>Priority Summary View</label>
+    </listViews>
+    <nameField>
+        <label>Team</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Salesforce Support Priorities</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>Private</sharingModel>
+    <validationRules>
+        <fullName>Cannot_Remove_if_on_Sprint</fullName>
+        <active>true</active>
+        <errorConditionFormula>or(
+and(
+/* Salesforce Team*/
+$Profile.Id != &quot;00e0g0000010DWt&quot;,
+/*Development*/
+$Profile.Id != &quot;00e0g000001WNfo&quot;,
+/*System Administrator*/
+$Profile.Id != &quot;00e70000000tKSw&quot;,
+PRIORVALUE(X1st_Priority_Status__c) != &quot;Deployed&quot;,
+PRIORVALUE(X1st_Priority_Status__c) != &quot;Denied&quot;,
+PRIORVALUE(X1st_Priority_Status__c) != &quot;Resolved&quot;,
+X1st_Priority__c != PRIORVALUE (X1st_Priority__c) &amp;&amp;
+or(PRIORVALUE(X1st_Priority_Deploy_Date__c) != &quot;Not Yet on Sprint&quot;),
+PRIORVALUE(X1st_Priority_Deploy_Date__c) != &quot;&quot;
+),
+
+and(
+/* Salesforce Team*/
+$Profile.Id != &quot;00e0g0000010DWt&quot;,
+/*Development*/
+$Profile.Id != &quot;00e0g000001WNfo&quot;,
+/*System Administrator*/
+$Profile.Id != &quot;00e70000000tKSw&quot;,
+PRIORVALUE(X2nd_Priority_Case_Status__c ) != &quot;Deployed&quot;,
+PRIORVALUE(X2nd_Priority_Case_Status__c ) != &quot;Denied&quot;,
+PRIORVALUE(X2nd_Priority_Case_Status__c ) != &quot;Resolved&quot;,
+X2nd_Priority__c != PRIORVALUE (X2nd_Priority__c) &amp;&amp;
+or(PRIORVALUE(X2nd_Priority_Deploy_Date__c) != &quot;Not Yet on Sprint&quot;),
+PRIORVALUE(X2nd_Priority_Deploy_Date__c) != &quot;&quot;
+),
+
+and(
+/* Salesforce Team*/
+$Profile.Id != &quot;00e0g0000010DWt&quot;,
+/*Development*/
+$Profile.Id != &quot;00e0g000001WNfo&quot;,
+/*System Administrator*/
+$Profile.Id != &quot;00e70000000tKSw&quot;,
+PRIORVALUE(X3rd_Priority_Case_Status__c ) != &quot;Deployed&quot;,
+PRIORVALUE(X3rd_Priority_Case_Status__c ) != &quot;Denied&quot;,
+PRIORVALUE(X3rd_Priority_Case_Status__c ) != &quot;Resolved&quot;,
+X3rd_Priority__c != PRIORVALUE (X3rd_Priority__c) &amp;&amp;
+or(PRIORVALUE(X3rd_Priority_Deploy_Date__c) != &quot;Not Yet on Sprint&quot;),
+PRIORVALUE(X3rd_Priority_Deploy_Date__c) != &quot;&quot;
+)
+
+)</errorConditionFormula>
+        <errorMessage>You may not remove or change a priority that already has a deployment date set.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>No_Duplicate_Priorities</fullName>
+        <active>true</active>
+        <errorConditionFormula>or(
+    if(X2nd_Priority__c != Null, X1st_Priority__c = X2nd_Priority__c, False),
+				if(X3rd_Priority__c != Null, X1st_Priority__c = X3rd_Priority__c, False),
+    if(X3rd_Priority__c != Null, X2nd_Priority__c = X3rd_Priority__c, False),
+				if(X1st_Priority__c != Null, X2nd_Priority__c = X1st_Priority__c, False),
+				if(X1st_Priority__c != Null, X3rd_Priority__c = X1st_Priority__c, False),
+				if(X2nd_Priority__c != Null, X3rd_Priority__c = X2nd_Priority__c, False)
+)</errorConditionFormula>
+        <errorMessage>You may not enter duplicate values.</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

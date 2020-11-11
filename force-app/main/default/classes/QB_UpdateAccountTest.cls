@@ -130,12 +130,22 @@ public class QB_UpdateAccountTest {
         // setup data for offices
         setupData();
 
-        //pass the req and resp objects to the method
-
         QB_UpdateAccount.AccountLight al = new QB_UpdateAccount.AccountLight();
+        String alString = JSON.serialize(al) + '}}';
 
+        //pass the req and resp objects to the method
+       RestRequest req = new RestRequest(); 
+       RestResponse res = new RestResponse();
+             
+       req.requestURI = '/services/apexrest/Account/SFDC_UpdateAccount';  //Request URL
+       req.httpMethod = 'PUT';//HTTP Request Type
+       req.requestBody = Blob.valueof(alString);
+       RestContext.request = req;
+       RestContext.response= res;
+        
+        
         // no account type passed
-        QB_UpdateAccount.SFDC_UpdateAccount(al);
+        QB_UpdateAccount.SFDC_UpdateAccount();
         System.assertEquals(res.statusCode, 400);
         system.debug ('respone' + res);
         b = res.responseBody;
@@ -161,6 +171,18 @@ public class QB_UpdateAccountTest {
         al.postalCode = '92602';
         al.country = 'USA';
 
+        String alString = JSON.serialize(al) + '}';
+        
+        //pass the req and resp objects to the method
+        RestRequest req = new RestRequest(); 
+       RestResponse res = new RestResponse();
+             
+       req.requestURI = '/services/apexrest/Account/SFDC_UpdateAccount';  //Request URL
+       req.httpMethod = 'PUT';//HTTP Request Type
+       req.requestBody = Blob.valueof(alString);
+       RestContext.request = req;
+       RestContext.response= res;
+        
         /*
         QB_UpdateAccount.SFDC_UpdateAccount(al);
         b = res.responseBody;
@@ -171,7 +193,7 @@ public class QB_UpdateAccountTest {
         System.assertEquals(res.statusCode, 200);
 		*/
 
-        QB_UpdateAccount.SFDC_UpdateAccount(al);
+        QB_UpdateAccount.SFDC_UpdateAccount();
         //b = res.responseBody;
         //System.debug ('*****DESERIALIZE B'+ b.toString());
         //Account a = (Account) JSON.deserialize(b.toString(), Account.class);
@@ -202,6 +224,18 @@ public class QB_UpdateAccountTest {
         al.additionalDate1 = '2016-11-20';
         al.additionalBoolean1 = true;
 
+        String alString = JSON.serialize(al) + '}';
+        
+        //pass the req and resp objects to the method
+        RestRequest req = new RestRequest(); 
+       RestResponse res = new RestResponse();
+             
+       req.requestURI = '/services/apexrest/Account/SFDC_UpdateAccount';  //Request URL
+       req.httpMethod = 'PUT';//HTTP Request Type
+       req.requestBody = Blob.valueof(alString);
+       RestContext.request = req;
+       RestContext.response= res;
+        
         system.debug('Before Executing TEST #3:');
         /*
         QB_UpdateAccount.SFDC_UpdateAccount(al);
@@ -211,7 +245,7 @@ public class QB_UpdateAccountTest {
         system.debug('Account:' + a);
         System.assert(a.name.contains('withSUID'));
 		*/
-        QB_UpdateAccount.SFDC_UpdateAccount(al);
+        QB_UpdateAccount.SFDC_UpdateAccount();
         //b = res.responseBody;
         //System.assertEquals(res.statusCode, 200);
         //Account a = (Account) JSON.deserialize(b.toString(), Account.class);
@@ -247,9 +281,19 @@ public class QB_UpdateAccountTest {
         system.debug('Account:' + a);
         System.assert(a.name.contains('BOEING'));
 		*/
-        RestContext.request = new RestRequest();
-        RestContext.response = new RestResponse();
-        QB_UpdateAccount.SFDC_UpdateAccount(al);
+        String alString = JSON.serialize(al) + '}';
+        
+        //pass the req and resp objects to the method
+        RestRequest req = new RestRequest(); 
+        RestResponse res = new RestResponse();
+        
+        req.requestURI = '/services/apexrest/Account/SFDC_UpdateAccount';  //Request URL
+        req.httpMethod = 'PUT';//HTTP Request Type
+        req.requestBody = Blob.valueof(alString);
+        RestContext.request = req;
+        RestContext.response= res;
+        
+        QB_UpdateAccount.SFDC_UpdateAccount();
         //b = res.responseBody;
         //System.assertEquals(res.statusCode, 200);
         //Account a = (Account) JSON.deserialize(b.toString(), Account.class);
@@ -328,6 +372,18 @@ public class QB_UpdateAccountTest {
         al.additionalDate1 = '2016-11-20';
         al.additionalBoolean1 = true;
 
+        String alString = JSON.serialize(al) + '}';
+        System.debug(alString);
+        //pass the req and resp objects to the method
+        RestRequest req = new RestRequest(); 
+        RestResponse res = new RestResponse();
+        
+        req.requestURI = '/services/apexrest/Account/SFDC_UpdateAccount';  //Request URL
+        req.httpMethod = 'PUT';//HTTP Request Type
+        req.requestBody = Blob.valueof(alString);
+        RestContext.request = req;
+        RestContext.response= res;
+        
         /*
         QB_UpdateAccount.SFDC_UpdateAccount(al);
         b = res.responseBody;
@@ -336,7 +392,7 @@ public class QB_UpdateAccountTest {
         system.debug('Account:' + a);
         System.assert(a.name.contains('NO MATCH'));
 		*/
-        QB_UpdateAccount.SFDC_UpdateAccount(al);
+        QB_UpdateAccount.SFDC_UpdateAccount();
         //b = res.responseBody;
         //System.assertEquals(res.statusCode, 200);
         //Account a = (Account) JSON.deserialize(b.toString(), Account.class);
@@ -367,6 +423,19 @@ public class QB_UpdateAccountTest {
         al.additionalText2 = 'additionalText2';
         al.additionalDate1 = '2016-11-20';
         al.additionalBoolean1 = true;
+        
+        String alString = JSON.serialize(al) + '}';
+        
+        //pass the req and resp objects to the method
+        RestRequest req = new RestRequest(); 
+        RestResponse res = new RestResponse();
+        
+        req.requestURI = '/services/apexrest/Account/SFDC_UpdateAccount';  //Request URL
+        req.httpMethod = 'PUT';//HTTP Request Type
+        req.requestBody = Blob.valueof(alString);
+        RestContext.request = req;
+        RestContext.response= res;
+        
         /*
         QB_UpdateAccount.SFDC_UpdateAccount(al);
         b = res.responseBody;
@@ -376,7 +445,7 @@ public class QB_UpdateAccountTest {
         System.assert(a.name.contains('NO MATCH'));
         System.assertEquals(res.statusCode, 200);
 		*/
-        QB_UpdateAccount.SFDC_UpdateAccount(al);
+        QB_UpdateAccount.SFDC_UpdateAccount();
         //b = res.responseBody;
         //System.assertEquals(res.statusCode, 200);
         //Account a = (Account) JSON.deserialize(b.toString(), Account.class);
@@ -456,11 +525,11 @@ public class QB_UpdateAccountTest {
 
 
         req.requestURI = urlToCall;
-        req.addParameter('operatorContractorToUpdate', JSON.serialize(payload));
+        //req.addParameter('operatorContractorToUpdate', );
 
         req.addHeader('Content-Type', 'application/json');
         req.httpMethod = 'PUT';
-        req.requestBody = Blob.valueof('{}');
+        req.requestBody = Blob.valueof(JSON.serialize(payload) + '}');
 
 
         RestContext.request = req;
@@ -468,7 +537,7 @@ public class QB_UpdateAccountTest {
 
 
         Test.startTest();
-        QB_UpdateAccount.SFDC_UpdateAccount(payload);
+        QB_UpdateAccount.SFDC_UpdateAccount();
         Test.stopTest();
 
         Blob responseBody = res.responseBody;
@@ -544,11 +613,11 @@ public class QB_UpdateAccountTest {
 
 
         req.requestURI = urlToCall;
-        req.addParameter('operatorContractorToUpdate', JSON.serialize(payload));
+        //req.addParameter('operatorContractorToUpdate', JSON.serialize(payload));
 
         req.addHeader('Content-Type', 'application/json');
         req.httpMethod = 'PUT';
-        req.requestBody = Blob.valueof('{}');
+        req.requestBody = Blob.valueof(JSON.serialize(payload) + '}');
 
 
         RestContext.request = req;
@@ -556,7 +625,7 @@ public class QB_UpdateAccountTest {
 
 
         Test.startTest();
-        QB_UpdateAccount.SFDC_UpdateAccount(payload);
+        QB_UpdateAccount.SFDC_UpdateAccount();
         Test.stopTest();
 
         Account results = [
@@ -633,11 +702,11 @@ public class QB_UpdateAccountTest {
         payload.accountName = 'test account';
 
         req.requestURI = urlToCall;
-        req.addParameter('operatorContractorToUpdate', JSON.serialize(payload));
+        //req.addParameter('operatorContractorToUpdate', JSON.serialize(payload));
 
         req.addHeader('Content-Type', 'application/json');
         req.httpMethod = 'PUT';
-        req.requestBody = Blob.valueof('{}');
+        req.requestBody = Blob.valueof(JSON.serialize(payload) + '}');
 
 
         RestContext.request = req;
@@ -645,7 +714,7 @@ public class QB_UpdateAccountTest {
 
 
         Test.startTest();
-        QB_UpdateAccount.SFDC_UpdateAccount(payload);
+        QB_UpdateAccount.SFDC_UpdateAccount();
         Test.stopTest();
 
         Blob bodyBlob = res.responseBody;
@@ -717,11 +786,11 @@ public class QB_UpdateAccountTest {
 
 
         req.requestURI = urlToCall;
-        req.addParameter('operatorContractorToUpdate', JSON.serialize(payload));
+        //req.addParameter('operatorContractorToUpdate', JSON.serialize(payload));
 
         req.addHeader('Content-Type', 'application/json');
         req.httpMethod = 'PUT';
-        req.requestBody = Blob.valueof('{}');
+        req.requestBody = Blob.valueof(JSON.serialize(payload) + '}');
 
 
         RestContext.request = req;
@@ -729,7 +798,7 @@ public class QB_UpdateAccountTest {
 
 
         Test.startTest();
-        QB_UpdateAccount.SFDC_UpdateAccount(payload);
+        QB_UpdateAccount.SFDC_UpdateAccount();
         Test.stopTest();
 
         Blob responseBody = res.responseBody;
@@ -808,11 +877,11 @@ public class QB_UpdateAccountTest {
 
 
         req.requestURI = urlToCall;
-        req.addParameter('operatorContractorToUpdate', JSON.serialize(payload));
+        //req.addParameter('operatorContractorToUpdate', JSON.serialize(payload));
 
         req.addHeader('Content-Type', 'application/json');
         req.httpMethod = 'PUT';
-        req.requestBody = Blob.valueof('{}');
+        req.requestBody = Blob.valueof(JSON.serialize(payload) + '}');
 
 
         RestContext.request = req;
@@ -820,7 +889,7 @@ public class QB_UpdateAccountTest {
 
 
         Test.startTest();
-        QB_UpdateAccount.SFDC_UpdateAccount(payload);
+        QB_UpdateAccount.SFDC_UpdateAccount();
         Test.stopTest();
 
         Account results = [

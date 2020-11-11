@@ -1,0 +1,790 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>This object tracks the outbound mail and email sent as part of the contractor on-boarding process</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Account__c</fullName>
+        <description>Returns the account name for the related opportunity.</description>
+        <externalId>false</externalId>
+        <formula>Related_Opportunity_2__r.Account.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account</label>
+        <required>false</required>
+        <securityClassification>InETL</securityClassification>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Additional_Information__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this field to capture any additional information related to the mailing or phases of the mailing.</inlineHelpText>
+        <label>Additional Information</label>
+        <length>32768</length>
+        <securityClassification>InETL</securityClassification>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>8</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Campaign__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Campaign</label>
+        <referenceTo>Campaign</referenceTo>
+        <relationshipLabel>Outbound Mail</relationshipLabel>
+        <relationshipName>Outbound_Mail</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Client_Site__c</fullName>
+        <externalId>false</externalId>
+        <label>Client Site</label>
+        <length>32</length>
+        <required>false</required>
+        <securityClassification>InETL</securityClassification>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contractors_Mailed__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the actual number of contractors included in the mailing</inlineHelpText>
+        <label>Contractors Mailed</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <securityClassification>InETL</securityClassification>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contractors_Self_Registered__c</fullName>
+        <description>Captures the number of self registered contractors that responded to the mail or email</description>
+        <externalId>false</externalId>
+        <label>Contractors Self Registered</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <securityClassification>InETL</securityClassification>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Creative_Package__c</fullName>
+        <description>this field is used to capture the mail package delivered to the contractors.  This is used to measure the effectiveness of various scripts and compare A B results.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the creative package or mail script ID</inlineHelpText>
+        <label>Creative Package</label>
+        <length>20</length>
+        <required>false</required>
+        <securityClassification>InETL</securityClassification>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Date_Mailed__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the date the mail was sent (date delivered to post office or date email was sent).</inlineHelpText>
+        <label>Date Mailed</label>
+        <required>false</required>
+        <securityClassification>InETL</securityClassification>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>JIRA_Ticket__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the JIRA ticket number</inlineHelpText>
+        <label>JIRA Ticket #</label>
+        <length>7</length>
+        <required>false</required>
+        <securityClassification>InETL</securityClassification>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Mail_Effort__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the approriate mailing effort (is this the first time the list has been mailed) related to the Mail Type.  It is possible to have a first physical mail and first email.</inlineHelpText>
+        <label>Mail Effort</label>
+        <required>false</required>
+        <securityClassification>InETL</securityClassification>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>First</fullName>
+                    <default>true</default>
+                    <label>First</label>
+                </value>
+                <value>
+                    <fullName>Second</fullName>
+                    <default>false</default>
+                    <label>Second</label>
+                </value>
+                <value>
+                    <fullName>Third</fullName>
+                    <default>false</default>
+                    <label>Third</label>
+                </value>
+                <value>
+                    <fullName>Fourth</fullName>
+                    <default>false</default>
+                    <label>Fourth</label>
+                </value>
+                <value>
+                    <fullName>Fifth</fullName>
+                    <default>false</default>
+                    <label>Fifth</label>
+                </value>
+                <value>
+                    <fullName>Final</fullName>
+                    <default>false</default>
+                    <label>Final</label>
+                </value>
+                <value>
+                    <fullName>Primer</fullName>
+                    <default>false</default>
+                    <label>Primer</label>
+                </value>
+                <value>
+                    <fullName>Registration Request</fullName>
+                    <default>false</default>
+                    <label>Registration Request</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Mail_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Mail Type</label>
+        <required>false</required>
+        <securityClassification>InETL</securityClassification>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>First Physical Mail</fullName>
+                    <default>false</default>
+                    <label>First Physical Mail</label>
+                </value>
+                <value>
+                    <fullName>2nd Physical Mail</fullName>
+                    <default>false</default>
+                    <label>2nd Physical Mail</label>
+                </value>
+                <value>
+                    <fullName>3rd Physical Mail</fullName>
+                    <default>false</default>
+                    <label>3rd Physical Mail</label>
+                </value>
+                <value>
+                    <fullName>4th Physical Mail</fullName>
+                    <default>false</default>
+                    <label>4th Physical Mail</label>
+                </value>
+                <value>
+                    <fullName>5th Physical Mail</fullName>
+                    <default>false</default>
+                    <label>5th Physical Mail</label>
+                </value>
+                <value>
+                    <fullName>First Email</fullName>
+                    <default>false</default>
+                    <label>First Email</label>
+                </value>
+                <value>
+                    <fullName>Second Email</fullName>
+                    <default>false</default>
+                    <label>Second Email</label>
+                </value>
+                <value>
+                    <fullName>Third Email</fullName>
+                    <default>false</default>
+                    <label>Third Email</label>
+                </value>
+                <value>
+                    <fullName>Fourth Email</fullName>
+                    <default>false</default>
+                    <label>Fourth Email</label>
+                </value>
+                <value>
+                    <fullName>Fifth Email</fullName>
+                    <default>false</default>
+                    <label>Fifth Email</label>
+                </value>
+                <value>
+                    <fullName>Re-launch Physical Mail</fullName>
+                    <default>false</default>
+                    <label>Re-launch Physical Mail</label>
+                </value>
+                <value>
+                    <fullName>Re-launch Email</fullName>
+                    <default>false</default>
+                    <label>Re-launch Email</label>
+                </value>
+                <value>
+                    <fullName>Expansion Physical Mail</fullName>
+                    <default>false</default>
+                    <label>Expansion Physical Mail</label>
+                </value>
+                <value>
+                    <fullName>Expansion Email</fullName>
+                    <default>false</default>
+                    <label>Expansion Email</label>
+                </value>
+                <value>
+                    <fullName>Client Self-mail</fullName>
+                    <default>false</default>
+                    <label>Client Self-mail</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>Follow-On</fullName>
+                    <default>false</default>
+                    <label>Follow-On</label>
+                </value>
+                <value>
+                    <fullName>Primer</fullName>
+                    <default>false</default>
+                    <label>Primer</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Month_Mailed__c</fullName>
+        <externalId>false</externalId>
+        <formula>MONTH( Date_Mailed__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Month Mailed</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <securityClassification>InETL</securityClassification>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>On_Boarding_Report__c</fullName>
+        <description>hyperlink field to render On-boarding report for selected Client Account</description>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;00O70000004UQGu?pv0=&quot;+ Account__c , &quot;View&quot;,&quot;_top&quot;)</formula>
+        <label>On-Boarding Report</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quarter_Mailed__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(
+OR(MONTH(  Date_Mailed__c ) = 1,MONTH( Date_Mailed__c) = 2,MONTH( Date_Mailed__c) = 3),&quot;Q1&quot;,
+IF(OR(MONTH( Date_Mailed__c) = 4,MONTH( Date_Mailed__c) = 5,MONTH( Date_Mailed__c) = 6),&quot;Q2&quot;,
+IF(OR(MONTH( Date_Mailed__c) = 7,MONTH( Date_Mailed__c) = 8,MONTH( Date_Mailed__c) = 9),&quot;Q3&quot;,
+&quot;Q4&quot;
+)))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Quarter Mailed</label>
+        <required>false</required>
+        <securityClassification>InETL</securityClassification>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Registration_Request_Report__c</fullName>
+        <description>Hyperlink field to render registration request report for selected Client Account.</description>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;00O70000004UWcc?pv0=&quot;+ Account__c , &quot;View&quot;,&quot;_top&quot;)</formula>
+        <label>Registration Request Report</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Related_Opportunity_2__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the Opportunity that the mail effort supports</inlineHelpText>
+        <label>Related Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Outbound Mail</relationshipLabel>
+        <relationshipName>Outbound_Mail</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
+        <securityClassification>InETL</securityClassification>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Week_Mailed__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(CEILING(CASE(MONTH( Date_Mailed__c),
+1, (DAY(Date_Mailed__c)+0)/7,
+2, (DAY(Date_Mailed__c)+31)/7,
+3, (DAY(Date_Mailed__c)+59)/7,
+4, (DAY(Date_Mailed__c)+0)/7,
+5, (DAY(Date_Mailed__c)+31)/7,
+6, (DAY(Date_Mailed__c)+61)/7,
+7, (DAY(Date_Mailed__c)+0)/7,
+8, (DAY(Date_Mailed__c)+31)/7,
+9, (DAY(Date_Mailed__c)+62)/7,
+10,(DAY(Date_Mailed__c)+0)/7,
+11,(DAY(Date_Mailed__c)+31)/7,
+(DAY(Date_Mailed__c)+61)/7))&gt;13,13,
+CEILING(CASE(MONTH(Date_Mailed__c),
+1, (DAY(Date_Mailed__c)+0)/7,
+2, (DAY(Date_Mailed__c)+31)/7,
+3, (DAY(Date_Mailed__c)+59)/7,
+4, (DAY(Date_Mailed__c)+0)/7,
+5, (DAY(Date_Mailed__c)+31)/7,
+6, (DAY(Date_Mailed__c)+61)/7,
+7, (DAY(Date_Mailed__c)+0)/7,
+8, (DAY(Date_Mailed__c)+31)/7,
+9, (DAY(Date_Mailed__c)+62)/7,
+10,(DAY(Date_Mailed__c)+0)/7,
+11,(DAY(Date_Mailed__c)+31)/7,
+(DAY(Date_Mailed__c)+61)/7))
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Week Mailed</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <securityClassification>InETL</securityClassification>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Year_Mailed__c</fullName>
+        <externalId>false</externalId>
+        <formula>YEAR( Date_Mailed__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Year Mailed</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Year_Quarter_mailed__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(YEAR (Date_Mailed__c ))+ &apos; &apos; + 
+CASE(
+    MONTH(Date_Mailed__c),
+
+    1,&apos;Q1&apos;, 
+    2,&apos;Q1&apos;, 
+    3,&apos;Q1&apos;, 
+    4,&apos;Q2&apos;, 
+    5,&apos;Q2&apos;, 
+    6,&apos;Q2&apos;, 
+    7,&apos;Q3&apos;, 
+    8,&apos;Q3&apos;, 
+    9,&apos;Q3&apos;, 
+    10,&apos;Q4&apos;, 
+    11,&apos;Q4&apos;, 
+    12,&apos;Q4&apos;,  
+
+    NULL
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Year-Quarter mailed</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Outbound Mail</label>
+    <listViews>
+        <fullName>All1</fullName>
+        <columns>NAME</columns>
+        <columns>JIRA_Ticket__c</columns>
+        <columns>Related_Opportunity_2__c</columns>
+        <columns>Mail_Type__c</columns>
+        <columns>Contractors_Mailed__c</columns>
+        <columns>Mail_Effort__c</columns>
+        <columns>Date_Mailed__c</columns>
+        <columns>Week_Mailed__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Mail_Effort__c</field>
+            <operation>equals</operation>
+            <value>First</value>
+        </filters>
+        <filters>
+            <field>Year_Mailed__c</field>
+            <operation>equals</operation>
+            <value>2019</value>
+        </filters>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Continuing_Communications</fullName>
+        <columns>NAME</columns>
+        <columns>JIRA_Ticket__c</columns>
+        <columns>Related_Opportunity_2__c</columns>
+        <columns>Client_Site__c</columns>
+        <columns>Mail_Type__c</columns>
+        <columns>Date_Mailed__c</columns>
+        <columns>Contractors_Mailed__c</columns>
+        <columns>Creative_Package__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Mail_Effort__c</field>
+            <operation>notEqual</operation>
+            <value>First</value>
+        </filters>
+        <label>Continuing Communications</label>
+    </listViews>
+    <listViews>
+        <fullName>First_Mailing_Communications_Prior_Month</fullName>
+        <columns>Account__c</columns>
+        <columns>Related_Opportunity_2__c</columns>
+        <columns>Week_Mailed__c</columns>
+        <columns>Client_Site__c</columns>
+        <columns>Contractors_Mailed__c</columns>
+        <columns>JIRA_Ticket__c</columns>
+        <columns>Mail_Type__c</columns>
+        <columns>Date_Mailed__c</columns>
+        <columns>Mail_Effort__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Mail_Effort__c</field>
+            <operation>equals</operation>
+            <value>First</value>
+        </filters>
+        <filters>
+            <field>Date_Mailed__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>10/1/2016</value>
+        </filters>
+        <filters>
+            <field>Date_Mailed__c</field>
+            <operation>lessOrEqual</operation>
+            <value>12/31/2016</value>
+        </filters>
+        <label>First Mailing Communications Prior Month</label>
+    </listViews>
+    <listViews>
+        <fullName>First_Mailing_Communications_Quarter_2</fullName>
+        <columns>Related_Opportunity_2__c</columns>
+        <columns>Week_Mailed__c</columns>
+        <columns>Client_Site__c</columns>
+        <columns>Contractors_Mailed__c</columns>
+        <columns>JIRA_Ticket__c</columns>
+        <columns>Mail_Type__c</columns>
+        <columns>Date_Mailed__c</columns>
+        <columns>Mail_Effort__c</columns>
+        <columns>NAME</columns>
+        <columns>Additional_Information__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Mail_Effort__c</field>
+            <operation>equals</operation>
+            <value>First</value>
+        </filters>
+        <filters>
+            <field>Date_Mailed__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>10/1/2018</value>
+        </filters>
+        <label>First Mailing Communications (Quarter 4)</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>First_Mailing_Communications_qtr</fullName>
+        <columns>Related_Opportunity_2__c</columns>
+        <columns>Week_Mailed__c</columns>
+        <columns>Client_Site__c</columns>
+        <columns>Contractors_Mailed__c</columns>
+        <columns>JIRA_Ticket__c</columns>
+        <columns>Mail_Type__c</columns>
+        <columns>Date_Mailed__c</columns>
+        <columns>Mail_Effort__c</columns>
+        <columns>NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Mail_Effort__c</field>
+            <operation>equals</operation>
+            <value>First</value>
+        </filters>
+        <filters>
+            <field>Date_Mailed__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>1/1/2018</value>
+        </filters>
+        <label>First Mailing Communications (Quarter 1)</label>
+    </listViews>
+    <listViews>
+        <fullName>Physical_Mail</fullName>
+        <columns>NAME</columns>
+        <columns>JIRA_Ticket__c</columns>
+        <columns>Related_Opportunity_2__c</columns>
+        <columns>Client_Site__c</columns>
+        <columns>Date_Mailed__c</columns>
+        <columns>Mail_Type__c</columns>
+        <columns>Mail_Effort__c</columns>
+        <columns>Quarter_Mailed__c</columns>
+        <columns>Contractors_Mailed__c</columns>
+        <columns>Contractors_Self_Registered__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Mail_Type__c</field>
+            <operation>equals</operation>
+            <value>Physical Mail</value>
+        </filters>
+        <label>Physical Mail</label>
+    </listViews>
+    <listViews>
+        <fullName>Recent_Client_Launches</fullName>
+        <columns>JIRA_Ticket__c</columns>
+        <columns>Related_Opportunity_2__c</columns>
+        <columns>Account__c</columns>
+        <columns>Date_Mailed__c</columns>
+        <columns>Contractors_Mailed__c</columns>
+        <columns>Mail_Effort__c</columns>
+        <columns>Mail_Type__c</columns>
+        <columns>On_Boarding_Report__c</columns>
+        <columns>Registration_Request_Report__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Date_Mailed__c</field>
+            <operation>greaterThan</operation>
+        </filters>
+        <filters>
+            <field>Mail_Effort__c</field>
+            <operation>equals</operation>
+            <value>First,Registration Request</value>
+        </filters>
+        <label>Recent Client Launches</label>
+    </listViews>
+    <listViews>
+        <fullName>email</fullName>
+        <columns>NAME</columns>
+        <columns>JIRA_Ticket__c</columns>
+        <columns>Related_Opportunity_2__c</columns>
+        <columns>Client_Site__c</columns>
+        <columns>Date_Mailed__c</columns>
+        <columns>Mail_Type__c</columns>
+        <columns>Mail_Effort__c</columns>
+        <columns>Quarter_Mailed__c</columns>
+        <columns>Contractors_Mailed__c</columns>
+        <columns>Contractors_Self_Registered__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Mail_Type__c</field>
+            <operation>equals</operation>
+            <value>Email</value>
+        </filters>
+        <label>email</label>
+    </listViews>
+    <nameField>
+        <displayFormat>OBM-{000000}</displayFormat>
+        <label>Outbound Record ID</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Outbound Mail</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>JIRA_Ticket__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Related_Opportunity_2__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Quarter_Mailed__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Week_Mailed__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Mail_Effort__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Mail_Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Date_Mailed__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Contractors_Mailed__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Creative_Package__c</customTabListAdditionalFields>
+        <searchFilterFields>JIRA_Ticket__c</searchFilterFields>
+        <searchFilterFields>Related_Opportunity_2__c</searchFilterFields>
+        <searchFilterFields>Quarter_Mailed__c</searchFilterFields>
+        <searchFilterFields>Mail_Effort__c</searchFilterFields>
+        <searchFilterFields>Mail_Type__c</searchFilterFields>
+        <searchResultsAdditionalFields>JIRA_Ticket__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Related_Opportunity_2__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Mail_Type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Mail_Effort__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Contractors_Mailed__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Week_Mailed__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Creative_Package__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -89,36 +89,54 @@ public class QB_UpdateContactTest {
         //pass the req and resp objects to the method     
 
         QB_UpdateContact.ContactLight cl = new QB_UpdateContact.ContactLight();
+        
+        String clString = JSON.serialize(cl) + '}}';
+        System.debug('ContactLight OBJECT = ' + clString);
+
+        //pass the req and resp objects to the method
+        RestRequest req = new RestRequest();
+        RestResponse res = new RestResponse();
+
+        req.requestURI = '/services/apexrest/avetta/contact/SFDC_UpdateContact';  //Request URL
+        req.httpMethod = 'PUT';//HTTP Request Type
+        req.requestBody = Blob.valueOf(clString);
+        RestContext.request = req;
+        RestContext.response= res;
 
         // no account id passed
-        QB_UpdateContact.SFDC_UpdateContact(cl);
+        QB_UpdateContact.SFDC_UpdateContact();
+        System.debug('********COMING ACROSS********** = ' + cl);
         System.assertEquals(res.statusCode, 400);
-        system.debug ('respone' + res);
+        System.debug ('response' + res);
         b = res.responseBody;
+
         System.debug('b.toString: ' + b.toString());
         System.assert(b.toString().contains('accountId is missing'));
-
+        System.debug('********COMING ACROSS********** = ' + cl);
         // no organizer id passed
         cl.accountId = '1234';
-        QB_UpdateContact.SFDC_UpdateContact(cl);
+        System.debug('********COMING ACROSS********** = ' + cl);
+        QB_UpdateContact.SFDC_UpdateContact();
+        System.debug('********COMING ACROSS********** = ' + cl);
         System.assertEquals(res.statusCode, 400);
-        system.debug ('respone' + res);
+        System.debug ('response' + res);
         b = res.responseBody;
         System.debug('b.toString: ' + b.toString());
         System.assert(b.toString().contains('organizerUserId is missing'));
 
-        // account id, orgnizer id is passed but account id is invalid
+        // account id, organizer id is passed but account id is invalid
         cl.accountId = '9';  // invalid account number
         cl.connectUserId = '1234';
-        QB_UpdateContact.SFDC_UpdateContact(cl);
+        QB_UpdateContact.SFDC_UpdateContact();
+        System.debug('********COMING ACROSS********** = ' + cl);
         System.assertEquals(res.statusCode, 400);
-        system.debug ('respone' + res);
+        System.debug ('response' + res);
         b = res.responseBody;
         System.debug('b.toString: ' + b.toString());
         System.assert(b.toString().contains('Invalid Account Id: Account Not found'));
     }
 
-    static testmethod void InsertContactWithOrgId() {
+    static testMethod void InsertContactWithOrgId() {
         // setup data for offices
         setupData();
 
@@ -137,7 +155,7 @@ public class QB_UpdateContactTest {
         cl.connectCreateDate = System.today();
         cl.connectLastLogin = System.today();
         cl.connectUsername = 'goodone';
-        cl.connectisActive = 'true';
+        cl.connectIsActive = 'true';
         cl.phone = '111-111-1111';
         cl.timezone = 'PST';
         cl.title = 'Doctor';
@@ -152,19 +170,33 @@ public class QB_UpdateContactTest {
         cl.additionalText2 = '	Designations__c';
         cl.additionalDate1 = '2011-2-19';
         cl.additionalBoolean1 = true;
+        
+        String clString = JSON.serialize(cl) + '}';
+        System.debug('ContactLight OBJECT = ' + clString);
 
-        QB_UpdateContact.SFDC_UpdateContact(cl);
+        
+        //pass the req and resp objects to the method
+        RestRequest req = new RestRequest(); 
+        RestResponse res = new RestResponse();
+        
+        req.requestURI = '/services/apexrest/avetta/Contact';  //Request URL
+        req.httpMethod = 'PUT';//HTTP Request Type
+        req.requestBody = Blob.valueOf(clString);
+        RestContext.request = req;
+        RestContext.response= res;
+        
+        QB_UpdateContact.SFDC_UpdateContact();
         b = res.responseBody;
         System.debug('res.responseBody:');
         System.debug(b);
         String bString = b.toString();
         Contact c = (Contact) JSON.deserialize(bString, Contact.class);
-        system.debug('Contact:' + c);
-        System.assert(c.lastName.contains('new last name'));
+        System.debug('Contact:' + c);
+        System.assert(c.LastName.contains('new last name'));
         System.assertEquals(200, res.statusCode);
     }
 
-    static testmethod void updateContactWithOrgId() {
+    static testMethod void updateContactWithOrgId() {
         // setup data for offices
         setupData();
 
@@ -196,18 +228,30 @@ public class QB_UpdateContactTest {
         cl.additionalText2 = '	Designations__c';
         cl.additionalDate1 = '2011-2-19';
         cl.additionalBoolean1 = true;
+        
+        String clString = JSON.serialize(cl) + '}';
+        
+        //pass the req and resp objects to the method
+        RestRequest req = new RestRequest(); 
+        RestResponse res = new RestResponse();
+        
+        req.requestURI = '/services/apexrest/avetta/Contact';  //Request URL
+        req.httpMethod = 'PUT';//HTTP Request Type
+        req.requestBody = Blob.valueOf(clString);
+        RestContext.request = req;
+        RestContext.response= res;
 
-        QB_UpdateContact.SFDC_UpdateContact(cl);
+        QB_UpdateContact.SFDC_UpdateContact();
         b = res.responseBody;
         Contact c = (Contact) JSON.deserialize(b.toString(), Contact.class);
-        system.debug('Contact:' + c);
+        System.debug('Contact:' + c);
         System.assert(c.LastName.contains('good last name'));
         System.assertEquals(200, res.statusCode);
-        Contact c1 = [select id, FirstName, LastName, Name from Contact where id = :c.id];
+        Contact c1 = [SELECT Id, FirstName, LastName, Name FROM Contact WHERE Id = :c.Id];
         System.debug('new contact after update:' + c1);
     }
 
-    static testmethod void updateContactWithEmail() {
+    static testMethod void updateContactWithEmail() {
         // setup data for offices
         setupData();
 
@@ -239,8 +283,20 @@ public class QB_UpdateContactTest {
         cl.additionalText2 = '	Designations__c';
         cl.additionalDate1 = '2011-2-19';
         cl.additionalBoolean1 = true;
+        
+        String clString = JSON.serialize(cl) + '}';
+        
+        //pass the req and resp objects to the method
+        RestRequest req = new RestRequest(); 
+        RestResponse res = new RestResponse();
+        
+        req.requestURI = '/services/apexrest/avetta/Contact';  //Request URL
+        req.httpMethod = 'PUT';//HTTP Request Type
+        req.requestBody = Blob.valueof(clString);
+        RestContext.request = req;
+        RestContext.response= res;
 
-        QB_UpdateContact.SFDC_UpdateContact(cl);
+        QB_UpdateContact.SFDC_UpdateContact();
         b = res.responseBody;
         Contact c = (Contact) JSON.deserialize(b.toString(), Contact.class);
         system.debug('Contact:' + c);
@@ -258,8 +314,7 @@ public class QB_UpdateContactTest {
         Contractor_Match__c match = new Contractor_Match__c(OrganizerId__c = 'account' + Date.today());
 
         insert match;
-
-
+        
         QB_UpdateContact.ContactLight contactLight = new QB_UpdateContact.ContactLight();
 
         contactLight.firstName = 'first';
@@ -267,8 +322,20 @@ public class QB_UpdateContactTest {
         contactLight.email = 'email@test.org';
         contactLight.accountId = match.OrganizerId__c;
         contactLight.connectUserId = 'user' + Date.today();
+        
+        String clString = JSON.serialize(contactLight) + '}';
+        
+        //pass the req and resp objects to the method
+        RestRequest req = new RestRequest(); 
+        RestResponse res = new RestResponse();
+        
+        req.requestURI = '/services/apexrest/avetta/Contact';  //Request URL
+        req.httpMethod = 'PUT';//HTTP Request Type
+        req.requestBody = Blob.valueof(clString);
+        RestContext.request = req;
+        RestContext.response= res;
 
-        QB_UpdateContact.SFDC_UpdateContact(contactLight);
+        QB_UpdateContact.SFDC_UpdateContact();
 
         Contractor_Match__c results = [
                 SELECT

@@ -10,7 +10,7 @@
 	<!-- Sequence 1 - Get All information from Source, Retrieve the contents into Src directory -->
 	<target name="SFDCFetch">
 	  <!-- -->
-	  <sf:retrieve username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" retrieveTarget="src" unpackaged="package.xml"/>
+	  <sf:retrieve username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" retrieveTarget="../force-app/main/default" unpackaged="../manifest/package.xml"/>
 	</target>
 
 	<!-- Sequence 3 - Deploy to Target System, Package.xml is present in Src folder -->

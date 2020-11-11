@@ -1,0 +1,727 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <content>Sprint_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Sprint_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>Active_Admins__c</fullName>
+        <defaultValue>2</defaultValue>
+        <externalId>false</externalId>
+        <label>Active Admins</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AdminPTOAdjustment__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>Admin PTO Adjustment</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Avetta_Holiday_Adjustment__c</fullName>
+        <externalId>false</externalId>
+        <label>Avetta Holiday Adjustment</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bug_Sprint__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Sprint that caused the Bug that needed the ESR</description>
+        <externalId>false</externalId>
+        <label>Bug Sprint</label>
+        <referenceTo>Sprint__c</referenceTo>
+        <relationshipLabel>Sprints</relationshipLabel>
+        <relationshipName>Sprints</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>CutOffDate__c</fullName>
+        <defaultValue>Now()+7</defaultValue>
+        <description>Sprint Cases Cut off date. Created for 02642914</description>
+        <externalId>false</externalId>
+        <label>Cut Off Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Deployment_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Deployment Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Deployment_Steps__c</fullName>
+        <description>Steps to preform deployment with a changeset.</description>
+        <externalId>false</externalId>
+        <label>Deployment Steps</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ESRReason__c</fullName>
+        <externalId>false</externalId>
+        <label>ESR Reason</label>
+        <length>131072</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Is_There_a_Workaround__c</fullName>
+        <description>Is there a workaround for the bug.</description>
+        <externalId>false</externalId>
+        <label>Is There a Workaround?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Max_Admin_Points__c</fullName>
+        <description>Total Available Admin Story points per sprint. 
+
+Created for 02642914</description>
+        <externalId>false</externalId>
+        <formula>ROUND( 5 * (
+( 5 * FLOOR( ( DATEVALUE( CutOffDate__c ) - DATE( 1900, 1, 8) ) / 7) +
+MIN(5,
+MOD( DATEVALUE( CutOffDate__c ) - DATE( 1900, 1, 8), 7) +
+MIN( 1, 24 / 8 * ( MOD( CutOffDate__c - DATETIMEVALUE( &apos;1900-01-08 14:00:00&apos; ), 1 ) ) )
+)
+)
+-
+( 5 * FLOOR( ( DATEVALUE( StartDate__c ) - DATE( 1900, 1, 8) ) / 7) +
+MIN( 5,
+MOD( DATEVALUE( StartDate__c ) - DATE( 1996, 1, 1), 7 ) +
+MIN( 1, 24 / 8 * ( MOD( StartDate__c - DATETIMEVALUE( &apos;1900-01-08 14:00:00&apos; ), 1) ) )
+)
+)
+),
+0 )
+*0.7*Active_Admins__c - Avetta_Holiday_Adjustment__c - AdminPTOAdjustment__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Max Admin Points</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Max_Dev_Points__c</fullName>
+        <description>Total Available Admin Story points per sprint.
+
+Created for 02642914</description>
+        <externalId>false</externalId>
+        <formula>ROUND( 6 * (
+( 5 * FLOOR( ( DATEVALUE( CutOffDate__c ) - DATE( 1900, 1, 8) ) / 7) +
+MIN(5,
+MOD( DATEVALUE( CutOffDate__c ) - DATE( 1900, 1, 8), 7) +
+MIN( 1, 24 / 8 * ( MOD( CutOffDate__c - DATETIMEVALUE( &apos;1900-01-08 14:00:00&apos; ), 1 ) ) )
+)
+)
+-
+( 5 * FLOOR( ( DATEVALUE( StartDate__c ) - DATE( 1900, 1, 8) ) / 7) +
+MIN( 5,
+MOD( DATEVALUE( StartDate__c ) - DATE( 1996, 1, 1), 7 ) +
+MIN( 1, 24 / 8 * ( MOD( StartDate__c - DATETIMEVALUE( &apos;1900-01-08 14:00:00&apos; ), 1) ) )
+)
+)
+),
+0 )
+*0.8*2 - Avetta_Holiday_Adjustment__c -  PTODevAdjustment__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Max Dev Points</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PTODevAdjustment__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>PTO Dev Adjustment</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Post_Deployment_Steps__c</fullName>
+        <description>Steps to deploy Sprint items that can be changed with a Changeset.</description>
+        <externalId>false</externalId>
+        <label>Post Deployment Steps</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Pre_Deployment__c</fullName>
+        <externalId>false</externalId>
+        <label>Pre-Deployment</label>
+        <length>131072</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Rollover_Case_Effort__c</fullName>
+        <externalId>false</externalId>
+        <label>Rollover Case Effort</label>
+        <summarizedField>Sprint_Cases__c.Actual_Effort__c</summarizedField>
+        <summaryForeignKey>Sprint_Cases__c.Related_Sprint__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>SprintEstimatedEffort__c</fullName>
+        <externalId>false</externalId>
+        <label>Sprint Estimated Effort</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sprint_Actual_Effort__c</fullName>
+        <externalId>false</externalId>
+        <formula>Rollover_Case_Effort__c + Sprint_Case_Effort__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Sprint Actual Effort</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sprint_Case_Effort__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>Sprint Case Effort</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>StartDate__c</fullName>
+        <description>Start Date of the Sprint. Created for 02642914</description>
+        <externalId>false</externalId>
+        <label>Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <description>Status of Sprint</description>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Grooming</fullName>
+                    <default>false</default>
+                    <label>Grooming</label>
+                </value>
+                <value>
+                    <fullName>In-progress</fullName>
+                    <default>false</default>
+                    <label>In-progress</label>
+                </value>
+                <value>
+                    <fullName>UAT In Progress</fullName>
+                    <default>false</default>
+                    <label>UAT In Progress</label>
+                </value>
+                <value>
+                    <fullName>Ready for Deployment</fullName>
+                    <default>false</default>
+                    <label>Ready for Deployment</label>
+                </value>
+                <value>
+                    <fullName>Deployed</fullName>
+                    <default>false</default>
+                    <label>Deployed</label>
+                </value>
+                <value>
+                    <fullName>Rollback</fullName>
+                    <default>false</default>
+                    <label>Rollback</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Sprint</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Deployment_Date__c</columns>
+        <columns>Status__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>SprintEstimatedEffort__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>Deployed_Sprints</fullName>
+        <columns>NAME</columns>
+        <columns>Status__c</columns>
+        <columns>Deployment_Date__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Deployed</value>
+        </filters>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Sprint__c.SR_Sprint</value>
+        </filters>
+        <label>Deployed Sprints</label>
+    </listViews>
+    <listViews>
+        <fullName>ESR</fullName>
+        <columns>NAME</columns>
+        <columns>Deployment_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Sprint__c.ESR</value>
+        </filters>
+        <label>ESR</label>
+        <sharedTo>
+            <role>Administration</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Epics</fullName>
+        <columns>NAME</columns>
+        <columns>Status__c</columns>
+        <columns>SprintEstimatedEffort__c</columns>
+        <columns>Deployment_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Sprint__c.Epic</value>
+        </filters>
+        <label>Epics</label>
+    </listViews>
+    <listViews>
+        <fullName>Open_Epics</fullName>
+        <columns>NAME</columns>
+        <columns>Status__c</columns>
+        <columns>SprintEstimatedEffort__c</columns>
+        <columns>Deployment_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Sprint__c.Epic</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value>Deployed,Rollback</value>
+        </filters>
+        <label>Open Epics</label>
+        <sharedTo>
+            <role>Administration</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Open_Sprint</fullName>
+        <columns>NAME</columns>
+        <columns>Deployment_Date__c</columns>
+        <columns>Max_Admin_Points__c</columns>
+        <columns>SprintEstimatedEffort__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value>Deployed</value>
+        </filters>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Sprint__c.SR_Sprint</value>
+        </filters>
+        <label>Open Sprint</label>
+    </listViews>
+    <nameField>
+        <label>Sprint Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Sprints</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>ESR</fullName>
+        <active>true</active>
+        <description>ESR Sprint for a bug</description>
+        <label>ESR</label>
+        <picklistValues>
+            <picklist>Is_There_a_Workaround__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Deployed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grooming</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In-progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready for Deployment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rollback</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UAT In Progress</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Epic</fullName>
+        <active>true</active>
+        <description>This is to track tickets that are part of a larger project that will span multiple sprints.</description>
+        <label>Epic</label>
+        <picklistValues>
+            <picklist>Is_There_a_Workaround__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Deployed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grooming</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In-progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready for Deployment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rollback</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UAT In Progress</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>SR_Sprint</fullName>
+        <active>true</active>
+        <description>Normal Sprint</description>
+        <label>SR Sprint</label>
+        <picklistValues>
+            <picklist>Is_There_a_Workaround__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Deployed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grooming</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In-progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready for Deployment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rollback</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UAT In Progress</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

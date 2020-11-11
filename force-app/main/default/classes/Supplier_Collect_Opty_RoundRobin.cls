@@ -13,6 +13,9 @@ Edited by Jason McGrew 10.15.2019 for SF Case 01362319
 Commented out the Round Robin process for all India collection opportunities. All India Opportunities should be assigned to
 the Default Opportunity Owner (Eric Olsen)
 
+Edited by Mark Simpson 11/10/2020
+Open Collection Opportunities will now be assigned to the same rep if they are already working on that existing account.
+
 */
 
 public class Supplier_Collect_Opty_RoundRobin {
@@ -31,6 +34,8 @@ public class Supplier_Collect_Opty_RoundRobin {
         //--Prevents recursion and ensures at least one of opportunities in trigger is of Record Type 'Collections' to ensure trigger and class are necessary
         if (TriggerNew != NULL && collOpty.size() > 0) {
 
+            System.debug('HERE!!!');
+            
             List<Profile> currentProfile = [Select Id, Name from Profile where Id=: userInfo.getProfileId()];
         	String profileName = currentProfile.size() > 0 ? currentProfile[0].Name : NULL;
             
@@ -45,7 +50,6 @@ public class Supplier_Collect_Opty_RoundRobin {
                     AND LocaleSidKey = 'en_IN'
             ];
 
-
             //--SOQL query all non-Indian users with the role of 'Collections'
             List<User> UserList = [
                     SELECT Id, Name, Email, UserRole.Name
@@ -55,6 +59,8 @@ public class Supplier_Collect_Opty_RoundRobin {
                     AND LocaleSidKey != 'en_IN'
             ];
 
+                
+                
 
             //--Get a list of -Indian- Collections User IDs
             List<Id> collINUserIds = new List<Id>();
@@ -126,12 +132,21 @@ public class Supplier_Collect_Opty_RoundRobin {
 
             //SOQL query account to determine if supplier is also a client
             List<Account> linkedAccounts = [
-                    SELECT Id, Supplier_is_also_a_client__c, BillingCountry
+                    SELECT Id, Name, Supplier_is_also_a_client__c, BillingCountry
                     FROM Account
                     WHERE Id IN:accountIds
             ];
+                
             System.debug('**linkedAccounts =  ' + linkedAccounts);
-
+                
+            List<Opportunity> ExistingOptyList = [
+              	SELECT Id, Name, RecordTypeId, AccountId, StageName, CreatedDate
+                FROM Opportunity
+                WHERE AccountId IN:accountIds
+            ];
+                     
+            System.debug('Existing Opty List: ' + ExistingOptyList);
+            System.debug('Existing Opty Size: ' + ExistingOptyList.Size());    
 
             //Iterates through optys in the trigger to assign opty to proper rep. If the roundRobinVariable is at the end of the queue of reps, this logic starts it over at the beginning.
             for (Opportunity singleOpty : TriggerNew) {
@@ -188,8 +203,33 @@ public class Supplier_Collect_Opty_RoundRobin {
                     System.debug(isSupplierClient);
 
                     if (collUserIds.contains(singleOpty.OwnerId) == FALSE && isSupplierClient == FALSE) {
-
-                        singleOpty.OwnerId = UserList[Integer.valueOf(roundRobin.roundRobinID__c)].Id;
+                        
+                        System.debug('Assigned Account: ' + linkedAccounts);
+                        System.debug('Existing Opty List: ' + ExistingOptyList);
+                        System.debug('Existing Opty Size: ' + ExistingOptyList.Size());
+                        System.debug('Stage Name: ' + singleOpty.StageName);
+                        
+                        if(ExistingOptyList.Size() > 0) {
+                            
+                            System.debug('CONDITION MET');    
+                            
+                            if(singleOpty.StageName.Contains('Open') || (singleOpty.StageName.Contains('Attempted'))
+                              || singleOpty.StageName.Contains('In Progress') || singleOpty.StageName.Contains('Commit')) {
+                               
+                                  System.debug('Condition 2 Met: ' + singleOpty.StageName);                   
+                                  System.debug('ROUND ROBIN ID: ' + roundRobin.roundRobinID__c);
+                                  
+                                  singleOpty.OwnerID = USerList[Integer.valueOf(roundRobin.roundRobinID__c)].Id;
+                              }
+                        }
+                        
+                        else {
+                        
+                            System.debug('ROUND ROBIN ID: ' + roundRobin.roundRobinID__c);
+                        	singleOpty.OwnerId = UserList[Integer.valueOf(roundRobin.roundRobinID__c)].Id;
+                        
+                        }
+                            
                         if (roundRobin.roundRobinID__c == UserList.size() - 1) {
                             roundRobin.roundRobinID__c = 0;
                         } else {
@@ -197,6 +237,11 @@ public class Supplier_Collect_Opty_RoundRobin {
                         }
                     }
                 }
+                
+                
+                
+                
+                
                 //}
 
                 //Updates the roundRobinVariable in the database, if either non-Indian or IN roundRobin changed

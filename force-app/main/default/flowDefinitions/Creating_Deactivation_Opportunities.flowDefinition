@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionNumber>19</activeVersionNumber>
+    <description>Creates Deactivation Opportunities Needs an Account ID, Contact ID 
+SFDC-84.</description>
+    <masterLabel>Creating Deactivation Opportunities</masterLabel>
+</FlowDefinition>

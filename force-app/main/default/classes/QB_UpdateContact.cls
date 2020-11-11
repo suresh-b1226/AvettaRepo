@@ -163,6 +163,7 @@ global class QB_UpdateContact {
         String contactJSON = RestContext.request.requestBody.toString();
         contactJSON = contactJSON.replace('{"contactInfo":', '');
         contactJSON = contactJSON.removeEnd('}');
+        System.debug('***** contactJSON ***** = ' + contactJSON);
 
         foundTheContact = false;
         matchUpdated = false;
@@ -173,8 +174,8 @@ global class QB_UpdateContact {
         APISettings = API_Settings__c.getInstance('UpdateContact API');
         response.statusCode = 200;
 
-        ContactLight contactInfo = (ContactLight) JSON.deserialize(contactJSON, ContactLight.Class);
-        System.debug('ContactInfo = ' + contactInfo);
+        ContactLight contactInfo = (ContactLight) JSON.deserialize(contactJSON, ContactLight.class);
+        System.debug('***** ContactInfo ***** = ' + contactInfo);
 
         if (contactInfo.accountId == null) {
             response.statusCode = 400;

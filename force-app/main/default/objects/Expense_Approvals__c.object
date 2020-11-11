@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>Account_State__c</fullName>
+        <description>Account State or Province via a Lookup from the Contact&apos;s Account</description>
+        <externalId>false</externalId>
+        <formula>Contact_in_Account__r.Account.BillingState</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Account State or Province via a Lookup from the Contact&apos;s Account</inlineHelpText>
+        <label>Account State</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contact_in_Account__r.Account.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Additional_Avetta_Employee__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>If there will be an additional Avetta employee traveling (i.e., Client Success Manager), please select the employee from the list of users.</inlineHelpText>
+        <label>Additional Avetta Employee</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Exp_Approvals</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Approved__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Approved</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Asked_if_Webex_OK__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Have you asked if the meeting can be handled remotely (via webex)?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Have you asked if the meeting can be handled remotely (via webex)?</inlineHelpText>
+        <label>Asked if Webex OK?</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Contact_in_Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Who is this for?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Who is this for?</inlineHelpText>
+        <label>Contact or Prospect</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipName>Exp_Approvals</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Control_Field_Dining_Expense__c</fullName>
+        <defaultValue>75</defaultValue>
+        <externalId>false</externalId>
+        <label>Control Field Dining Per Person Expense</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Date_of_Travel__c</fullName>
+        <externalId>false</externalId>
+        <label>Date of Travel</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Desired_Outcome__c</fullName>
+        <description>Desired outcome. What is the advance?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Desired outcome. What is the advance?</inlineHelpText>
+        <label>Desired Outcome</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Dining__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description># Dining</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is if you plan to take customers out to dinner - what is the total count?
+PICS employees are automatically counted at the fixed rate $75 / Day.  Dining - Default is Zero</inlineHelpText>
+        <label>If Dining please enter # of guests</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Duration_of_Trip_Days__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>How many days will the trip be - default is zero (0)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>How many days will the trip be - default is zero (0).  Please put at least 1 day if you have rental car and hotel expenses.</inlineHelpText>
+        <label>If traveling # of Days</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Estimated_Airfare__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>Average Domestic Airfare $866 , International $1,400</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Average Domestic Airfare $866 , International $1,400</inlineHelpText>
+        <label>Estimated Airfare</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Estimated_Dailey_Hotel_Costs__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>Estimated Hotel Costs Per day - please round up 100, 150, 200, 250</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Estimated Hotel Costs Per day US $147 - Europe $300</inlineHelpText>
+        <label>Hotel Cost / Day</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Estimated_Daily_Rental_Car_Cost__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>Average Rental Car Costs / Day average is $50-$79</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Average Rental Car Costs / Day average is $50-$79</inlineHelpText>
+        <label>Estimated Rental Car / Day</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Estimated_Mileage__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>Estimated Mileage to be driven... Default is zero - please round up</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Estimated Mileage to be driven... Default is zero - please round up</inlineHelpText>
+        <label>If Driving estimated mileage</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Expense_Costs__c</fullName>
+        <description>Dining + Rental Car + Mileage + hotel + airfare + misc</description>
+        <externalId>false</externalId>
+        <formula>(Dining__c  *  Control_Field_Dining_Expense__c )
++  IF(   No_Rental_Car__c ,  Estimated_Mileage__c * 0.535  , Duration_of_Trip_Days__c  *  Estimated_Daily_Rental_Car_Cost__c)
++  IF( Duration_of_Trip_Days__c  &lt;&gt; 0,  Estimated_Dailey_Hotel_Costs__c  *  Duration_of_Trip_Days__c + Control_Field_Dining_Expense__c * Duration_of_Trip_Days__c , 0) 
++ Estimated_Airfare__c + Other_Costs__c
+
++
+ (Total_JRH_Test_redo__c  * ((Dining__c  *  Control_Field_Dining_Expense__c )
++ IF( Duration_of_Trip_Days__c  &lt;&gt; 0,  Estimated_Dailey_Hotel_Costs__c  *  Duration_of_Trip_Days__c + Control_Field_Dining_Expense__c * Duration_of_Trip_Days__c, 0) 
++ Estimated_Airfare__c ))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Dining + Rental Car + Mileage + hotel + airfare + misc</inlineHelpText>
+        <label>Total Expense Approval Requested</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>No_Rental_Car__c</fullName>
+        <defaultValue>true</defaultValue>
+        <externalId>false</externalId>
+        <label>No Rental Car</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Stage__c</fullName>
+        <externalId>false</externalId>
+        <label>Opportunity Stage</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Onsite Demo</fullName>
+                    <default>false</default>
+                    <label>Onsite Demo</label>
+                </value>
+                <value>
+                    <fullName>Proposal Presentation</fullName>
+                    <default>false</default>
+                    <label>Proposal Presentation</label>
+                </value>
+                <value>
+                    <fullName>Commercial Discussion/Acceptance</fullName>
+                    <default>false</default>
+                    <label>Commercial Discussion/Acceptance</label>
+                </value>
+                <value>
+                    <fullName>Commit</fullName>
+                    <default>false</default>
+                    <label>Commit</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Travel Authorization</relationshipLabel>
+        <relationshipName>Exp_Approvals</relationshipName>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Oppty_Amount__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Amount</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Oppty Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Other_Costs__c</fullName>
+        <description>Misc and Other Costs like Trade Show Fees</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Misc and Other Costs like Trade Show Fees</inlineHelpText>
+        <label>Other &amp; Special Event Costs $</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Region_Lookup_Account_Formula__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contact_in_Account__r.Account.Region__c</formula>
+        <label>Region Lookup Account Formula</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Solutions_Consultant__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Who from the Solutions Consulting team do you want allocated to this opportunity ?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Who from the Solutions Consulting team do you want allocated to this opportunity ?
+Michael Ketchmere, Charl Smit - as of May 21, 2015</inlineHelpText>
+        <label>Solutions Consultant</label>
+        <lookupFilter>
+            <active>true</active>
+            <booleanFilter>1 OR 2</booleanFilter>
+            <errorMessage>You must select a solution consultant</errorMessage>
+            <filterItems>
+                <field>User.UserRole.Name</field>
+                <operation>startsWith</operation>
+                <value>Solution</value>
+            </filterItems>
+            <filterItems>
+                <field>User.Title</field>
+                <operation>contains</operation>
+                <value>Solutions</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Exp_Approvals1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Special_Eent_Comments__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Special Comments for Expense Clarification</inlineHelpText>
+        <label>Special Event Comments</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Submitted_for_approval__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Submitted for Approval</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Total_JRH_Test_redo__c</fullName>
+        <description>Checks If other Employees are coming along - Solutions consult Not Blank + 2nd Employee Not Equal to Blank</description>
+        <externalId>false</externalId>
+        <formula>IF( Additional_Avetta_Employee__c  &lt;&gt; &quot;&quot;, 1, 0)   +  IF( Solutions_Consultant__c  &lt;&gt; &quot;&quot;, 1, 0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Formula field Checks If other Employees are coming along.
+Value is zero, 1 or 2 - for  Solutions consult Not Blank + 2nd Employee Not Equal to Blank</inlineHelpText>
+        <label>Avetta Personnel Count</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <label>Travel Authorization</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Contact_in_Account__c</columns>
+        <columns>Account__c</columns>
+        <columns>Account_State__c</columns>
+        <columns>Dining__c</columns>
+        <columns>Solutions_Consultant__c</columns>
+        <columns>Date_of_Travel__c</columns>
+        <columns>Approved__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>Exp-{mm}-{dd}-{0000}</displayFormat>
+        <label>Exp Approvals Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Travel Authorization</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Opporty_Cannot_be_Blank</fullName>
+        <active>true</active>
+        <description>Opportunity must be choose for expense</description>
+        <errorConditionFormula>Opportunity__c  = &quot;&quot;</errorConditionFormula>
+        <errorDisplayField>Opportunity__c</errorDisplayField>
+        <errorMessage>Record Cannot be saved without an OPPORTUNITY</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

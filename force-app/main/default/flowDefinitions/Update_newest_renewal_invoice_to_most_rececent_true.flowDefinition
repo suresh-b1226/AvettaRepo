@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionNumber>2</activeVersionNumber>
+    <description>Used to update the Most recent renewal invoice field for automated Retention workflows and invoice association to the Retention opportunity.</description>
+    <masterLabel>Update Renewal Invoice</masterLabel>
+</FlowDefinition>

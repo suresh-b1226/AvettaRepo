@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Aerospace &amp; Defense</fullName>
+        <default>false</default>
+        <label>Aerospace &amp; Defense</label>
+    </customValue>
+    <customValue>
+        <fullName>Aerospace and Industrial Materials</fullName>
+        <default>false</default>
+        <label>Aerospace and Industrial Materials</label>
+    </customValue>
+    <customValue>
+        <fullName>Airlines</fullName>
+        <default>false</default>
+        <label>Airlines</label>
+    </customValue>
+    <customValue>
+        <fullName>Aluminates</fullName>
+        <default>false</default>
+        <label>Aluminates</label>
+    </customValue>
+    <customValue>
+        <fullName>Aluminum</fullName>
+        <default>false</default>
+        <label>Aluminum</label>
+    </customValue>
+    <customValue>
+        <fullName>Associations</fullName>
+        <default>false</default>
+        <label>Associations</label>
+    </customValue>
+    <customValue>
+        <fullName>Automotive</fullName>
+        <default>false</default>
+        <label>Automotive</label>
+    </customValue>
+    <customValue>
+        <fullName>Basic Materials</fullName>
+        <default>false</default>
+        <label>Basic Materials</label>
+    </customValue>
+    <customValue>
+        <fullName>Chemical Distribution</fullName>
+        <default>false</default>
+        <label>Chemical Distribution</label>
+    </customValue>
+    <customValue>
+        <fullName>Chemical Manufacturing</fullName>
+        <default>false</default>
+        <label>Chemical Manufacturing</label>
+    </customValue>
+    <customValue>
+        <fullName>Coal and Metals</fullName>
+        <default>false</default>
+        <label>Coal and Metals</label>
+    </customValue>
+    <customValue>
+        <fullName>Commercial and Industrial Construction</fullName>
+        <default>false</default>
+        <label>Commercial and Industrial Construction</label>
+    </customValue>
+    <customValue>
+        <fullName>Commercial Real Estate Management</fullName>
+        <default>false</default>
+        <label>Commercial Real Estate Management</label>
+    </customValue>
+    <customValue>
+        <fullName>Construction &amp; Engineering</fullName>
+        <default>false</default>
+        <label>Construction &amp; Engineering</label>
+    </customValue>
+    <customValue>
+        <fullName>Crane Supplier</fullName>
+        <default>false</default>
+        <label>Crane Supplier</label>
+    </customValue>
+    <customValue>
+        <fullName>Design and Engineering</fullName>
+        <default>false</default>
+        <label>Design and Engineering</label>
+    </customValue>
+    <customValue>
+        <fullName>Design, Engineering, and Maintenance</fullName>
+        <default>false</default>
+        <label>Design, Engineering, and Maintenance</label>
+    </customValue>
+    <customValue>
+        <fullName>Device Manufacturing</fullName>
+        <default>false</default>
+        <label>Device Manufacturing</label>
+    </customValue>
+    <customValue>
+        <fullName>Drilling &amp; Exploration</fullName>
+        <default>false</default>
+        <label>Drilling &amp; Exploration</label>
+    </customValue>
+    <customValue>
+        <fullName>Education</fullName>
+        <default>false</default>
+        <label>Education</label>
+    </customValue>
+    <customValue>
+        <fullName>Electronics</fullName>
+        <default>false</default>
+        <label>Electronics</label>
+    </customValue>
+    <customValue>
+        <fullName>Electronics Manufacturing</fullName>
+        <default>false</default>
+        <label>Electronics Manufacturing</label>
+    </customValue>
+    <customValue>
+        <fullName>Elevators</fullName>
+        <default>false</default>
+        <label>Elevators</label>
+    </customValue>
+    <customValue>
+        <fullName>Energy Provider</fullName>
+        <default>false</default>
+        <label>Energy Provider</label>
+    </customValue>
+    <customValue>
+        <fullName>Engine Manufacturing</fullName>
+        <default>false</default>
+        <label>Engine Manufacturing</label>
+    </customValue>
+    <customValue>
+        <fullName>Engineering and Remediation</fullName>
+        <default>false</default>
+        <label>Engineering and Remediation</label>
+    </customValue>
+    <customValue>
+        <fullName>Environmental Heath, Safety, and Risk, Consulting</fullName>
+        <default>false</default>
+        <label>Environmental Heath, Safety, and Risk, Consulting</label>
+    </customValue>
+    <customValue>
+        <fullName>Eyecare Products</fullName>
+        <default>false</default>
+        <label>Eyecare Products</label>
+    </customValue>
+    <customValue>
+        <fullName>Facilities Food Services</fullName>
+        <default>false</default>
+        <label>Facilities Food Services</label>
+    </customValue>
+    <customValue>
+        <fullName>Farm Machinery Equipment</fullName>
+        <default>false</default>
+        <label>Farm Machinery Equipment</label>
+    </customValue>
+    <customValue>
+        <fullName>Field Services</fullName>
+        <default>false</default>
+        <label>Field Services</label>
+    </customValue>
+    <customValue>
+        <fullName>Food &amp; Beverage Manufacturing</fullName>
+        <default>false</default>
+        <label>Food &amp; Beverage Manufacturing</label>
+    </customValue>
+    <customValue>
+        <fullName>Food &amp; Beverage Additives</fullName>
+        <default>false</default>
+        <label>Food &amp; Beverage Additives</label>
+    </customValue>
+    <customValue>
+        <fullName>Freight</fullName>
+        <default>false</default>
+        <label>Freight</label>
+    </customValue>
+    <customValue>
+        <fullName>Gas Pump Manufacturing</fullName>
+        <default>false</default>
+        <label>Gas Pump Manufacturing</label>
+    </customValue>
+    <customValue>
+        <fullName>Hazardous Waste Recycling</fullName>
+        <default>false</default>
+        <label>Hazardous Waste Recycling</label>
+    </customValue>
+    <customValue>
+        <fullName>Heavy Equipment</fullName>
+        <default>false</default>
+        <label>Heavy Equipment</label>
+    </customValue>
+    <customValue>
+        <fullName>Heavy Hauling</fullName>
+        <default>false</default>
+        <label>Heavy Hauling</label>
+    </customValue>
+    <customValue>
+        <fullName>Holding Companies</fullName>
+        <default>false</default>
+        <label>Holding Companies</label>
+    </customValue>
+    <customValue>
+        <fullName>Home Products</fullName>
+        <default>false</default>
+        <label>Home Products</label>
+    </customValue>
+    <customValue>
+        <fullName>Industrial Other</fullName>
+        <default>false</default>
+        <label>Industrial Other</label>
+    </customValue>
+    <customValue>
+        <fullName>Industrial Services</fullName>
+        <default>false</default>
+        <label>Industrial Services</label>
+    </customValue>
+    <customValue>
+        <fullName>Infrastructure</fullName>
+        <default>false</default>
+        <label>Infrastructure</label>
+    </customValue>
+    <customValue>
+        <fullName>Janitorial</fullName>
+        <default>false</default>
+        <label>Janitorial</label>
+    </customValue>
+    <customValue>
+        <fullName>Logistics</fullName>
+        <default>false</default>
+        <label>Logistics</label>
+    </customValue>
+    <customValue>
+        <fullName>Lumber</fullName>
+        <default>false</default>
+        <label>Lumber</label>
+    </customValue>
+    <customValue>
+        <fullName>Maintenance and Turnaround</fullName>
+        <default>false</default>
+        <label>Maintenance and Turnaround</label>
+    </customValue>
+    <customValue>
+        <fullName>Manufacturing</fullName>
+        <default>false</default>
+        <label>Manufacturing</label>
+    </customValue>
+    <customValue>
+        <fullName>Marine Logistics</fullName>
+        <default>false</default>
+        <label>Marine Logistics</label>
+    </customValue>
+    <customValue>
+        <fullName>Mid-Stream Oil &amp; Gas Storage and Logistics</fullName>
+        <default>false</default>
+        <label>Mid-Stream Oil &amp; Gas Storage and Logistics</label>
+    </customValue>
+    <customValue>
+        <fullName>Modular Buildings and Storage</fullName>
+        <default>false</default>
+        <label>Modular Buildings and Storage</label>
+    </customValue>
+    <customValue>
+        <fullName>Natural Gas</fullName>
+        <default>false</default>
+        <label>Natural Gas</label>
+    </customValue>
+    <customValue>
+        <fullName>Networks and Infrastructure</fullName>
+        <default>false</default>
+        <label>Networks and Infrastructure</label>
+    </customValue>
+    <customValue>
+        <fullName>Paper Products</fullName>
+        <default>false</default>
+        <label>Paper Products</label>
+    </customValue>
+    <customValue>
+        <fullName>Pharmaceuticals Manufacturing</fullName>
+        <default>false</default>
+        <label>Pharmaceuticals Manufacturing</label>
+    </customValue>
+    <customValue>
+        <fullName>Pipe and Precast Products</fullName>
+        <default>false</default>
+        <label>Pipe and Precast Products</label>
+    </customValue>
+    <customValue>
+        <fullName>Pipe Manufacturing</fullName>
+        <default>false</default>
+        <label>Pipe Manufacturing</label>
+    </customValue>
+    <customValue>
+        <fullName>Power Systems</fullName>
+        <default>false</default>
+        <label>Power Systems</label>
+    </customValue>
+    <customValue>
+        <fullName>Property Management</fullName>
+        <default>false</default>
+        <label>Property Management</label>
+    </customValue>
+    <customValue>
+        <fullName>Rail</fullName>
+        <default>false</default>
+        <label>Rail</label>
+    </customValue>
+    <customValue>
+        <fullName>Refining &amp; Marketing</fullName>
+        <default>false</default>
+        <label>Refining &amp; Marketing</label>
+    </customValue>
+    <customValue>
+        <fullName>Retail</fullName>
+        <default>false</default>
+        <label>Retail</label>
+    </customValue>
+    <customValue>
+        <fullName>Security Systems</fullName>
+        <default>false</default>
+        <label>Security Systems</label>
+    </customValue>
+    <customValue>
+        <fullName>Service Provider</fullName>
+        <default>false</default>
+        <label>Service Provider</label>
+    </customValue>
+    <customValue>
+        <fullName>Solar and Wind Power</fullName>
+        <default>false</default>
+        <label>Solar and Wind Power</label>
+    </customValue>
+    <customValue>
+        <fullName>State and Local Government</fullName>
+        <default>false</default>
+        <label>State and Local Government</label>
+    </customValue>
+    <customValue>
+        <fullName>Steel</fullName>
+        <default>false</default>
+        <label>Steel</label>
+    </customValue>
+    <customValue>
+        <fullName>Storage and Logistics</fullName>
+        <default>false</default>
+        <label>Storage and Logistics</label>
+    </customValue>
+    <customValue>
+        <fullName>Support Services</fullName>
+        <default>false</default>
+        <label>Support Services</label>
+    </customValue>
+    <customValue>
+        <fullName>Telecommunications</fullName>
+        <default>false</default>
+        <label>Telecommunications</label>
+    </customValue>
+    <customValue>
+        <fullName>Tire and Rubber</fullName>
+        <default>false</default>
+        <label>Tire and Rubber</label>
+    </customValue>
+    <customValue>
+        <fullName>Trucks and engines</fullName>
+        <default>false</default>
+        <label>Trucks and engines</label>
+    </customValue>
+    <customValue>
+        <fullName>Utilities</fullName>
+        <default>false</default>
+        <label>Utilities</label>
+    </customValue>
+    <customValue>
+        <fullName>Water and Food Hygiene</fullName>
+        <default>false</default>
+        <label>Water and Food Hygiene</label>
+    </customValue>
+    <customValue>
+        <fullName>Workforce Accomodation</fullName>
+        <default>false</default>
+        <label>Workforce Accomodation</label>
+    </customValue>
+    <customValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </customValue>
+    <masterLabel>Sector</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

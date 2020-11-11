@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>49.0</apiVersion>
+    <assignments>
+        <name>Set_Most_Recent_Demo_Req_Date_to_Now</name>
+        <label>Set Most Recent Demo Req Date to Now</label>
+        <locationX>564</locationX>
+        <locationY>329</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Most_Recent_Demo_Request_Date__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.InterviewStartTime</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <description>Checks to see if sub status has been changed and is now demo request.</description>
+        <name>Is_Sub_Status_Changed</name>
+        <label>Is Sub Status Changed?</label>
+        <locationX>314</locationX>
+        <locationY>330</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Changed_to_Demo_Request</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Sub_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Demo Req</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Lead.Sub_Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Demo Req</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Most_Recent_Demo_Req_Date_to_Now</targetReference>
+            </connector>
+            <label>Changed to Demo Request</label>
+        </rules>
+    </decisions>
+    <description>Created for 02158157</description>
+    <interviewLabel>Lead Set Most Recent Demo {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Lead Set Most Recent Demo</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Gets the lead so we can compare the current value of the sub status field to the new value.</description>
+        <name>Get_Lead</name>
+        <label>Get Lead</label>
+        <locationX>174</locationX>
+        <locationY>328</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Is_Sub_Status_Changed</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Lead</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>49</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Get_Lead</targetReference>
+        </connector>
+        <object>Lead</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Obsolete</status>
+</Flow>
