@@ -27,10 +27,6 @@ jobs:
         with:
           java-version: 1.8
 
-      # Runs a set of commands using the runners shell
-      - name: Build with Ant
-        run: ant -noinput -buildfile build/build.xml
-        
       - name: Send email
         # You may pin to the exact commit or the version.
         # uses: dawidd6/action-send-mail@a80d851dc950256421f1d1d735a2dc1ef314ac8f
@@ -56,4 +52,5 @@ jobs:
           content_type: text/html
           # optional, default is text/plain
           # Files that will be added to mail message attachments (separated with comma)
-          # attachments: # optional  
+          # attachments: # optional
+      
