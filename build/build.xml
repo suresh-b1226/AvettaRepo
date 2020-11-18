@@ -7,15 +7,100 @@
             <pathelement location="Jar/ant-salesforce.jar" />        	
         </classpath>
     </taskdef>
+	<taskdef resource="net/sf/antcontrib/antcontrib.properties">
+        <classpath>
+            <pathelement location="Jar/ant-contrib-1.0b3.jar" />        	
+        </classpath>
+    </taskdef>
 	<!-- Sequence 1 - Get All information from Source, Retrieve the contents into Src directory -->
 	<target name="SFDCFetch">
 	  <!-- -->
 	  <sf:retrieve username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" retrieveTarget="../force-app/main/default" unpackaged="../manifest/package.xml"/>
 	</target>
+	<target name="InitProp">
+	  <tstamp>
+        <format property="TODAY" pattern="yyyy-MM-dd_HH:mm:ss" locale="en"/>
+      </tstamp>
+	  <script language="javascript">
+            var remquot = project.getProperty("TODAY");
+            var remquotafter= remquot.replaceAll(":", "");
+            project.setProperty("TODAY", remquotafter);                
+      </script>
+	  <property name="buildFolderName" value="../../Salesforce-Deploy-${TODAY}"/>
+	  <echo>BuildFolder >>>> ${buildFolderName}</echo>
+	</target>
+	
+	<target name="buildSFProject" depends="InitProp">
+	   <xmlproperty file="../force-app/main/default/package.xml" prefix="packxml"/>
+	   <foreach list="${packxml.Package.types.name}" param="ptypeName" target="copytype" inheritall="true"/>
+	   <copy file="../force-app/main/default/package.xml" todir="${buildFolderName}/force-app/main/default"/>
+	</target>
+
+    <target name="copyfiles">
+	  <echo>Files Copying >>>> ${member}</echo>
+	  <copy todir="${buildFolderName}/force-app/main/default/${folderName}">
+		<fileset dir="../force-app/main/default/${folderName}">
+		  <filename name="${member}*"/>
+		</fileset>
+	  </copy>
+	</target>
+    <target name="copytype">
+	   <echo>Package XML Type >>>>  ${ptypeName}</echo> 
+	   <if>
+         <equals arg1="${ptypeName}" arg2="ApexClass"/>
+         <then>
+		   <xpath-query query="//types[name='ApexClass']//members" xmlFile="${basedir}/../force-app/main/default/package.xml" addproperty="members"/>
+		   <echo>Members >>>>  ${members}</echo>
+		   <property name="folderName" value="classes"/>
+           <foreach list="${members}" param="member" target="copyfiles" inheritall="true"/>
+		 </then>
+         <elseif>
+           <equals arg1="${ptypeName}" arg2="ApexTrigger"/>
+           <then>
+			   <xpath-query query="//types[name='ApexTrigger']//members" xmlFile="${basedir}/../force-app/main/default/package.xml" addproperty="members"/>
+			   <echo>Members >>>>  ${members}</echo>
+			   <property name="folderName" value="triggers"/>
+			   <foreach list="${members}" param="member" target="copyfiles" inheritall="true"/>
+		   </then>
+         </elseif>
+       </if>
+       	   
+	</target>
+	<scriptdef name="xpath-query" language="javascript">
+        <attribute name="query"/>
+        <attribute name="xmlfile"/>
+        <attribute name="addproperty"/>
+
+        <![CDATA[
+       
+	        var memStr = "";
+            var exp = attributes.get("query");
+            var filename = attributes.get("xmlfile");
+            var dbf = javax.xml.parsers.DocumentBuilderFactory.newInstance(); 
+			var packageFile = new java.io.File(filename);
+			var db = dbf.newDocumentBuilder();  
+            var doc = db.parse(packageFile);  
+            doc.getDocumentElement().normalize();  
+		    var xpathFactory = javax.xml.xpath.XPathFactory.newInstance();	
+            var xpath = xpathFactory.newXPath();			
+			var expr = xpath.compile(exp);
+            var nodes = expr.evaluate(doc, javax.xml.xpath.XPathConstants.NODESET);
+            for (i = 0; i < nodes.getLength(); i++) {
+			    if(i==0){
+				  memStr = nodes.item(i).getTextContent();
+				}else{
+                   memStr = memStr+","+nodes.item(i).getTextContent();
+				 }  
+            }
+            self.project.setProperty( attributes.get("addproperty"), memStr);
+
+        ]]>
+    </scriptdef>
 
 	<!-- Sequence 3 - Deploy to Target System, Package.xml is present in Src folder -->
-	<target name="deploy">
-      <sf:deploy username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" deployroot="../force-app/main/default">
+	<target name="deploy" depends="buildSFProject">
+	   <echo>Deploying Project >>>> ${buildFolderName}</echo>
+      <sf:deploy username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" deployroot="${buildFolderName}/force-app/main/default">
       </sf:deploy>
     </target> 
 
