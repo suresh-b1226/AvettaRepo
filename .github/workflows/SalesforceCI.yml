@@ -47,7 +47,7 @@ jobs:
           # Subject of mail message
           subject: Testing Mail from GITHUB 
           # Body of mail message (might be a filename prefixed with file:// to read from)
-          body: Deployed Successfully. Please look into the below URL for more details.
+          body: Deployed Successfully.
           # Recipients mail addresses (separated with comma)
           to: sohit.vignesh@gmail.com
           # Full name of mail sender (might be with an email address specified in <>)
