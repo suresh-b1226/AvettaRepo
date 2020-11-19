@@ -9,10 +9,6 @@
 	    <name>ApexTrigger</name>
     </types>
     <types>
-        <members>Training</members>
-	    <name>Profile</name>
-    </types>
-    <types>
         <members>Test_community_launch</members>
 	    <name>PermissionSet</name>
     </types>    
