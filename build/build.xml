@@ -12,7 +12,7 @@
             <pathelement location="Jar/ant-contrib-1.0b3.jar" />        	
         </classpath>
     </taskdef>
-	<!-- Sequence 1 - Get All information from Source, Retrieve the contents into Src directory -->
+	<!-- Sequence 1 test- Get All information from Source, Retrieve the contents into Src directory -->
 	<target name="SFDCFetch">
 	  <!-- -->
 	  <sf:retrieve username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" retrieveTarget="../force-app/main/default" unpackaged="../manifest/package.xml"/>
