@@ -63,6 +63,115 @@
 			   <foreach list="${members}" param="member" target="copyfiles" inheritall="true"/>
 		   </then>
          </elseif>
+		 <elseif>
+           <equals arg1="${ptypeName}" arg2="ApexComponent"/>
+           <then>
+			   <xpath-query query="//types[name='ApexComponent']//members" xmlFile="${basedir}/../force-app/main/default/package.xml" addproperty="members"/>
+			   <echo>Members >>>>  ${members}</echo>
+			   <property name="folderName" value="components"/>
+			   <foreach list="${members}" param="member" target="copyfiles" inheritall="true"/>
+		   </then>
+         </elseif>
+		 <elseif>
+           <equals arg1="${ptypeName}" arg2="ApexPage"/>
+           <then>
+			   <xpath-query query="//types[name='ApexPage']//members" xmlFile="${basedir}/../force-app/main/default/package.xml" addproperty="members"/>
+			   <echo>Members >>>>  ${members}</echo>
+			   <property name="folderName" value="pages"/>
+			   <foreach list="${members}" param="member" target="copyfiles" inheritall="true"/>
+		   </then>
+         </elseif>
+		 <elseif>
+           <equals arg1="${ptypeName}" arg2="CustomLabels"/>
+           <then>
+			   <xpath-query query="//types[name='CustomLabels']//members" xmlFile="${basedir}/../force-app/main/default/package.xml" addproperty="members"/>
+			   <echo>Members >>>>  ${members}</echo>
+			   <property name="folderName" value="labels"/>
+			   <foreach list="${members}" param="member" target="copyfiles" inheritall="true"/>
+		   </then>
+         </elseif>
+		 <elseif>
+           <equals arg1="${ptypeName}" arg2="CustomMetadata"/>
+           <then>
+			   <xpath-query query="//types[name='CustomMetadata']//members" xmlFile="${basedir}/../force-app/main/default/package.xml" addproperty="members"/>
+			   <echo>Members >>>>  ${members}</echo>
+			   <property name="folderName" value="customMetadata"/>
+			   <foreach list="${members}" param="member" target="copyfiles" inheritall="true"/>
+		   </then>
+         </elseif>
+		 <elseif>
+           <equals arg1="${ptypeName}" arg2="CustomObject"/>
+           <then>
+			   <xpath-query query="//types[name='CustomObject']//members" xmlFile="${basedir}/../force-app/main/default/package.xml" addproperty="members"/>
+			   <echo>Members >>>>  ${members}</echo>
+			   <property name="folderName" value="objects"/>
+			   <foreach list="${members}" param="member" target="copyfiles" inheritall="true"/>
+		   </then>
+         </elseif>
+		 <elseif>
+           <equals arg1="${ptypeName}" arg2="CustomPermission"/>
+           <then>
+			   <xpath-query query="//types[name='CustomPermission']//members" xmlFile="${basedir}/../force-app/main/default/package.xml" addproperty="members"/>
+			   <echo>Members >>>>  ${members}</echo>
+			   <property name="folderName" value="customPermissions"/>
+			   <foreach list="${members}" param="member" target="copyfiles" inheritall="true"/>
+		   </then>
+         </elseif>
+		 <elseif>
+           <equals arg1="${ptypeName}" arg2="Flow"/>
+           <then>
+			   <xpath-query query="//types[name='Flow']//members" xmlFile="${basedir}/../force-app/main/default/package.xml" addproperty="members"/>
+			   <echo>Members >>>>  ${members}</echo>
+			   <property name="folderName" value="flows"/>
+			   <foreach list="${members}" param="member" target="copyfiles" inheritall="true"/>
+		   </then>
+         </elseif>
+		 <elseif>
+           <equals arg1="${ptypeName}" arg2="FlowDefinition"/>
+           <then>
+			   <xpath-query query="//types[name='FlowDefinition']//members" xmlFile="${basedir}/../force-app/main/default/package.xml" addproperty="members"/>
+			   <echo>Members >>>>  ${members}</echo>
+			   <property name="folderName" value="flowDefinitions"/>
+			   <foreach list="${members}" param="member" target="copyfiles" inheritall="true"/>
+		   </then>
+         </elseif>
+		 <elseif>
+           <equals arg1="${ptypeName}" arg2="GlobalValueSet"/>
+           <then>
+			   <xpath-query query="//types[name='GlobalValueSet']//members" xmlFile="${basedir}/../force-app/main/default/package.xml" addproperty="members"/>
+			   <echo>Members >>>>  ${members}</echo>
+			   <property name="folderName" value="globalValueSets"/>
+			   <foreach list="${members}" param="member" target="copyfiles" inheritall="true"/>
+		   </then>
+         </elseif>
+		 <elseif>
+           <equals arg1="${ptypeName}" arg2="PermissionSet"/>
+           <then>
+			   <xpath-query query="//types[name='PermissionSet']//members" xmlFile="${basedir}/../force-app/main/default/package.xml" addproperty="members"/>
+			   <echo>Members >>>>  ${members}</echo>
+			   <property name="folderName" value="permissionsets"/>
+			   <foreach list="${members}" param="member" target="copyfiles" inheritall="true"/>
+		   </then>
+         </elseif>
+		 <elseif>
+           <equals arg1="${ptypeName}" arg2="Profile"/>
+           <then>
+			   <xpath-query query="//types[name='Profile']//members" xmlFile="${basedir}/../force-app/main/default/package.xml" addproperty="members"/>
+			   <echo>Members >>>>  ${members}</echo>
+			   <property name="folderName" value="profiles"/>
+			   <foreach list="${members}" param="member" target="copyfiles" inheritall="true"/>
+		   </then>
+         </elseif>
+		 <elseif>
+           <equals arg1="${ptypeName}" arg2="Workflow"/>
+           <then>
+			   <xpath-query query="//types[name='Workflow']//members" xmlFile="${basedir}/../force-app/main/default/package.xml" addproperty="members"/>
+			   <echo>Members >>>>  ${members}</echo>
+			   <property name="folderName" value="workflows"/>
+			   <foreach list="${members}" param="member" target="copyfiles" inheritall="true"/>
+		   </then>
+         </elseif>
+		 
        </if>
        	   
 	</target>
